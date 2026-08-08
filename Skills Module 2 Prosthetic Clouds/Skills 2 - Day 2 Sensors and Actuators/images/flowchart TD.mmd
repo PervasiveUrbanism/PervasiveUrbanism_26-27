@@ -1,0 +1,31 @@
+flowchart TD
+    A["void setup()"] -->|first time| B("void loop()")
+    B --> C["while (Serial1.available())"]
+    
+    C --> D{"if (gps.location.isUpdated())"}
+    D -->|Yes| E[Print line to Serial Monitor]
+    D -->|No| F[skip to next iteration]
+    
+    E --> B
+    F --> B
+    
+
+    style A fill:#fff200,stroke:#fff200,stroke-width:4px
+    style B fill:#f9a01b,stroke:#f9a01b,stroke-width:2pxpx
+    style C fill:#f9a01b,stroke:#f9a01b,stroke-width:2pxpx
+    style D fill:#b2d235,stroke:#b2d235,stroke-width:4pxpx
+    style E fill:#b2d235,stroke:#b2d235,stroke-width:4pxpx
+    style F fill:#ed1c24,stroke:#ed1c24,stroke-width:2pxpx
+    classDef default fill:#ccc,stroke:#ccc,stroke-width:1px
+    class A,B,C,D,E,F default
+    linkStyle 0 stroke:#ccc,stroke-width:2px
+    linkStyle 1 stroke:#ccc,stroke-width:2px
+    linkStyle 2 stroke:#ccc,stroke-width:2px
+    linkStyle 3 stroke:#b2d235,stroke-width:2pxpx
+    linkStyle 4 stroke:#ed1c24,stroke-width:2px
+    linkStyle 5 stroke:#ccc,stroke-width:2px
+    linkStyle 6 stroke:#ccc,stroke-width:2px                
+
+    
+
+
