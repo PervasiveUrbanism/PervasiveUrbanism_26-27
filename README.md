@@ -92,6 +92,10 @@ B-Made also provides **equipment rentals**, such as **3D scanners and cameras**,
 
 Further links and resources will be added as the modules develop.
 
+### Potential exercise resources
+
+- **GDELT Project** — https://www.gdeltproject.org/ — global news/event data that could be revisited as a source for a future data-mining, mapping or spatial-analysis exercise. Note: this link came from reviewing a student project; the student project itself is not being recorded here.
+
 ## YouTube
 
 Recordings of the 2026–27 skills tutorials will be linked here once available.
