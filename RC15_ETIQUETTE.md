@@ -39,3 +39,9 @@ Almost every year, at least one student experiences a computer failure resulting
 You must therefore keep your work continuously backed up using a reliable cloud-storage service such as Dropbox, Google Drive, OneDrive, or a similar platform. Do not rely solely on files stored locally on your computer or on a single external drive.
 
 You are responsible for safeguarding your own work. Hardware failure, loss, theft, or damaged files are not valid reasons for missing a submission deadline. If you are unable to submit because your work was not adequately backed up, it will be treated as a non-submission.
+
+[Codex:ADD
+It is not allowed to record tutorial sessions and we also do not allow realtime translation software applcations. The main reason is that it's we want you to take notes, this is an active efforet of undertanding what we say and processing it. Please ask if anyting ins not clear, we are happy to repeat and clarify. we do undertand that. in the past, many studetns relied on recodings and missed the oppotunity to undertand our commetns on the spot and in real time. 
+Again, taking notes during tutuorls is a povatl skio that comes in handy in the future.
+
+We only allow recodings in very specific circmstances, but always ask beforehand if that is allowed]

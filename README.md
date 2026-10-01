@@ -1,72 +1,87 @@
 # Skills Module Pervasive Urbanism 2026–27
 
-This repository contains the teaching materials, sample code, links, and resources for the **Pervasive Urbanism Skills Modules 2026–27**.
-
-> Module titles, session topics, dates, times, and locations will be added as the programme develops.
+![alt text](assets/Landscape.png "Logo Title Text 1")
+*Cartographies of Affect: Between Destinations, 2024/26*
 
 # Dates
+|  Nr | Date       | Module     | Topic                                    | Time          | Location              |
+| --: | ---------- | ---------- | ---------------------------------------- | ------------- | --------------------- |
+|   1 | 30.10.2026 | Module 1.1 | Cartographies of Affect: Python 101      | 14:00 - 18:00 | tbc |
+|   2 | 06.11.2026 | Module 2.1 | Prosthetic Clouds: Arduino 101           | 14:00 - 18:00 | tbc |
+|   3 | 20.11.2026 | Module 2.2 | Prosthetic Clouds: Sensors and Actuators | 14:00 - 18:00 | tbc |
+|   4 | 27.11.2026 | Module 3.1 | Textiles - Sensing surfaces              | 10:30 - 16:30 | tbc |
+|   5 | 04.12.2026 | Module 3.2 | Textiles - Sensing surfaces              | 10:30 - 16:30 | tbc|
+|   6 | 11.12.2026 | Module 2.3 | Prosthetic Clouds: Data Visualization    | 14:00 - 18:00 | tbc |
+|   7 | 18.12.2026 | Module 1.2 | Cartographies of Affect: Data Mining     | 14:00 - 18:00 | tbc|
+|   8 | 15.01.2027 | Module 1.3 | Cartographies of Affect: Agentic Coding  | 14:00 - 18:00 | tbc |
 
-| Nr | Date | Module | Topic | Time | Location |
-|---:|:---|:---|:---|:---|:---|
-| 1 | TBC | Module 1.1 | TBC | TBC | TBC |
-| 2 | TBC | Module 1.2 | TBC | TBC | TBC |
-| 3 | TBC | Module 1.3 | TBC | TBC | TBC |
-| 4 | TBC | Module 2.1 | TBC | TBC | TBC |
-| 5 | TBC | Module 2.2 | TBC | TBC | TBC |
-| 6 | TBC | Module 2.3 | TBC | TBC | TBC |
-| 7 | TBC | Module 3.1 | TBC | TBC | TBC |
-| 8 | TBC | Module 3.2 | TBC | TBC | TBC |
-| 9 | TBC | Module 3.3 | TBC | TBC | TBC |
 
-# Skills Modules
 
-## Skills Module 1: Title TBC
+# SKILLS MODULES
 
-A description of the first skills module will be added here.
+## Skills Module 1: Cartographies of Affect
 
-### Skills Module 1.1: Topic TBC
+In this module, we will explore **desktop-based data-mining techniques**, starting with publicly available sources such as the **London Datastore**, and learn how to **process and visualize different data formats**.
 
-Session description to follow.
+You will also learn how to **extract and analyse data** from platforms like **Flickr** or **Google**, transforming digital traces into spatial insight. We will apply **text- and image-based sentiment analysis**, as well as introduce **machine-learning methods for object recognition** on the collected datasets.
 
-### Skills Module 1.2: Topic TBC
+All tasks will be carried out using a combination of **Python**, **Rhino/Grasshopper**, and **Adobe Illustrator**.
 
-Session description to follow.
+### Skills Module 1.1: Python 101
 
-### Skills Module 1.3: Topic TBC
+An **introduction to Python** — we will explore different IDEs, set up your working environment, and take the first steps in programming.
+This session establishes the **foundation** for all subsequent lessons in this module.
 
-Session description to follow.
+### Skills Module 1.2: Data Mining
 
-## Skills Module 2: Title TBC
+We will examine **data-mining techniques** and learn how to connect to **public APIs** such as **Flickr** or **Google**, collecting geotagged and textual information for spatial analysis.
 
-A description of the second skills module will be added here.
+### Skills Module 1.3: Agentic Coding
 
-### Skills Module 2.1: Topic TBC
+In this session, we will explore **agentic coding techniques**, starting with simple **search agents** and examining their capabilities and limitations. We will develop **frameworks and guardrails** for guiding their work and learn how to structure an **agentic urban search using ChatGPT**, with attention to defining research questions, checking sources, and reviewing results.
 
-Session description to follow.
+We will also introduce **vibe coding for Arduino**, exploring how AI-assisted code generation can support wearable prototyping and why generated code needs to be understood, tested, and refined.
 
-### Skills Module 2.2: Topic TBC
+## Skills Module 2: Prosthetic Clouds
 
-Session description to follow.
+This module focuses on designing a **wearable prototype** that acts as a prosthetic interface between your body and the urban environment. Using **microcontrollers and Arduino**, you will create sensors and actuators that respond to, and influence, your perception of the city.
 
-### Skills Module 2.3: Topic TBC
+Through **GPS integration**, the devices will be able to track time and location, while events can be **logged or transmitted** directly to a computer. You will also learn how to **visualize and represent the recorded data** within **Rhino/Grasshopper**.
 
-Session description to follow.
+*A list of required components for purchase will be added to the repository.*
 
-## Skills Module 3: Title TBC
+### Skills Module 2.1: Arduino 101
 
-A description of the third skills module will be added here.
+We will introduce the **Arduino ecosystem** and the **Arduino IDE**, covering the different types of boards, how they work, and how to program them.
+The focus of this session is the **Arduino coding language**, which is based on **C**, and forms the foundation for prototyping interactive devices.
 
-### Skills Module 3.1: Topic TBC
+### Skills Module 2.2: Sensors and Actuators
 
-Session description to follow.
+In this session, we’ll explore the **physical side of interaction** — the types of sensors available, how to connect them, and how to interpret and record their readings.
+We’ll also look at how to **combine multiple data streams**, such as **GPS coordinates**, **galvanic skin response**, or **heartbeat sensors**, to capture and map embodied experiences of the city.
 
-### Skills Module 3.2: Topic TBC
+### Skills Module 2.3: Data Visualization
 
-Session description to follow.
+How can sensor readings be represented visually? This session focuses on **data visualization techniques in Rhino/Grasshopper**.
+You will learn how to **read CSV files**, create **basic data-driven graphs**, and work with **geographic data** to represent your collected information spatially.
 
-### Skills Module 3.3: Topic TBC
 
-Session description to follow.
+
+## Skills Module 3: Textile Workshop - Sensing surfaces
+
+**Tutor: Arantza Vilas**
+
+*Sensing surfaces: sculpting on the body and fabric manipulation for dynamic, sensing wearables.*
+
+This seminar will introduce the students to principles of draping soft materials on the body and consider silhouette, movement and form as well as studying draping behaviour, not only in aesthetic terms but also in relation to scale and motion.
+
+### Skills Module 3.1
+The second part of the seminar will introduce ways of creating soft, dynamic, articulated surfaces with pleats and consider how these can be incorporated and draped on the body creating connections with silhouettes previously created. This work will serve as a basis to study movement and potential sensing areas.
+
+### Skills Module 3.2
+A second part of the seminar will cover the craft of pleating and how to transfer folds onto textiles and other soft materials and study their body placement and articulation.
+
+The experimentation will be complemented with contextual understanding of how these principles work in fashion and costume disciplines.
 
 # Support & Resources
 
