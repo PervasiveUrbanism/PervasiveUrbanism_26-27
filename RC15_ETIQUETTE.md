@@ -40,8 +40,10 @@ You must therefore keep your work continuously backed up using a reliable cloud-
 
 You are responsible for safeguarding your own work. Hardware failure, loss, theft, or damaged files are not valid reasons for missing a submission deadline. If you are unable to submit because your work was not adequately backed up, it will be treated as a non-submission.
 
-[Codex:ADD
-It is not allowed to record tutorial sessions and we also do not allow realtime translation software applcations. The main reason is that it's we want you to take notes, this is an active efforet of undertanding what we say and processing it. Please ask if anyting ins not clear, we are happy to repeat and clarify. we do undertand that. in the past, many studetns relied on recodings and missed the oppotunity to undertand our commetns on the spot and in real time. 
-Again, taking notes during tutuorls is a povatl skio that comes in handy in the future.
+## Tutorial recordings, translation and note-taking
 
-We only allow recodings in very specific circmstances, but always ask beforehand if that is allowed]
+Recording tutorial sessions and using real-time translation applications during tutorials are not permitted unless we have agreed an exception with you in advance. Please always ask both tutors beforehand; recording is allowed only in specific circumstances and with prior permission.
+
+Taking notes during tutorials is an essential part of learning. It requires you to listen actively, process the feedback and identify what it means for your project. It is also a valuable skill for future professional practice.
+
+If anything is unclear, please ask during the tutorial. We understand that the discussion can be demanding, and we are happy to repeat or clarify our comments. In previous years, students who relied on recordings sometimes missed the opportunity to understand and discuss feedback in the moment. We want you to leave each tutorial with a clear understanding of the advice and your next steps.
