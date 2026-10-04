@@ -126,6 +126,7 @@ The aim is twofold: to establish a shared foundation in software skills across t
 The skills tutorials will revisit some of these basics, including introductions to **Python and Arduino**. However, tutorial time is valuable, and we cannot devote every session to comprehensive software introductions. Please familiarise yourself with the relevant course content **before each tutorial**, even if the learning path's completion deadline falls later, so that we can use our time together for questions, experimentation and applying these skills to your work.
 
 # AI-Assisted Coding and Assessment
+[@Codex: please review and rewrite this chapter . include https://library-guides.ucl.ac.uk/referencing-plagiarism/acknowledging-genAI - indicate clearly how to identify the use of GenAI. start with the statement that the use og genai like chatgpt and Claude are generally allowed in an assistive role. ]
 
 The RC15 skills tutorials follow [UCL's framework for generative AI in assessment](https://www.ucl.ac.uk/teaching-learning/generative-ai-hub/three-categories-genai-use-assessment). UCL distinguishes between different uses of AI, with permissions defined for each assessment. For our skills work, **AI tools such as ChatGPT and Codex may be used as assistants**, within the conditions set out in the assessment brief. You remain responsible for your work and must acknowledge how you have used AI, following [UCL's guidance for students](https://www.ucl.ac.uk/study/current-students/exams-and-assessments/assessment-success-guide/engaging-generative-ai-your-education-and-assessment).
 
@@ -136,6 +137,9 @@ There is still an essential educational purpose to learning Python and computati
 The rise of LLMs has shifted our attention. A few years ago, an intricate piece of code might itself have been impressive evidence of technical skill. Today, complexity alone tells us much less about your understanding. Our attention is on **intention, method and result**: what you set out to investigate, why you chose a particular approach, how you tested it, and what the outcome demonstrates. These questions apply whether you wrote the code independently or developed it with AI assistance.
 
 ## Final assessment: oral examination
+
+[@codex: be more precise: the final exam will be one presentation of five minutes and a short oral q&a also 5 min. this replaces the old format where it was just a pdf submission. 
+also: during the q&a we will be looking at your code and ask you aspects of how well you understand the language itself, we will ask you how well you understood the overarching principles of your code, and we will also judge at the outcome and graphics aspects as well as narrative]
 
 **The final assessment of the skills module will be an oral examination, replacing the previous PDF submission.** You will present your work, explain how it functions and discuss it with us through questions. Be prepared to explain your computational logic, methods and decisions, how you checked your results, and where AI contributed to the process. You must demonstrate your own understanding when answering questions.
 
