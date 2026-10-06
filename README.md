@@ -11,9 +11,9 @@
 |   3 | 20.11.2026 | Module 2.2 | Prosthetic Clouds: Sensors and Actuators | 14:00 - 18:00 | tbc |
 |   4 | 27.11.2026 | Module 3.1 | Textiles - Sensing surfaces              | 10:30 - 16:30 | tbc |
 |   5 | 04.12.2026 | Module 3.2 | Textiles - Sensing surfaces              | 10:30 - 16:30 | tbc|
-|   6 | 11.12.2026 | Module 2.3 | Prosthetic Clouds: Data Visualization    | 14:00 - 18:00 | tbc |
-|   7 | 18.12.2026 | Module 1.2 | Cartographies of Affect: Data Mining     | 14:00 - 18:00 | tbc|
-|   8 | 15.01.2027 | Module 1.3 | Cartographies of Affect: Agentic Coding  | 14:00 - 18:00 | tbc |
+|   6 | 11.12.2026 | Module 2.3 | Prosthetic Clouds: Design, Fabrication and Data Communication    | 14:00 - 18:00 | tbc |
+|   7 | 18.12.2026 | Module 1.2 | Cartographies of Affect: Data Mining and Agentic Coding | 14:00 - 18:00 | tbc|
+|   8 | 15.01.2027 | Module 1.3 | Cartographies of Affect: Geodata in Grasshopper | 14:00 - 18:00 | tbc |
 
 # SKILLS MODULES
 
@@ -32,15 +32,29 @@ All tasks will be carried out using a combination of **Python**, **Rhino/Grassho
 An **introduction to Python** — we will explore different IDEs, set up your working environment, and take the first steps in programming.
 This session establishes the **foundation** for all subsequent lessons in this module.
 
-### Skills Module 1.2: Data Mining
+### Skills Module 1.2: Data Mining and Agentic Coding
 
-We will examine **data-mining techniques** and learn how to connect to **public APIs** such as **Flickr** or **Google**, collecting geotagged and textual information for spatial analysis.
+We will explore how to **collect, organise and analyse urban data in Python**. The exercises introduce **Pandas** for working with tables, graphs for exploring patterns, **Folium** for mapping, the **Flickr API** for collecting geotagged photographs, and text-based **sentiment analysis**.
 
-### Skills Module 1.3: Agentic Coding
+We will also introduce **agentic coding**, using an AI assistant to help develop a data-collection and analysis workflow. You will learn to define a research question, guide the assistant through manageable tasks, check sources and generated code, and verify that the results answer your original question. The emphasis is on understanding and directing the process.
 
-In this session, we will explore **agentic coding techniques**, starting with simple **search agents** and examining their capabilities and limitations. We will develop **frameworks and guardrails** for guiding their work and learn how to structure an **agentic urban search using ChatGPT**, with attention to defining research questions, checking sources, and reviewing results.
+[Session examples](Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%202%20Datamining%20Python/)
 
-We will also introduce **vibe coding for Arduino**, exploring how AI-assisted code generation can support wearable prototyping and why generated code needs to be understood, tested, and refined.
+### Skills Module 1.3: Geodata in Grasshopper
+
+This session brings collected data into **Rhino/Grasshopper** for spatial analysis and representation. We will explore importing text and coordinate files, **OpenStreetMap data**, raster images and shapefiles, and using **Heron** to work with mapping and topography. Grid-sampling exercises show how image and terrain values can be translated into geometry, building towards a complete spatial visualisation.
+
+The examples also introduce **image analysis in Python**, including object detection and image-to-text workflows, as further ways to investigate the content of urban imagery. We will consider how computational findings can inform a map or spatial narrative, and how to communicate them clearly through graphics.
+
+[Session examples](Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%203%20Geodata%20in%20Grasshopper/)
+
+### Module 1 assignment: Urban data investigation
+
+**Find an online dataset, build a structured database and visualise it to investigate a question about a chosen area.** You might study events within a neighbourhood, Flickr photographs over a defined period, or the distribution of shops and other infrastructure. Define the area, time period and purpose of your investigation before collecting the data.
+
+Document your sources and collection method, organise and check the data, and develop maps, graphs or spatial representations that communicate your findings. Explain what your dataset reveals, what it leaves out and how those limitations affect your interpretation. AI assistance may support the workflow, but you must understand and be able to explain the process.
+
+**Technical execution, research intention, graphic quality and narrative all matter.** Present a clear relationship between your question, the method you chose and the story supported by your results. This work will form part of your presentation and discussion in the final oral examination.
 
 ## Skills Module 2: Prosthetic Clouds
 
@@ -55,17 +69,28 @@ Through **GPS integration**, the devices will be able to track time and location
 ### Skills Module 2.1: Arduino 101
 
 We will introduce the **Arduino ecosystem** and the **Arduino IDE**, covering the different types of boards, how they work, and how to program them.
-The focus of this session is the **Arduino coding language**, which is based on **C**, and forms the foundation for prototyping interactive devices.
+The focus of this session is the **Arduino coding language**, which is based on **C/C++**, and forms the foundation for prototyping interactive devices.
 
 ### Skills Module 2.2: Sensors and Actuators
 
 In this session, we’ll explore the **physical side of interaction** — the types of sensors available, how to connect them, and how to interpret and record their readings.
 We’ll also look at how to **combine multiple data streams**, such as **GPS coordinates**, **galvanic skin response**, or **heartbeat sensors**, to capture and map embodied experiences of the city.
 
-### Skills Module 2.3: Data Visualization
+### Skills Module 2.3: Design, Fabrication and Data Communication
 
-How can sensor readings be represented visually? This session focuses on **data visualization techniques in Rhino/Grasshopper**.
-You will learn how to **read CSV files**, create **basic data-driven graphs**, and work with **geographic data** to represent your collected information spatially.
+This session connects **code, electronics and the physical design of your wearable prototype**. We will consider component placement, wiring, power, assembly and body fit, then explore fabrication approaches including **laser cutting, 3D printing, prototyping boards and soldering**, with PCB design as a further option.
+
+The examples also show how to connect your prototype to **Python and Grasshopper** through serial communication and wireless data exchange using **UDP/OSC**. We will explore receiving, recording and representing sensor values, alongside examples of using phone sensors and sending data to cloud services. The aim is to build a coherent system whose physical construction, sensing behaviour and data workflow support your investigation.
+
+[Session examples](Module-2-Prosthetic-Clouds/Skills%202%20-%20Day%203%20Design%20to%20Fabrication/)
+
+### Module 2 assignment: Wearable urban data logger
+
+**Design and build your own Arduino-based sensing device that records sensor measurements together with GPS coordinates and timestamps.** Choose or develop a sensor appropriate to a question about your experience of the city, and explain why its measurements are relevant. Integrate the sensor and GPS into a portable prototype, considering how it is worn or carried and how its components are assembled.
+
+Test your logger before fieldwork, then undertake **several walks** to collect data. Record the route and conditions for each walk, check the quality of the sensor readings and GPS positions, and save the data in a structured format that can be analysed in Python or Rhino/Grasshopper.
+
+Develop **maps and visualisations** that relate your measurements to location and time, and compare the walks. Explain the behaviour of your sensor, the logic of the logging code, any gaps or inaccuracies in the data, and what the results suggest about the urban conditions or experiences you set out to investigate. Present the prototype, data workflow and findings in the final oral examination.
 
 ## Skills Module 3: Textile Workshop - Sensing surfaces
 
