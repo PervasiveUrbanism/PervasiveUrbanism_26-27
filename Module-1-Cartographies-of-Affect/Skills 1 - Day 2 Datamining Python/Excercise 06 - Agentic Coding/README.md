@@ -4,9 +4,14 @@
 
 Conventional web search begins with a query. We enter a set of keywords, receive a ranked list of results, and decide for ourselves which sources and information are relevant.
 
+![Google Search](GoogleSearch.png)
+
 **Agentic search starts with a brief rather than a query.**
 
 We describe a task, a perspective and a desired outcome. An AI agent can then decide what to search for, which sources to inspect, how to interpret what it finds, and how to structure the result.
+
+![Agentic Search](AgenticSearchSimple.png)
+
 
 This places agentic search somewhere between **retrieval and simulation**. It does not simply ask what exists in a city. It can ask what becomes relevant **for a particular person, in a particular place, at a particular time**.
 
@@ -22,7 +27,7 @@ The aim is therefore not simply to use an AI agent, but to understand **what cha
 
 ## 2. Meet Tomaso
 
-![Tomaso in Bologna](tomaso_bologna.png)
+![Tomaso still in Bologna](tomaso_bologna.png)
 
 **Tomaso Bianchi** is a 24-year-old Italian who moved from Bologna to Berlin six months ago. He lives at **Wipperstraße 13 in Neukölln** and works part-time in a café.
 
@@ -43,6 +48,8 @@ Instead of searching for events ourselves, we can ask ChatGPT to do this repeate
 > **Every Thursday, find things Tomaso could do in Berlin during the coming week.**
 
 We can turn this into a **scheduled task** in ChatGPT. No Python is required. We describe the goal in natural language and tell the agent when it should run.
+
+![Scheduled Task](ScheduledTask.png)
 
 ### Exercise
 
@@ -135,61 +142,141 @@ This changes the role of AI. Rather than asking it to perform the entire search,
 
 ## 5. Building a Controlled Search
 
-In the previous experiment, ChatGPT decided where to search. We will now take control of that decision.
+We now choose the sources ourselves and use **Codex as a coding agent** to help build the collection process. First understand the overall system; then write a brief and develop it one step at a time.
 
-Rather than searching the entire web, we will define a small collection of Berlin event websites ourselves.
+### 5.1 Overall Architecture
 
-Our new workflow becomes:
+We will build a system that collects event information from selected websites, combines it into a large table, and gives that table to an LLM. The LLM then selects and ranks events that match Tomaso's interests and circumstances.
 
-**Known websites → scraper → structured CSV**
+```mermaid
+flowchart LR
+    W[Selected<br/>websites] --> T[Collect information into a table]
+    T --> L[LLM selects and ranks<br/>events for Tomaso]
+ 
 
-The aim is not to become expert web scrapers. Instead, we will use **Codex as a coding agent** to help us build the scraper.
+    style W fill:#F1F5F9,stroke:#94A3B8,color:#334155    
+    style T fill:#D1FAE5,stroke:#059669,color:#064E3B
+    style L fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95
+   
+```
 
-This is a different kind of agentic behaviour.
+Each website needs its own **scraper**: a Python script that extracts event information. Websites organise their pages differently, so each scraper must be adapted to its source. All scrapers return the same set of fields, allowing their results to be added to one shared events table.
 
-Previously we asked:
+Why a table? A website contains navigation, adverts, formatting and other material alongside its events. Extracting the relevant information into rows and columns gives us a consistent dataset: each row represents an event, with fields such as its date, venue, address, price and description. This makes it easier to inspect and compare events, combine information from many sources, and enrich the data with cleaned addresses, English descriptions and coordinates before asking the LLM to make recommendations.
 
-> **Find events for Tomaso.**
+**For this tutorial, we will build just two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
 
-Now we ask:
+```mermaid
+flowchart TD
+    B["Berlin.de Events"] --> S1("Scraper 01<br/>Python")
+    G["Gratis in Berlin"] --> S2("Scraper 02<br/>Python")
+    S1 -->|Append records| R[("Raw events table")]
+    S2 -->|Append records| R
+    R --> A("Clean and validate addresses<br/>Write short English descriptions<br/>LLM")
+    A --> C("Geocode missing coordinates<br/>Python")
+    C --> E[("Enriched events table<br/>Coordinates and English descriptions")]
+    E --> L("Reconcile duplicates<br/>Evaluate and rank for Tomaso<br/>LLM")
+    L --> N[("Daily recommendations<br/>for Tomaso")]
 
-> **Help me build a system that collects events from sources I have chosen.**
+    classDef python fill:#DBEAFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px;
+    classDef table fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2px;
+    classDef llm fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95,stroke-width:2px;
+    classDef source fill:#F1F5F9,stroke:#94A3B8,color:#334155,stroke-width:1px;
 
-### Start with one source
+    class S1,S2,C python;
+    class R,E,N table;
+    class A,L llm;
+    class B,G source;
+    linkStyle default stroke:#64748B,stroke-width:1.5px;
+```
 
-Don't try to scrape ten websites immediately.
+**Color key:** Blue = Python script · Green = table · Purple = LLM action.
 
-Choose **one Berlin event website** and inspect it in your browser. Look at how events are presented. Can you identify the event title, date, venue, price and link to the original event?
+The eventual pipeline should run **every Monday**, collecting events from **Monday through Sunday of that week**, using Berlin local dates. Build and check the manual pipeline before adding automation. **This tutorial builds only the two scrapers**; the diagram shows how their outputs will support the later stages.
 
-Then open Codex and describe what you want to build.
+### 5.2 Development Brief
 
-For example:
+Give Codex a clear brief before asking it to write code:
 
-> I want to build a Python script that collects upcoming events from this website:
+> Develop this system in stages, following the roadmap in Section 5.3. Implement and check one stage before moving to the next; this tutorial builds only the two scrapers and combines their outputs. Revise the plan as we learn while keeping the goal of recommendations for Tomaso clear.
 >
-> `[URL]`
+> Build two Python scrapers: Scraper 01 for Berlin.de Events and Scraper 02 for Gratis in Berlin. Both must accept the same Monday–Sunday date range and append records using an identical CSV schema to a raw/master events table.
 >
-> For each event I want to collect:
+> Collect all available factual event information in that period, including details from individual event pages where needed. Do not select events for Tomaso and do not deduplicate within or between sources. Preserve provenance and leave unavailable information blank rather than inventing it.
 >
-> `event | date | time | venue | address | price | source_url | description`
+> Use latitude and longitude supplied by the source when available, in decimal degrees. Otherwise leave them blank for the later shared geocoding stage. Do not geocode inside either scraper.
 >
-> First inspect the structure of the website and explain how you propose to collect the information. Do not write the complete program yet.
+> In the later shared enrichment stage, use the LLM to clean addresses and write a short factual English description of each event from its source text. Preserve the original German description and address, keep official street and venue names, and flag missing or uncertain details rather than inventing them.
+>
+> First inspect both websites and propose how to collect their data. Explain which pages you will access, how you will identify events and dates, which fields are available, and what could cause collection to fail. Implement one scraper at a time after we review the proposal.
 
-### Inspect the proposal
+Use this shared schema:
 
-Before accepting any code, ask:
+`event | date | end_date | time | end_time | venue | address | latitude | longitude | price | category | description | language | age_restrictions | registration | source | source_url | collected_at`
 
-> **What pages will you access?**
->
-> **How will you identify individual events?**
->
-> **Which information comes directly from the website, and which information would need to be inferred?**
->
-> **What could cause this scraper to fail?**
+Use `YYYY-MM-DD` for dates and consistent column names and order in both outputs. Keep source wording where useful, including price conditions, language requirements and registration details. `source` identifies the website; `source_url` links to the event page; `collected_at` records when it was collected. These fields let us check the dataset against its sources.
 
-Only then do we let Codex implement the first version.
+Later enrichment should preserve the original `address` and `description` and add `cleaned_address`, `description_en`, coordinate provenance and geocoding status. The LLM writes `description_en` as one or two factual English sentences based on the source; this describes the event rather than recommending it for Tomaso. Ambiguous or unresolved locations remain flagged for review; a coordinate alone does not establish travel time from Tomaso's home.
 
-The distinction is important:
+### 5.3 Development Steps
+
+Develop one stage at a time. The prompts below are starting points; use the shared schema and brief from Section 5.2 throughout. **The tutorial implements steps 1–4; steps 5–7 describe later development.**
+
+1. **Inspect both sources.** Open listings and individual event pages. Review date coverage, pagination, available fields and likely failure points.
+
+   > Inspect Berlin.de Events and Gratis in Berlin. Explain how each scraper could collect events for a Monday–Sunday week. Identify which fields come directly from the pages and which are unavailable. Propose an approach before writing code.
+
+2. **Build Scraper 01.** Run it manually for one explicit week and compare sample rows with the original pages.
+
+   > Implement the Berlin.de scraper using our shared schema and a configurable Monday–Sunday date range. Preserve source facts and links, leave missing values blank, and do not filter for Tomaso or deduplicate. Explain how to run it and check its output.
+
+3. **Build Scraper 02.** Use exactly the same schema and date range, adapting extraction to the second website.
+
+   > Implement the Gratis in Berlin scraper with the same output columns and date range as Scraper 01. Adapt it to this website's structure. Run it and check sample rows against the source pages.
+
+4. **Combine and inspect.** Append both outputs to the raw/master events table and check consistency and coverage.
+
+   > Combine the two scraper outputs into one raw events table. Check column names, date coverage and missing values. Retain overlapping event records and their source references, and report any collection problems.
+
+5. **Later: enrich the data.** Clean addresses and write English descriptions with the LLM, then geocode missing coordinates with Python.
+
+   > Preserve the original addresses and descriptions. Add cleaned addresses and short factual English descriptions using the LLM. Then use Python to geocode only missing coordinates, record their provenance, and flag unresolved locations for review. Save an enriched events table.
+
+6. **Later: evaluate with the LLM.** Check its recommendations against the enriched data and source pages.
+
+   > Read the enriched events table and Tomaso's profile in Section 2. Recognise and reconcile duplicate events while retaining source references. Filter and rank suitable events, then return a table of daily recommendations with a short explanation for each. Identify uncertain information.
+
+7. **Finally: automate.** Complete and check the manual pipeline before scheduling it.
+
+   > The manual pipeline has been checked. Schedule it to run every Monday, using Berlin local dates to collect events from Monday through Sunday of that week. Record failures so we can review incomplete runs.
+
+### Why prepare before coding?
+
+Before implementation, it helps to have three connected parts:
+
+```mermaid
+flowchart TD
+    B("Brief<br/>What should we build, and why?")
+    A("Architecture<br/>How does the system work?<br/>What runs in what order?")
+    R("Roadmap<br/>What will we develop and check,<br/>step by step?")
+
+    B <--> A
+    B <--> R
+    A <--> R
+
+    style B fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95,stroke-width:2px
+    style A fill:#DBEAFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    style R fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2px
+```
+
+The **brief** defines the intended outcome. The **architecture** explains the system and its execution order. The **roadmap** sets out the stages in which we will build and check it. Together, they give us a way to judge whether each change still serves the original purpose.
+
+In a typical ChatGPT workflow, we would discuss these in a normal conversation with the LLM before moving into implementation with the coding agent. They do not need to be perfect before we start, but they should be clear enough to guide the next step.
+
+**All three should be reviewed and adjusted during development.** What we learn from a website, an initial scraper or a failed run may change the design or the next development step. Update the relevant parts together and check each revision against the intended outcome. This lets the project evolve without drifting into unrelated features or a collection of changes that no longer work together.
+
+You can skip this preparation, but doing it helps you understand what the agent is building and keep the results aligned with what you wanted to achieve.
+
+If you work in a **GitHub repository**, save each working stage as a commit before moving on. These checkpoints let you inspect changes and roll back to a known working version if something goes wrong. Only changes saved in version control can be recovered this way.
 
 **First we used an agent as the search engine. Now we use an agent to help us construct the search engine.**
-
