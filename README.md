@@ -159,24 +159,32 @@ The aim is twofold: to establish a shared foundation in software skills across t
 The skills tutorials will revisit some of these basics, including introductions to **Python and Arduino**. However, tutorial time is valuable, and we cannot devote every session to comprehensive software introductions. Please familiarise yourself with the relevant course content **before each tutorial**, even if the learning path's completion deadline falls later, so that we can use our time together for questions, experimentation and applying these skills to your work.
 
 # AI-Assisted Coding and Assessment
-[@Codex: please review and rewrite this chapter . include https://library-guides.ucl.ac.uk/referencing-plagiarism/acknowledging-genAI - indicate clearly how to identify the use of GenAI. start with the statement that the use og genai like chatgpt and Claude are generally allowed in an assistive role. ]
 
-The RC15 skills tutorials follow [UCL's framework for generative AI in assessment](https://www.ucl.ac.uk/teaching-learning/generative-ai-hub/three-categories-genai-use-assessment). UCL distinguishes between different uses of AI, with permissions defined for each assessment. For our skills work, **AI tools such as ChatGPT and Codex may be used as assistants**, within the conditions set out in the assessment brief. You remain responsible for your work and must acknowledge how you have used AI, following [UCL's guidance for students](https://www.ucl.ac.uk/study/current-students/exams-and-assessments/assessment-success-guide/engaging-generative-ai-your-education-and-assessment).
+**Generative AI tools such as ChatGPT, Claude and Codex are generally allowed in an assistive role in the RC15 skills module**, subject to the specific instructions in the assessment brief. We follow [UCL's framework for generative AI in assessment](https://www.ucl.ac.uk/teaching-learning/generative-ai-hub/three-categories-genai-use-assessment): AI may support your learning and development process, while you remain responsible for the work, its accuracy and your understanding of it.
 
-Large language models (LLMs) can support you in developing, explaining, debugging and testing code. We will teach aspects of **vibe coding**: developing code through an iterative exchange of instructions, generated code, testing and revision. This is part of learning how to work critically with these tools.
+LLMs can help you develop, explain, debug and test code. We will teach aspects of **vibe coding**: an iterative process of giving instructions, reviewing generated code, testing it and refining the approach. Effective use requires you to define the problem, understand computational logic, guide the assistant and check that the result meets your original goals. A script that runs may still use an unsuitable method or produce misleading results. You must understand the important parts of your code and be able to explain your decisions and its limitations.
 
-There is still an essential educational purpose to learning Python and computational methods. **AI-assisted coding requires an understanding of code and computational logic.** You need to define the problem, break it into meaningful steps, guide the model, understand the important parts of its output, and test whether the result meets your original goals. A script that runs successfully may still use an unsuitable method or produce misleading results. You must be able to explain your choices, recognise limitations and check the output against your intentions.
+The rise of LLMs has shifted our attention towards **intention, method and result**. Intricate code alone tells us little about your understanding. We will ask what you set out to investigate, why you chose your approach, how you checked it and what the outcome demonstrates. These questions apply whether you developed the code independently or with AI assistance.
 
-The rise of LLMs has shifted our attention. A few years ago, an intricate piece of code might itself have been impressive evidence of technical skill. Today, complexity alone tells us much less about your understanding. Our attention is on **intention, method and result**: what you set out to investigate, why you chose a particular approach, how you tested it, and what the outcome demonstrates. These questions apply whether you wrote the code independently or developed it with AI assistance.
+## Acknowledging your use of GenAI
 
-## Final assessment: oral examination
+**Clearly identify where and how GenAI contributed to your work.** Follow [UCL's guidance on acknowledging GenAI](https://library-guides.ucl.ac.uk/referencing-plagiarism/acknowledging-genAI), which specifies that an acknowledgement should name the tool and model/version, its publisher and URL, and briefly describe how it was used. If the model/version is not shown, say so rather than guess.
 
-[@codex: be more precise: the final exam will be one presentation of five minutes and a short oral q&a also 5 min. this replaces the old format where it was just a pdf submission. 
-also: during the q&a we will be looking at your code and ask you aspects of how well you understand the language itself, we will ask you how well you understood the overarching principles of your code, and we will also judge at the outcome and graphics aspects as well as narrative]
+For RC15, include a clearly labelled **“Use of GenAI”** statement in the methods or appendix section of your presentation materials. Identify the parts of the workflow it supported, such as code generation, debugging, data processing, writing or image creation, and distinguish those contributions from your own decisions and revisions. State how you reviewed and tested the output. Where relevant, label AI-generated images and identify AI-assisted code sections in comments or accompanying documentation.
 
-**The final assessment of the skills module will be an oral examination, replacing the previous PDF submission.** You will present your work, explain how it functions and discuss it with us through questions. Be prepared to explain your computational logic, methods and decisions, how you checked your results, and where AI contributed to the process. You must demonstrate your own understanding when answering questions.
+For example, adapt this statement to reflect your actual use:
 
-The oral examination allows us to assess what you have learned and how you apply it. Full assessment requirements will be provided in the assessment brief.
+> I used [tool and model/version], published by [company], available at [URL], to help draft and debug the data-import functions. I defined the workflow, revised the generated code and checked the imported records against the source data.
+
+Keep relevant prompts, outputs, drafts and code revisions so that you can explain your process during the examination. Acknowledging AI assistance does not replace citing the original sources of your data and research, or checking whether the use is permitted by the assessment brief.
+
+## Final assessment: presentation and oral Q&A
+
+**The final assessment consists of one five-minute presentation followed by a five-minute oral Q&A.** This replaces the previous format of submitting a PDF alone. Use your presentation to explain your investigation, methods and results, with graphics that communicate a clear narrative.
+
+During the Q&A, **we will look at your code and ask you to explain it**. We will assess your understanding of the programming language, the overarching computational principles and the logic of your implementation. Be prepared to discuss how the code works, why you made particular choices, how you tested it and where AI contributed.
+
+We will also assess **the outcome, graphic quality and narrative**: how effectively the work addresses your original intention and how clearly you communicate its findings and limitations. You must demonstrate your own understanding in your answers. Full assessment requirements will be provided in the assessment brief.
 
 ## YouTube
 
