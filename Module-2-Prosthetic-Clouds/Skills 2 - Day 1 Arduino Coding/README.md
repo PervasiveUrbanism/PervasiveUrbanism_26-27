@@ -1,227 +1,123 @@
-![alt text](images/Arduino_Logo.svg.png)
+![Arduino logo](images/Arduino_Logo.svg.png)
 
-# Introduction to Arduino
+# Day 1 — Introduction to Arduino and Programming
 
+**RC15 Skills · Prosthetic Clouds · 2026/27 · 4-hour live coding workshop**
 
+This tutorial accompanies the live coding session. It is also a reference you can return to afterwards. We will work with an **Arduino Uno R4 WiFi** and gradually build up from a blinking LED to variables, functions, conditions, loops, arrays and communication with a computer.
 
-## What is Arduino, and where does it come from?
+**Learning outcomes:** By the end of the session, you should be able to read and modify a simple Arduino sketch, recognise the fundamental structures of C/C++, upload a program, and identify basic compilation and behavioural errors.
 
-**Arduino** is an open-source electronics platform that allows anyone to create interactive electronic projects. It combines **hardware** (the physical board) and **software** (the code that runs on it).
+## 1. What is Arduino, and where does it come from?
 
-Arduino was first developed in **2003** at the **Interaction Design Institute Ivrea (IDII)** in Italy by **Massimo Banzi** and his colleagues. It was designed to make working with microcontrollers simpler and more affordable — especially for artists and designers without an engineering background.
+**Arduino** is an open-source electronics platform for creating interactive projects. It combines physical boards, programming tools and a large community of shared examples and libraries.
 
-From the start, Arduino used open-source hardware and software, meaning that **anyone can build, modify, or share** their designs freely. This open approach made it extremely popular in education, research, and hobby projects all around the world.
+Arduino emerged in the mid-2000s from the **Interaction Design Institute Ivrea (IDII)** in Italy. Massimo Banzi and collaborators helped develop an accessible platform for students, artists and designers who wanted to experiment with electronics without needing an engineering background. The project's open-source approach helped it spread through education, design and prototyping.
 
-![alt text](images/BarArduinoReal.jpg)
+![The bar Arduino in Ivrea](images/BarArduinoReal.jpg)
 
-Above: the bar [“Arduino” in Ivrea](https://maps.app.goo.gl/5wCvfxTnYhPhZHdi7), where the founders used to meet and name their project.
+The [Bar Arduino in Ivrea](https://maps.app.goo.gl/5wCvfxTnYhPhZHdi7), which gave the project its name.
 
-![alt text](images/FirstArduino.jpg)
+![Early Arduino prototype](images/FirstArduino.jpg)
 
-The very first Arduino prototype — sweet memories!
+An early Arduino prototype.
 
-🔗 You can visit the official site here: [**Arduino Website**](https://www.arduino.cc/)
+[Arduino official website](https://www.arduino.cc/)
+
+### What is programming?
+
+A **program** is a set of instructions that tells a computer or microcontroller what to do. **Programming** means writing and organising those instructions. In this workshop we use **Arduino C/C++**.
+
+Many interactive systems can be understood as a sequence:
+
+**INPUT → PROCESS → OUTPUT**
+
+For example, a sensor measures light (**input**); the program checks whether the room is dark (**process**); and an LED switches on (**output**). Today we begin with the simplest output—the built-in LED—so we can concentrate on learning the language.
+
+### What can Arduino do?
+
+Arduino boards can read sensors and control LEDs, motors, displays and other electronic components. They are useful for responsive objects, environmental measurements, wearable devices and physical prototypes.
+
+### Arduino and Raspberry Pi: what is the difference?
+
+Students may already know the Raspberry Pi, but the two devices are designed for somewhat different purposes. Here we compare our **Arduino Uno R4 WiFi** with a conventional **Raspberry Pi single-board computer**.
+
+| Feature | Arduino Uno R4 WiFi | Raspberry Pi computer |
+| --- | --- | --- |
+| Type | Microcontroller board | Single-board computer |
+| Operating system | No conventional operating system required for a sketch | Usually runs Linux |
+| Programming | Primarily C/C++ through the Arduino environment | Python, C/C++ and many other languages |
+| Operation | Runs the uploaded program directly | Runs applications through an operating system |
+| Typical use | Sensors, actuators, responsive objects | Multimedia, networking, general computing |
+| Power consumption | Generally lower | Generally higher |
+
+Neither device is universally better. Some newer products also combine microcontrollers and computer-like capabilities, so the distinction is not absolute.
+
+## 2. The Arduino language: write, compile, upload, run
+
+An Arduino program is called a **sketch**. We write sketches in the **Arduino IDE** (*Integrated Development Environment*).
+
+1. **Write** the sketch in the editor.
+2. **Compile / Verify** it: the compiler checks the code and translates it into machine instructions.
+3. **Upload** the compiled program to the board over USB.
+4. **Run** it: the microcontroller executes the program. Once uploaded, it can run without the computer, provided the board has power.
+
+**Two kinds of error:** A *compilation error* (for example, a missing semicolon) stops the sketch from compiling. A *behavioural or logic error* (for example, an incorrect delay) may compile successfully but produce the wrong result. We will encounter both.
+
+Arduino uses C/C++ with built-in functions and libraries for interacting with hardware. You do not need to memorise the language before starting; we will introduce its syntax one element at a time.
+
+[Arduino language reference](https://www.arduino.cc/reference/en/) · [Arduino IDE download](https://www.arduino.cc/en/software)
+
+### The Arduino ecosystem
+
+Arduino is open-source and supported by a broad ecosystem of compatible boards, libraries and electronic modules. Companies such as [Adafruit](https://www.adafruit.com/), [SparkFun](https://www.sparkfun.com/) and [Seeed Studio](https://www.seeedstudio.com/) provide components and documentation. For this workshop, everyone uses the same board so we can concentrate on the code.
+
+## 3. Our board — Arduino Uno R4 WiFi
+
+![Arduino Uno R4 WiFi board](images/arduino-uno-r4-wifi-arduino.jpg)
+
+For Day 1, identify these parts of your board:
+
+- **USB-C connector:** provides power and allows uploading sketches.
+- **Microcontroller:** executes the program.
+- **Digital input/output pins:** work with HIGH and LOW signals.
+- **Built-in LED:** allows us to experiment without wiring an external circuit.
+
+The Uno R4 WiFi also has analogue inputs, an LED matrix and wireless connectivity. We will explore additional hardware capabilities in Day 2. See the [official Uno R4 WiFi documentation](https://docs.arduino.cc/hardware/uno-r4-wifi/) for a pinout and complete technical information.
+
+## 4. Installation and first connection
+
+1. Download and install the current **Arduino IDE 2.x** from [arduino.cc/en/software](https://www.arduino.cc/en/software).
+2. Connect the Uno R4 WiFi to your computer using a **USB-C data cable**.
+3. In the IDE, select **Arduino Uno R4 WiFi** and the corresponding **port**. Install the Arduino UNO R4 Boards package if prompted.
+4. Open **File → Examples → 01.Basics → Blink**.
+5. Click **Verify** to compile, then **Upload** to transfer the sketch.
+6. Observe the built-in LED blinking.
+
+![Working directory settings](images/workingDirectory.png)
+
+*Optional:* You can change the sketchbook location in the IDE preferences. Choose a folder you can find again.
+
+![Arduino IDE board connection](images/Starting.png)
+
+![Compiling and uploading](images/Compiling.png)
+
+**If upload fails:** Check that you selected the correct board and port, that the cable transfers data rather than only power, and that another program is not occupying the serial port.
 
 ---
 
-## What can Arduino do (and what can’t it do)?
+# 5. Coding in Arduino (C/C++)
 
-Arduino allows you to build small electronic systems that can **sense** the environment (through sensors) and **act** on it (through motors, lights, or displays). Typical projects include:
+Most Arduino sketches use two special functions:
 
-- Light sensors that control LEDs  
-- Temperature and humidity monitors  
-- Simple robots and servo motors  
-- Smart home and IoT devices  
+- **`setup()`** runs once when the board starts or resets.
+- **`loop()`** runs repeatedly while the board is powered.
 
-However, Arduino is **not a full computer** like a Raspberry Pi. It has no screen, keyboard, or operating system. Instead, it runs **one program at a time**, directly on the microcontroller.
+You will also see variable declarations and, later, functions that you write yourself. Work through the examples in order: each introduces a small new idea.
 
-Here’s how it compares:
+## 001 — Basic LED Blink
 
-| Feature | Arduino | Raspberry Pi |
-|----------|----------|--------------|
-| Type | Microcontroller | Mini computer |
-| Operating System | None | Linux (Raspberry Pi OS) |
-| Power Use | Very low | Higher |
-| Programming | Simple (C/C++) | Advanced (Python, etc.) |
-| Typical Use | Sensors, motors, lights | Web servers, AI, multimedia |
-
-So while Arduino is small and limited in power, it’s **perfect for learning electronics and prototyping**.
-
-Arduino has opened up the world of microcontrollers to everyone:
-
-1. **Easy programming:** It uses a simplified version of the C language, designed for quick prototyping. Think of Arduino as a friendly *translator* between you and the microprocessor.  
-2. **Hardware compatibility:** Not every microcontroller supports Arduino, but many do. For others, you can often install extra “board support packages.”  
-3. **Reusability:** The same code (with small changes) can often run on different boards — from an Uno to a Nano or Mega.
-
-The difference between Arduino and Raspberry Pi is not as clear-cut as it might seem. For example, while a Raspberry Pi can easily handle sensor-based projects, modern Arduino boards are now powerful enough to run lightweight AI applications. The newest addition to the Arduino family — the Arduino Q — even combines a traditional microcontroller with a Single Board Computer (SBC), further blurring the lines between the two platforms.
-
----
-
-## The Arduino Language
-
-The Arduino platform consists of **two parts**:  
-1. The **hardware** (the physical board)  
-2. The **software** (the code you write)
-
-The programming language is based on **C/C++**, but simplified with built-in functions to make it easier to learn and use.
-
-You write your code in the **Arduino IDE (Integrated Development Environment)** — a simple app that sends your program (called a *sketch*) to the board.
-
-When you click *Upload*, the IDE compiles your human-readable code into **machine code** the microcontroller understands.
-
-> [!NOTE]
-> When you use a new type of board (like an ESP32 or a Nano 33 IoT), you may need to install the correct **board configuration** inside the IDE first.  
-
-🔗 [Arduino IDE Download & Setup Guide](https://www.arduino.cc/en/software)
-
----
-
-## The Arduino Ecosystem
-
-Arduino is open-source — anyone can make their own version of the board or add extensions (called *shields*). This openness created a huge global community.
-
-Today, there are countless Arduino-compatible boards from companies like:
-
-- [Adafruit](https://www.adafruit.com/)
-- [SparkFun](https://www.sparkfun.com/)
-- [Seeed Studio](https://www.seeedstudio.com/)
-
-You can find them easily on Amazon, eBay, or educational stores.  
-
-👉 Tip: choose well-known brands — they come with better documentation and fewer hardware bugs.
-
----
-
-# Our Board
-
-For this course, we use the **Arduino Uno R4 WiFi**, a versatile entry-level board that includes WiFi and Bluetooth.
-
-![alt text](images/arduino-uno-r4-wifi-arduino.jpg)
-
-🔗 [Arduino Uno R4 WiFi Documentation](https://docs.arduino.cc/hardware/uno-r4-wifi/)
-
-It’s great for:
-
-- Connecting sensors and LEDs  
-- Communicating with your computer or the internet  
-- Running small, low-power programs  
-
-Here’s a detailed feature list for the **[Arduino UNO R4 WiFi]()**
-
-
-
-### Core Specifications
-
-* Processor (MCU): Renesas RA4M1 (Arm® Cortex®-M4) running at **48 MHz**. 
-* Flash memory: **256 kB** for program storage. 
-* SRAM (RAM): **32 kB** for runtime data. 
-* EEPROM (non-volatile data): **8 kB**. 
-* Operating voltage for the main MCU: 5 V. 
-
-
-###  Wireless & Coprocessor Features
-
-* WiFi + Bluetooth® LE support via an on-board Espressif ESP32-S3 (module type ESP32-S3-MINI-1) up to 240 MHz. 
-
-
-
-
-### I/O, Pins & Compatibility
-
-* Maintains the traditional UNO form-factor: 14 digital I/O pins, 6 PWM outputs, analog inputs etc. 
-* USB-C connector for programming and power. 
-* VIN / barrel jack supports input voltages **6-24 V** (for the board’s regulator) enabling use in higher-voltage systems. 
-* Qwiic I²C connector (for easy I²C external sensor expansion) and other modern expansion headers. 
-
-
-
-###  Extra Features & Peripherals
-
-* *12×8 LED matrix* built into the board (exclusive to the WiFi version) for simple visual feedback. 
-* *VBuilt-in Real-Time Clock (RTC)* support (battery header) so you can maintain time even when powered down. 
-* On-board logic level translation between the 5 V RA4M1 MCU and 3.3 V ESP32-S3 module. 
-
-👉 The Uno R4 is an **all-rounder**, but keep in mind it is **relatively large** compared to some alternatives.  
-
-# Alternatives You Might Explore  
-## Choosing a Board  
-
-There are many Arduino and Arduino-compatible boards available.  
-When buying a board, students should consider:  
-- **Size** – does it fit your project?  
-- **Power** – do you need battery support or USB only?  
-- **Connectivity** – WiFi / Bluetooth / LoRa / none?  
-- **Pins** – how many sensors or actuators you want to connect  
-- **Community support** – are there tutorials and documentation?
-- **Features** – what are the extra fesatures on the board?  
-
-
-### Adafruit Feather Boards  
-- **Small, lightweight** boards designed for portability  
-- Built-in **battery connector** for easy mobile projects  
-- Many options available (WiFi, Bluetooth, LoRa, etc.)  
-- Great if you want to build **wearables** or battery-powered devices  
-
-📄 [Adafruit Feather Overview](https://learn.adafruit.com/adafruit-feather/feather-family)  
-
-
-
-### ESP8266 Boards (e.g., NodeMCU)  
-- Very **cheap** and widely available  
-- Built on the popular **ESP8266 chip**  
-- Powerful enough for most beginner IoT projects  
-- Many variations exist (some even with **battery connector** built onto the board)  
-- Strong community and huge number of tutorials  
-
-📄 [NodeMCU ESP8266](https://www.nodemcu.com/)  
-
-
-### Arduino Mega / Giga  
-- Much **larger boards** with **many more pins**  
-- Useful if you need to connect lots of sensors or devices at once  
-- Same Arduino ecosystem, but not as compact as the Uno or Feather  
-
-# Installation
-
-Download and install the Arduino IDE from this page:
-https://www.arduino.cc/en/software/#app-lab-section
-
-The current version is 2.3.6. The installation is straightforward — just follow the steps and accept everything the installer asks for.
-
-## Working Folder
-Once installed, you might want to set the working folder in the prefernces:
-
-![alt text](images/workingDirectory.png)
-
-## Connecting the board the first time
-
-![alt text](images/Starting.png)
-
----
-
-# Coding in Arduino (C/C++)
-
-Each Arduino program (called a *sketch*) follows this basic structure:
-
-1. **Libraries** — extra code you can include for sensors, motors, etc.  
-2. **Variable declarations** — where you define numbers, pins, and settings.  
-3. **`setup()`** — runs once when the board starts up.  
-4. **`loop()`** — repeats forever while the board is running.  
-5. **Functions** — custom blocks of code to keep things organized.
-
-🔗 [Arduino Language Reference](https://www.arduino.cc/reference/en/)
-
-The IDE compiles your sketch into machine code and uploads it to the board:
-
-![alt text](images/Compiling.png)
-
----
-
-## 001 - Basic LED Blink
-
-The classic first program — making the onboard LED blink once per second.
-
- [LED_BUILTIN](https://docs.arduino.cc/language-reference/en/variables/constants/ledbuiltin/) is a harcoded value. It adresses Pin 13 and the onboard LED. 
+**Concept:** A program executes instructions in sequence. The `loop()` function repeats them.
 
 ```cpp
 void setup() {
@@ -234,39 +130,31 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }
-````
+```
 
----
+**Read the sketch:** `pinMode()` configures the built-in LED pin as an output. `digitalWrite(..., HIGH)` switches the LED on; `LOW` switches it off. `delay(1000)` pauses execution for 1,000 milliseconds (one second). The LED remains in its current state during each delay.
 
-## 002 - Blink with Variables and Serial Feedback
+| Syntax | Meaning |
+| --- | --- |
+| `void` | This function does not return a value |
+| `()` | Contains the arguments supplied to a function |
+| `{ }` | Groups instructions into a block |
+| `;` | Ends a statement |
+| `//` | Begins a single-line comment |
+| `LED_BUILTIN`, `OUTPUT`, `HIGH`, `LOW` | Predefined names/constants |
 
-Here we introduce a **variable** to control the timing and use the **Serial Monitor** to display messages.
+**Try it:** (1) Change both delays to `200`. (2) Keep the LED on for `100` ms and off for `900` ms. (3) Remove a semicolon and click Verify; read the error, then restore it.
 
-### Memory Overview (Uno R4 WiFi)
+**Expected result:** The LED blinks according to the two delays. A missing semicolon produces a compilation error.
 
-* **EEPROM:** 8 KB (permanent storage)
-* **RAM:** 32 KB (temporary variables)
-* **FLASH:** 256 KB (your uploaded code)
+## 002 — Blink with Variables
 
-### Common Data Types
-
-| Type      | Size      | Example           | Description           |
-| --------- | --------- | ----------------- | --------------------- |
-| `boolean` | 1 bit     | `true` or `false` | On/off, yes/no values |
-| `char`    | 1 byte (8 bits)    | `'A'`, `'1'`      | A single character    |
-| `int`     | 2–4 bytes | `42`              | Whole number          |
-| `float`   | 4 bytes   | `3.14`            | Decimal number        |
-
-Typically, there is enough space for your code. But there can be problems — for example, very large text files combined with large libraries may cause memory issues.
-
-
-![alt text](images/Datatypes.png)
+**Concept:** A variable gives a stored value a name. The value can be used in several places and changed later.
 
 ```cpp
-int pause = 50;
+int pause = 1000;
 
 void setup() {
-  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
@@ -275,168 +163,158 @@ void loop() {
   delay(pause);
   digitalWrite(LED_BUILTIN, LOW);
   delay(pause);
-  Serial.print("The delay is: "); 
-  Serial.print(pause);
-  Serial.println(" ms");
 }
 ```
 
-On an Arduino, the TX LED blinks whenever the board sends data over the serial port. 
+`int` means **integer** (a whole number). `pause` is the variable name, `=` assigns a value, and `1000` is the initial value. We can now change the blinking speed in one place. `=` assigns; later, `==` will compare.
 
----
+```cpp
+int pause = 1000;  // Declare and initialise
+pause = 200;       // Assign a new value later
+```
 
-## 003 - Blink Using a Function
+**Try it:** (1) Change `pause` to `200`. (2) Replace it with two variables, `onTime` and `offTime`, for different on/off durations. (3) As an extension, add `pause = pause + 100;` at the end of `loop()` and observe the gradual change. Reset the board to restart the program.
 
-A **function** helps organize code and avoid repetition.
+**Expected result:** The LED timing responds to the variable values. In the extension, the interval grows on each pass through `loop()`.
+
+## 003 — Creating Your Own Function
+
+**Concept:** A function is a named block of instructions that can be reused. A **parameter** receives information when the function is called.
 
 ```cpp
 void setup() {
-  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  flash(50, LED_BUILTIN);
-  flash(500, LED_BUILTIN);
+  flash(100);
+  flash(500);
 }
 
-void flash(int pause, int ledNumber) {
-  digitalWrite(ledNumber, HIGH);
+void flash(int pause) {
+  digitalWrite(LED_BUILTIN, HIGH);
   delay(pause);
-  digitalWrite(ledNumber, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
   delay(pause);
-  Serial.print("The delay is: "); 
-  Serial.print(pause);
-  Serial.println(" ms");
 }
 ```
 
----
+`void flash(int pause)` **defines** the function and its parameter. `flash(100)` **calls** it with the argument `100`. After the function finishes, the program continues with the next instruction in `loop()`.
 
-## 004 - Control Structure: `if`
+**Try it:** (1) Change the arguments. (2) Call `flash()` several times to make a rhythm. (3) Extend the function to accept two parameters: `flash(int onTime, int offTime)`, and use one for each delay.
 
-Using `if` statements to make decisions:
+**Expected result:** Different function calls produce different blinking rhythms without duplicating the LED instructions.
+
+## 004 — Making Decisions with `if` and `else`
+
+**Concept:** A condition allows the program to choose which instructions to execute.
 
 ```cpp
-bool fast = false;
+bool fast = true;
 
 void setup() {
-  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   if (fast == true) {
-    flash(50, LED_BUILTIN);
+    flash(100);
   } else {
-    flash(400, LED_BUILTIN);
+    flash(500);
   }
 }
 
-void flash(int period, int led) {
-  digitalWrite(led, HIGH);
-  delay(period);
-  digitalWrite(led, LOW);
-  delay(period);
-  Serial.print("The delay is: ");
-  Serial.println(period);
+void flash(int pause) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(pause);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(pause);
 }
 ```
 
----
+A `bool` stores either `true` or `false`. `if` checks a condition; `else` supplies the alternative. **`==` compares values**, while **`=` assigns a value**. For example, `fast == true` asks whether `fast` is true.
 
-## 005 - Repetition with `for` Loops
+**Try it:** (1) Change `fast` to `false`. (2) Use `int speed = 300;` and `if (speed < 200)` to choose a pattern. (3) Add `else if` for a third speed.
 
-`for` loops repeat code a fixed number of times.
+**Expected result:** The program follows the branch selected by the condition. In Day 2, conditions can respond to sensor measurements rather than a preset variable.
+
+## 005 — Repetition with `for` Loops
+
+**Concept:** A `for` loop repeats a block of instructions according to a counter and condition. It is different from Arduino's special `loop()` function, which repeats the whole main program.
 
 ```cpp
 void setup() {
-  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   for (int i = 0; i < 10; i = i + 1) {
-    Serial.print("Loop Nr. ");
-    Serial.println(i);
-    flash(20, LED_BUILTIN);
+    flash(100);
   }
+
+  delay(2000);
 }
 
-void flash(int period, int led) {
-  digitalWrite(led, HIGH);
-  delay(period);
-  digitalWrite(led, LOW);
-  delay(period);
+void flash(int pause) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(pause);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(pause);
 }
 ```
 
----
+Read the three parts of `for (int i = 0; i < 10; i = i + 1)`:
 
-## 006 - Loops with Arrays
+1. **Start:** create counter `i` with value `0`.
+2. **Condition:** repeat while `i < 10`.
+3. **Update:** increase `i` by one after each repetition.
 
-An **array** stores several values under one name. Here’s how to blink with different time delays.
+The counter takes the values **0 through 9**: that is ten repetitions. After the ten flashes, the program waits two seconds and starts the sequence again.
+
+**Try it:** (1) Change the limit to `5`. (2) Change the increment to `i = i + 2`; how many flashes occur? (3) Replace `flash(100)` with `flash(50 + i * 50)` to make the flashes progressively slower.
+
+**Expected result:** A burst of flashes followed by a two-second pause, repeated continuously.
+
+## 006 — Arrays: Storing Several Values
+
+**Concept:** An **array** stores several values of the same type under one name. Each value has an **index**, starting at zero.
 
 ```cpp
-int timedelay[] = {200, 40, 50, 500, 70};
+int timings[] = {200, 40, 50, 500, 70};
 
 void setup() {
-  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   for (int i = 0; i < 5; i++) {
-    Serial.print("Loop Nr. ");
-    Serial.print(i);
-    Serial.print("\tDelay: ");
-    Serial.println(timedelay[i]);
-    flash(timedelay[i], LED_BUILTIN);
+    flash(timings[i]);
   }
+
+  delay(2000);
 }
 
-void flash(int period, int led) {
-  digitalWrite(led, HIGH);
-  delay(period);
-  digitalWrite(led, LOW);
-  delay(period);
-}
-```
-
----
-
-## 007 - Communicating via the Serial Monitor
-
-You can **send data from your computer** to control your Arduino.
-
-```cpp
-void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
+void flash(int pause) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(pause);
   digitalWrite(LED_BUILTIN, LOW);
-  Serial.begin(9600);
-}
-
-void loop() {
-  if (Serial.available() > 0) {
-    char letter = Serial.read();
-    if (letter == '1') {
-      digitalWrite(LED_BUILTIN, HIGH);
-      Serial.println("LED is ON!");
-    } else if (letter == '0') {
-      digitalWrite(LED_BUILTIN, LOW);
-      Serial.println("LED is OFF!");
-    }
-  }
+  delay(pause);
 }
 ```
 
-Try typing `1` or `0` in the Serial Monitor!
+| Index | `0` | `1` | `2` | `3` | `4` |
+| --- | --- | --- | --- | --- | --- |
+| Value (ms) | 200 | 40 | 50 | 500 | 70 |
 
----
+`timings[0]` is `200`; `timings[3]` is `500`. The loop counter `i` selects each array element in turn. **Do not access `timings[5]`:** this array has no element at index 5, and out-of-bounds access can cause unpredictable behaviour even when code compiles.
 
-## 008 - Sending and Receiving Messages
+**Try it:** (1) Change the values to make your own rhythm. (2) Add a sixth value and update the loop limit. (3) Reverse the order of the values.
 
-You can also send whole words or messages, not just single characters.
+**Expected result:** Five different flash durations are played in sequence, followed by a pause.
+
+## 007 — Sending Data to the Computer
+
+**Concept:** **Serial communication** allows the Arduino to send information to your computer. The **Serial Monitor** in the IDE displays it. This is also a useful debugging tool.
 
 ```cpp
 void setup() {
@@ -444,14 +322,107 @@ void setup() {
 }
 
 void loop() {
-  String message = "";
+  Serial.println("Hello from Arduino!");
+  delay(1000);
+}
+```
+
+`Serial.begin(9600)` starts communication at **9600 baud**. `Serial.print()` sends text without adding a new line; `Serial.println()` adds a new line. Open **Tools → Serial Monitor** (or the Serial Monitor panel) and check that its baud rate matches the sketch.
+
+**Try it:** (1) Change the message. (2) Print a variable. (3) Print the value of `i` inside a `for` loop. Combine `Serial.print()` and `Serial.println()` to show labels and values.
+
+**Expected result:** The computer displays the text or numbers sent by the Arduino. You can use this to inspect values while a program runs.
+
+## 008 — Receiving Commands from the Computer
+
+**Concept:** Serial communication also works in the other direction: the computer can send a command to the Arduino.
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
   if (Serial.available() > 0) {
-    while (Serial.available() > 0) {
-      message += char(Serial.read());
-      delay(250);
+    char command = Serial.read();
+
+    if (command == '1') {
+      digitalWrite(LED_BUILTIN, HIGH);
+      Serial.println("LED ON");
+    } else if (command == '0') {
+      digitalWrite(LED_BUILTIN, LOW);
+      Serial.println("LED OFF");
     }
-    Serial.print("You typed: ");
-    Serial.println(message);
   }
 }
 ```
+
+`Serial.available()` checks whether incoming data is waiting. `Serial.read()` reads one byte. Here we store it in a `char`, which represents a character. **`'1'` is a character, not the integer `1`**. Type `1` or `0` into the Serial Monitor's input field and send it. Set the line-ending option to **No line ending** for the simplest behaviour.
+
+**Try it:** (1) Switch the LED on and off from the computer. (2) Add a command `'b'` that flashes the LED three times. (3) Print a message when an unrecognised command is received.
+
+**Expected result:** The Arduino responds to typed commands and confirms its actions in the Serial Monitor.
+
+---
+
+# 6. Further Reading and Reference
+
+## Technical specifications — Arduino Uno R4 WiFi
+
+| Feature | Specification |
+| --- | --- |
+| Main microcontroller | Renesas RA4M1, Arm Cortex-M4, 48 MHz |
+| Flash program memory | 256 KB |
+| SRAM | 32 KB |
+| Data EEPROM | 8 KB |
+| Main microcontroller logic | 5 V |
+| Wireless connectivity | ESP32-S3 module supporting Wi-Fi and Bluetooth LE |
+| Digital I/O | 14 pins (including PWM-capable pins) |
+| Analogue inputs | 6 |
+| Built-in LED matrix | 12 × 8 |
+| USB | USB-C |
+| Additional connections | Qwiic I²C connector, power and expansion headers |
+
+The Uno R4 WiFi is a capable general-purpose development board, although it is comparatively large for some wearable applications. Always consult the [official board documentation](https://docs.arduino.cc/hardware/uno-r4-wifi/) for electrical limits and wiring guidance.
+
+### Data types and memory
+
+| Type | Example | Purpose |
+| --- | --- | --- |
+| `bool` | `true` | True/false condition |
+| `char` | `'A'` | Single character |
+| `int` | `42` | Whole number |
+| `float` | `3.14` | Number with a decimal part |
+
+**Flash** stores the uploaded program, **RAM** holds values used while the program runs, and **EEPROM** provides non-volatile data storage. The exact memory size of a data type can vary by board; use the official documentation when it matters.
+
+## Choosing another board
+
+For later prototypes, consider:
+
+- **Size and weight:** Does it fit into the object or wearable?
+- **Power:** USB, battery or external supply?
+- **Connectivity:** Do you need Wi-Fi, Bluetooth or another protocol?
+- **Inputs and outputs:** How many sensors and actuators are needed?
+- **Documentation:** Are there reliable libraries, examples and community support?
+
+### Adafruit Feather
+
+Compact boards with different processor and wireless options, often well suited to battery-powered and wearable projects. See the [Feather family guide](https://learn.adafruit.com/adafruit-feather/feather-family).
+
+### ESP8266 / NodeMCU
+
+Low-cost Wi-Fi-capable microcontroller boards with a substantial ecosystem of examples. Check voltage requirements and the features of the particular variant.
+
+### Arduino Mega / Giga
+
+Larger boards with many more connections, useful for prototypes involving numerous inputs and outputs. They are generally less suitable where size is critical.
+
+## Optional extension — Receiving text messages
+
+The main session introduces single-character commands. A later experiment could receive a full word or sentence over Serial. This requires considering strings, line endings and how incoming data is buffered; it is not required to understand today's eight core examples.
+
+---
+
+**End of Day 1.** You have written and modified programs using variables, functions, conditions, loops, arrays and serial communication. In **Day 2**, these programming concepts will be used to connect sensors and actuators to the physical world.
