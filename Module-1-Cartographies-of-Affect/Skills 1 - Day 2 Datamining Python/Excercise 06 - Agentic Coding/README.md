@@ -1,27 +1,38 @@
 # Exercise 06 — Agentic Coding
 
+This exercise introduces **LLM agents**, a relatively new way of working with large language models that potentially represents a fundamental shift in how we interact with computers. Rather than giving a computer a sequence of explicit commands, or asking an LLM a single question and receiving an answer, we can give an agent a **goal** and allow it to work towards that goal through a sequence of actions. It can decide what steps are required, use tools, search for information, write and execute code, inspect results and adapt what it does next.
+
+This changes the relationship between user and computer. We are no longer necessarily specifying every operation ourselves; we are **delegating parts of a process**. This creates considerable new possibilities, but it also introduces new problems. What decisions has the agent made for us? Can we understand what it has done? How reliable are its results? When should we trust it, and when should we intervene? Learning to work with agents therefore means understanding both their **potential and their limitations**.
+
+In this exercise, we will explore two aspects of working with LLM agents:
+
+- **Agentic workflows and automation** — where an agent carries out a sequence of tasks on our behalf. We will explore this through **agentic search**, asking an agent to repeatedly search Berlin for events relevant to a particular person.
+
+- **Agentic coding** — where we work with a coding agent to develop a more explicit and controlled computational process ourselves.
+
+These two approaches will allow us to examine the same problem from different directions: first by **delegating a process to an agent**, and then by **working with an agent to construct the process ourselves**.
+
 ## 1. Agentic Search
 
-Conventional web search begins with a query. We enter a set of keywords, receive a ranked list of results, and decide for ourselves which sources and information are relevant.
+A conventional web search starts with a **query**. We might search for *experimental music Berlin this weekend*. The search engine returns a ranked collection of pages, but the work of interpreting those pages remains largely with us.
+
+**Query → Search → Results → Human interpretation**
 
 ![Google Search](GoogleSearch.png)
 
-**Agentic search starts with a brief rather than a query.**
+Agentic search changes this relationship. Instead of describing only what we want to find, we can describe **what we are trying to achieve**.
 
-We describe a task, a perspective and a desired outcome. An AI agent can then decide what to search for, which sources to inspect, how to interpret what it finds, and how to structure the result.
+**Brief → Agent searches → Agent investigates → Agent interprets → Answer**
 
-![Agentic Search](AgenticSearchSimple.png)
+![Agentic Search](SearchStrategy.png)
 
+This is a significant change. The agent is no longer only retrieving information. It is making decisions about where to search, what information matters, how different pieces of information relate to one another and what should ultimately be presented to us.
 
 This places agentic search somewhere between **retrieval and simulation**. It does not simply ask what exists in a city. It can ask what becomes relevant **for a particular person, in a particular place, at a particular time**.
 
 For urban research, this is interesting because the same city can be searched from very different positions. Age, income, mobility, language, interests and social circumstances all change what the city appears to offer.
 
-In this exercise we will explore this through a fictional resident called Tomaso:
-
-> **What should Tomaso do in Berlin this weekend?**
-
-We will begin by giving an AI agent considerable freedom to answer this question. We will then examine how it searched, what it ignored, which assumptions it made, and whether its results can be trusted. Finally, we will progressively take control of parts of the process ourselves.
+In this exercise we will explore this through a fictional resident called Tomaso. We will first give an AI agent considerable freedom to search Berlin on his behalf. We will then examine how it searched, what it ignored, which assumptions it made, and whether its results can be trusted. Finally, we will progressively take control of parts of the process ourselves.
 
 The aim is therefore not simply to use an AI agent, but to understand **what changes when search itself becomes agentic**.
 
@@ -96,7 +107,11 @@ The search also combines very different kinds of sources: event aggregators, nei
 
 Checking the results can change the answer. An apparently suitable creative workshop from an earlier search turned out to be intended for **10–18 year olds**. **MUSK ON MARS**, another strong-looking recommendation, was listed from **€20** and therefore exceeded Tomaso's €15 budget.
 
-The result is not necessarily bad. Many recommendations are useful. The problem is that the **method is opaque**.
+More importantly, agentic search is **not guaranteed to be factually correct**. A result may contain an incorrect date, an outdated or broken link, a wrong address, or occasionally an event that cannot be verified at all. Better instructions — for example, requiring original source pages and asking the agent to verify each event — can reduce these errors, but they cannot remove the risk completely. ChatGPT itself warns that it can make mistakes and that important information should be checked.
+
+For casual discovery, a result that is *mostly correct* may still be useful. For a data-collection workflow, however, **mostly correct is not good enough**. A few invented or incorrect records contaminate the dataset and may affect everything that happens afterwards.
+
+This gives us a reason to look beyond the quality of the recommendations themselves. The problem is not simply whether the answer looks convincing; it is that the **method is opaque**.
 
 We know the brief and we can see the output, but we do not yet know exactly how the agent moved from one to the other.
 
@@ -122,7 +137,7 @@ In our first experiment, all of these decisions were bundled together inside a s
 
 We defined the **input** — Tomaso — and the **output** — ten recommendations — but we had very little control over what happened in between.
 
-That is powerful, but it also creates a methodological problem.
+That is powerful, but it also creates a methodological problem:
 
 > **Which parts of this process should we delegate to AI, and which parts should we control ourselves?**
 
@@ -132,8 +147,6 @@ One obvious place to intervene is at the beginning.
 
 Instead of asking an agent to decide **where on the web to search**, we can define the sources ourselves.
 
-For example:
-
 **Known Berlin websites → collect events → structured dataset**
 
 Now we know where the information came from. We can inspect the original pages, repeat the process later, and compare what different sources contribute.
@@ -142,23 +155,45 @@ This changes the role of AI. Rather than asking it to perform the entire search,
 
 ## 5. Building a Controlled Search
 
-We now choose the sources ourselves and use **Codex as a coding agent** to help build the collection process. First understand the overall system; then write a brief and develop it one step at a time.
+We now move from **using an agent** to **developing with an agent**. This requires a different kind of conversation.
+
+If we simply ask a coding agent to *build an event scraper for Tomaso*, it may immediately start making decisions about sources, data structures, libraries and workflow. Some of those decisions may be sensible, but we have again created a black box — this time in the development process.
+
+A more useful approach is to establish three connected things before coding:
+
+![Preparing Agentic Code](Strategy.PNG)
+
+The **brief** defines the intended outcome. The **architecture** explains the system and its execution order. The **roadmap** breaks development into stages that can be implemented and checked one at a time.
+
+These three parts are not a rigid specification written once and then forgotten. They should evolve together. What we learn from a website, an initial scraper or a failed run may change the architecture, the brief or the next development step.
+
+This is the central strategy we will use for agentic coding:
+
+**understand the system → describe the intention → break the work into stages → delegate one stage → inspect → revise**
+
+In a typical workflow, we can discuss the brief, architecture and roadmap with ChatGPT first, before moving into implementation with a coding agent such as Codex. This front-loads some thinking, but it gives us a way to judge what the coding agent produces and prevents the project from becoming a collection of unrelated AI-generated changes.
+
+If you work in a **GitHub repository**, save each working stage as a commit before moving on. These checkpoints let you inspect changes and roll back to a known working version if something goes wrong.
 
 ### 5.1 Overall Architecture
 
 We will build a system that collects event information from selected websites, combines it into a large table, and gives that table to an LLM. The LLM then selects and ranks events that match Tomaso's interests and circumstances.
 
+<!--
 ```mermaid
 flowchart LR
     W[Selected<br/>websites] --> T[Collect information into a table]
     T --> L[LLM selects and ranks<br/>events for Tomaso]
- 
 
-    style W fill:#F1F5F9,stroke:#94A3B8,color:#334155    
+    style W fill:#F1F5F9,stroke:#94A3B8,color:#334155
     style T fill:#D1FAE5,stroke:#059669,color:#064E3B
     style L fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95
-   
 ```
+-->
+
+
+![](Sequence.PNG)
+
 
 Each website needs its own **scraper**: a Python script that extracts event information. Websites organise their pages differently, so each scraper must be adapted to its source. All scrapers return the same set of fields, allowing their results to be added to one shared events table.
 
@@ -166,6 +201,9 @@ Why a table? A website contains navigation, adverts, formatting and other materi
 
 **For this tutorial, we will build just two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
 
+![](architecture.PNG)
+
+<!--
 ```mermaid
 flowchart TD
     B["Berlin.de Events"] --> S1("Scraper 01<br/>Python")
@@ -189,6 +227,9 @@ flowchart TD
     class B,G source;
     linkStyle default stroke:#64748B,stroke-width:1.5px;
 ```
+
+-->
+
 
 **Color key:** Blue = Python script · Green = table · Purple = LLM action.
 
@@ -249,34 +290,5 @@ Develop one stage at a time. The prompts below are starting points; use the shar
 7. **Finally: automate.** Complete and check the manual pipeline before scheduling it.
 
    > The manual pipeline has been checked. Schedule it to run every Monday, using Berlin local dates to collect events from Monday through Sunday of that week. Record failures so we can review incomplete runs.
-
-### Why prepare before coding?
-
-Before implementation, it helps to have three connected parts:
-
-```mermaid
-flowchart TD
-    B("Brief<br/>What should we build, and why?")
-    A("Architecture<br/>How does the system work?<br/>What runs in what order?")
-    R("Roadmap<br/>What will we develop and check,<br/>step by step?")
-
-    B <--> A
-    B <--> R
-    A <--> R
-
-    style B fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95,stroke-width:2px
-    style A fill:#DBEAFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
-    style R fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2px
-```
-
-The **brief** defines the intended outcome. The **architecture** explains the system and its execution order. The **roadmap** sets out the stages in which we will build and check it. Together, they give us a way to judge whether each change still serves the original purpose.
-
-In a typical ChatGPT workflow, we would discuss these in a normal conversation with the LLM before moving into implementation with the coding agent. They do not need to be perfect before we start, but they should be clear enough to guide the next step.
-
-**All three should be reviewed and adjusted during development.** What we learn from a website, an initial scraper or a failed run may change the design or the next development step. Update the relevant parts together and check each revision against the intended outcome. This lets the project evolve without drifting into unrelated features or a collection of changes that no longer work together.
-
-You can skip this preparation, but doing it helps you understand what the agent is building and keep the results aligned with what you wanted to achieve.
-
-If you work in a **GitHub repository**, save each working stage as a commit before moving on. These checkpoints let you inspect changes and roll back to a known working version if something goes wrong. Only changes saved in version control can be recovered this way.
 
 **First we used an agent as the search engine. Now we use an agent to help us construct the search engine.**
