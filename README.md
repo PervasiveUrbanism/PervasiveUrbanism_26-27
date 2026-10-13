@@ -1,23 +1,26 @@
 # Skills Module Pervasive Urbanism 2026–27
 
-![alt text](assets/Landscape.png "Logo Title Text 1")
-*Cartographies of Affect: Between Destinations, 2024/26*
+
 
 # Dates
-|  Nr | Date       | Module     | Topic                                    | Time          | Location              |
-| --: | ---------- | ---------- | ---------------------------------------- | ------------- | --------------------- |
-|   1 | 30.10.2026 | Module 1.1 | Cartographies of Affect: Python 101      | 14:00 - 18:00 | tbc |
-|   2 | 06.11.2026 | Module 2.1 | Prosthetic Clouds: Arduino 101           | 14:00 - 18:00 | tbc |
-|   3 | 20.11.2026 | Module 2.2 | Prosthetic Clouds: Sensors and Actuators | 14:00 - 18:00 | tbc |
-|   4 | 27.11.2026 | Module 3.1 | Textiles - Sensing surfaces              | 10:30 - 16:30 | tbc |
-|   5 | 04.12.2026 | Module 3.2 | Textiles - Sensing surfaces              | 10:30 - 16:30 | tbc|
-|   6 | 11.12.2026 | Module 2.3 | Prosthetic Clouds: Design, Fabrication and Data Communication    | 14:00 - 18:00 | tbc |
-|   7 | 18.12.2026 | Module 1.2 | Cartographies of Affect: Data Mining and Agentic Coding | 14:00 - 18:00 | tbc|
-|   8 | 15.01.2027 | Module 1.3 | Cartographies of Affect: Geodata in Grasshopper | 14:00 - 18:00 | tbc |
+| Nr | Date | Module | Topic | Time | Location |
+| --: | --- | --- | --- | --- | --- |
+| 1 | 06.11.2026 | Module 2.1 | Prosthetic Clouds: Arduino 101 | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 2 | 20.11.2026 | Module 2.2 | Prosthetic Clouds: Sensors and Actuators | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 3 | 27.11.2026 | Module 3.1 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street: rooms 3.01a and 3.01b (10:30 - 13:30); room 5.04 (13:30 - 16:30) |
+| 4 | 04.12.2026 | Module 3.2 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street, rooms 3.01a and 3.01b |
+| 5 | 11.12.2026 | Module 2.3 | Prosthetic Clouds: Design, Fabrication and Data Communication | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 6 | 18.12.2026 | Module 1.1 | Cartographies of Affect: Python 101 | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 7 | 15.01.2027 | Module 1.2 | Cartographies of Affect: Data Mining and Agentic Coding | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 8 | 22.01.2027 | Module 1.3 | Cartographies of Affect: Geodata in Grasshopper | 14:00 - 18:00 | tbc |
+
 
 # SKILLS MODULES
 
 ## Skills Module 1: Cartographies of Affect
+
+![alt text](assets/Landscape.png "Logo Title Text 1")
+*Cartographies of Affect: Between Destinations, 2024/26*
 
 [Module resources](Module-1-Cartographies-of-Affect/README.md)
 
@@ -57,6 +60,11 @@ Document your sources and collection method, organise and check the data, and de
 **Technical execution, research intention, graphic quality and narrative all matter.** Present a clear relationship between your question, the method you chose and the story supported by your results. This work will form part of your presentation and discussion in the final oral examination.
 
 ## Skills Module 2: Prosthetic Clouds
+
+
+![A Playable City: an illuminated wearable on a bridge at night](assets/A_Playable%20_City.png)
+
+*Prosthetic Clouds: A Playable City, 2025/26*
 
 [Module resources](Module-2-Prosthetic-Clouds/README.md)
 
