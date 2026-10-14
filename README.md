@@ -11,8 +11,8 @@
 | 4 | 04.12.2026 | Module 3.2 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street, rooms 3.01a and 3.01b |
 | 5 | 11.12.2026 | Module 2.3 | Prosthetic Clouds: Design, Fabrication and Data Communication | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
 | 6 | 18.12.2026 | Module 1.1 | Cartographies of Affect: Python 101 | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
-| 7 | 15.01.2027 | Module 1.2 | Cartographies of Affect: Data Mining and Agentic Coding | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
-| 8 | 22.01.2027 | Module 1.3 | Cartographies of Affect: Geodata in Grasshopper | 14:00 - 18:00 | tbc |
+| 7 | 15.01.2027 | Module 1.2 | Cartographies of Affect: Data Gathering and Analysis | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 8 | 22.01.2027 | Module 1.3 | Cartographies of Affect: Data Representation | 14:00 - 18:00 | tbc |
 
 
 # SKILLS MODULES
@@ -35,21 +35,21 @@ All tasks will be carried out using a combination of **Python**, **Rhino/Grassho
 An **introduction to Python** — we will explore different IDEs, set up your working environment, and take the first steps in programming.
 This session establishes the **foundation** for all subsequent lessons in this module.
 
-### Skills Module 1.2: Data Mining and Agentic Coding
+### Skills Module 1.2: Data Gathering and Analysis
 
-We will explore how to **collect, organise and analyse urban data in Python**. The exercises introduce **Pandas** for working with tables, graphs for exploring patterns, **Folium** for mapping, the **Flickr API** for collecting geotagged photographs, and text-based **sentiment analysis**.
+We will explore how to **collect, organise and analyse urban data in Python**. The exercises introduce **Pandas** for working with tables, the **Flickr API** for collecting geotagged photographs, and text-based **sentiment analysis**. The focus is on gathering, cleaning, structuring and interpreting existing information.
 
 We will also introduce **agentic coding**, using an AI assistant to help develop a data-collection and analysis workflow. You will learn to define a research question, guide the assistant through manageable tasks, check sources and generated code, and verify that the results answer your original question. The emphasis is on understanding and directing the process.
 
-[Session examples](Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%202%20Datamining%20Python/)
+[Session examples](Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%202%20Data%20Gathering%20and%20Analysis/)
 
-### Skills Module 1.3: Geodata in Grasshopper
+### Skills Module 1.3: Data Representation
 
-This session brings collected data into **Rhino/Grasshopper** for spatial analysis and representation. We will explore importing text and coordinate files, **OpenStreetMap data**, raster images and shapefiles, and using **Heron** to work with mapping and topography. Grid-sampling exercises show how image and terrain values can be translated into geometry, building towards a complete spatial visualisation.
+This session explores how to communicate collected data through **statistical graphs**, interactive maps with **Folium**, and spatial representations in **Rhino/Grasshopper**. We will explore importing text and coordinate files, **OpenStreetMap data**, raster images and shapefiles, and using **Heron** to work with mapping and topography. Grid-sampling exercises show how image and terrain values can be translated into geometry, building towards a complete spatial visualisation.
 
 The examples also introduce **image analysis in Python**, including object detection and image-to-text workflows, as further ways to investigate the content of urban imagery. We will consider how computational findings can inform a map or spatial narrative, and how to communicate them clearly through graphics.
 
-[Session examples](Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%203%20Geodata%20in%20Grasshopper/)
+[Session examples](Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%203%20Data%20Representation/)
 
 ### Module 1 assignment: Urban data investigation
 
