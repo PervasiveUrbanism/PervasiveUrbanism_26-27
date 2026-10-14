@@ -477,7 +477,47 @@ index,latitude,longitude,date_utc,time_utc,gsr
 
 The numbers above are **illustrative**, not live measurements. `date_utc` and `time_utc` are the raw numeric formats returned by TinyGPS++ (`ddmmyy` and `hhmmsscc`, respectively). They are not ISO 8601 timestamps; converting them is a possible later improvement.
 
-**A limitation to understand:** While `readGSR()` performs ten readings with delays, incoming GPS bytes may continue arriving. The UART buffer normally absorbs short gaps, but longer blocking operations can lose data. This is one reason advanced loggers use non-blocking timing and more deliberate sampling strategies.
+## Timing, Buffers and Missing Data
+
+In earlier exercises we often used `delay()` to pause the program. This worked well, and it is still a reasonable starting point for our data logger. But now several components are working at the same time.
+
+**What happens while Arduino reads the GSR sensor?** The GPS receiver keeps sending information. Arduino temporarily stores incoming GPS bytes in a **serial buffer** until our code calls `readGPS()` to process them. If the buffer fills before we read it, some bytes may be lost. This can make a GPS sentence incomplete, so the parser cannot use it.
+
+### How long is too long?
+
+That depends on the receive buffer, the GPS baud rate and how the receiver sends its data. As an illustration, at **9600 baud**, approximately **960 bytes per second** can arrive continuously (allowing 10 bits per byte). A hypothetical **64-byte buffer** would fill in about **67 ms** if it started empty and bytes arrived without interruption.
+
+Our `readGSR()` takes **at least 50 ms** for ten 5 ms delays, plus the time needed to read and process the sensor. This has worked in many similar examples, and GPS data usually arrives in bursts rather than as an uninterrupted stream. **67 ms is not a measured limit for this particular board and receiver**, however: the actual buffer size and timing can differ. A pause that overlaps a long burst may still cause trouble.
+
+### How would we notice?
+
+Watch for missing GPS updates, unusually long gaps between saved records, or a GPS that has a fix but produces fewer records than expected. TinyGPS++ provides diagnostic counters such as `gps.failedChecksum()` and `gps.passedChecksum()`. A failed checksum can indicate corrupted data, although it does not by itself prove that the buffer overflowed.
+
+### A simple improvement
+
+Instead of reading all ten GSR samples without checking the GPS, **process waiting GPS bytes between samples**:
+
+```cpp
+int readGSR() {
+  long sum = 0;
+
+  for (int i = 0; i < 10; i++) {
+    sum += analogRead(GSR_PIN);
+    readGPS();  // Empty the GPS receive buffer regularly
+    delay(5);
+  }
+
+  return sum / 10;
+}
+```
+
+Replace the original `readGSR()` function in the integrated sketch with this version. Each pause is now roughly **5 ms**, rather than one uninterrupted block of approximately 50 ms. This reduces the risk of missing GPS data, though it does not remove it entirely: SD card writes and other operations can also take time.
+
+**Try it:** Compare the frequency of saved GPS records before and after this change. If the logger works reliably with both versions, that is also a useful result: a potential limitation is not necessarily an observed failure.
+
+For more complex projects, `millis()` can be used to schedule repeated activities without `delay()`. This is called **non-blocking programming**. It lets the program check several components frequently rather than making one wait for another.
+
+The broader lesson is that a program must consider not only **what** each function does, but also **how long it takes**.
 
 ## Testing the integrated device
 
