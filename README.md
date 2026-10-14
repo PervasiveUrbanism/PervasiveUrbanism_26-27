@@ -142,21 +142,21 @@ If you are new to GitHub, we recommend installing [GitHub Desktop](https://deskt
 
 # Foundation Skills for RC15 — LinkedIn Learning
 
-The first weeks of RC15 should be used to become familiar with the basic software and technical skills needed for the studio. **The three RC15 Foundations learning paths below are required for all students.** Complete all courses within these paths in full during the first three weeks.
+The first weeks of RC15 should be used to become familiar with the basic software and technical skills needed for the studio. **The three RC15 Foundations learning paths below are required for all students.** Complete each learning path by its deadline, ahead of the relevant skills workshops.
 
 | Learning path | Focus | Completion deadline |
 | --- | --- | --- |
-| RC15 Foundations 1 – 3D Modelling | Rhino and Grasshopper | 3 November 2026 |
-| RC15 Foundations 2 – Coding and Physical Computing | Python and Arduino | 10 November 2026 |
-| RC15 Foundations 3 – Visual Communication & Presentation | Layout, colour, storytelling and confident presentation | 17 November 2026 |
+| RC15 Foundations 2 – Coding and Physical Computing | Python and Arduino | **30 October 2026** |
+| RC15 Foundations 1 – 3D Modelling | Rhino and Grasshopper | **13 November 2026** |
+| RC15 Foundations 3 – Visual Communication & Presentation | Layout, colour, storytelling and confident presentation | **26 November 2026** |
 
 **RC15 Recommended – Mapping with QGIS** is an additional recommended path, with no compulsory deadline. Working with maps and spatial data is an important part of RC15; students unfamiliar with QGIS are encouraged to complete the introductory content before their first mapping task, and explore the advanced content when relevant to their projects.
 
 Access to **LinkedIn Learning is included through your UCL account**. Sign in using your UCL email address. A separate invitation will be sent to you to join the learning paths. **We can check your viewing and completion progress through LinkedIn Learning**, so please use your UCL account when completing the courses.
 
-The aim is twofold: to establish a shared foundation in software skills across the studio, and to give you time to become familiar with the key technical skills that are central to RC15. Working through these courses early will help you engage with the studio's methods and develop your projects with greater independence.
+The aim is twofold: to establish a shared foundation in software skills across the studio, and to give you time to become familiar with the key technical skills that are central to RC15. The sequence is aligned with the workshop calendar: complete Coding and Physical Computing before Arduino 101 on 6 November; then 3D Modelling, followed by Visual Communication & Presentation. Working through these courses early will help you engage with the studio's methods and develop your projects with greater independence.
 
-The skills tutorials will revisit some of these basics, including introductions to **Python and Arduino**. However, tutorial time is valuable, and we cannot devote every session to comprehensive software introductions. Please familiarise yourself with the relevant course content **before each tutorial**, even if the learning path's completion deadline falls later, so that we can use our time together for questions, experimentation and applying these skills to your work.
+The skills tutorials will revisit some of these basics, including introductions to **Python and Arduino**. However, tutorial time is valuable, and we cannot devote every session to comprehensive software introductions. Please complete the learning paths by the dates above so that we can use tutorial time for questions, experimentation and applying these skills to your work.
 
 # AI-Assisted Coding and Assessment
 
