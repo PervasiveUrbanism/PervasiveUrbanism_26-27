@@ -63,9 +63,13 @@ LLMs may invent library functions, confuse Arduino boards or propose hardware th
 
 ## A small canvas for programmable light
 
-The Uno R4 WiFi includes a **12-column × 8-row monochrome LED matrix**. Its 96 LEDs allow us to experiment with symbols, sequences, patterns and animations without any wiring.
+The Arduino Uno R4 WiFi has a small LED matrix built directly into the board. It consists of **96 LEDs arranged in 12 columns and 8 rows**. Think of it as a tiny screen in which every LED represents one pixel. Unlike a conventional colour display, each pixel is simply illuminated or switched off.
 
-The onboard matrix is not an individually addressable RGB display. Work instead with **position, rhythm, repetition, density and movement**.
+The Arduino controls the matrix through a program. We can define which LEDs should be illuminated to create a **frame**—a single image or pattern. By displaying different frames in quick succession, we create the impression of movement. Alternatively, we can use mathematical rules to generate changing patterns, such as waves, pulses or randomly moving points.
+
+The matrix is controlled using the **`Arduino_LED_Matrix` library**, which provides functions for displaying patterns and animations. We do not need to control the individual electrical connections ourselves. Instead, we can concentrate on designing the visual behaviour.
+
+Although the resolution is limited, the matrix is an excellent starting point for exploring how light can communicate through **position, rhythm, repetition, density and movement**.
 
 References: [Arduino Uno R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/) · [Arduino LED matrix tutorial](https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix/).
 
