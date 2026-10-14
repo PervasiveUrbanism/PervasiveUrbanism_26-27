@@ -201,61 +201,90 @@ The purpose is to begin thinking of **light as programmable information and as a
 
 ---
 
-# 004 — Modify the Day 2 Data Logger
+# 004 — Add an LED Status Display to the Day 2 Logger
 
-## Extend a system you already understand
+**Compulsory practical exercise · 90 minutes**
 
-On Day 2 we developed a modular logger:
+## The brief
 
-- `readGSR()` — acquire skin-response readings.
-- `readGPS()` — receive and parse location/time data.
-- `saveData()` — write a CSV record to the SD card.
+On Day 2, we built a data logger with a GSR sensor, GPS receiver and SD card. Today, add a **visual status interface** using the Uno R4 WiFi's onboard **12 × 8 LED matrix**.
 
-Today we use AI to **modify that working system**, not replace it with a completely unfamiliar sketch.
+The display must reflect what the logger is **actually doing**. It is not a decorative animation running independently of the sensors and SD card. Keep the existing logger working, including its CSV output.
 
-## Choose one modification
+### Required states
 
-**Option A — Communicate through light.** Display the logger's state on the onboard LED matrix: waiting for GPS, recording, or SD-card error. This connects directly to the earlier LED exercises.
+| State | Trigger in the program | Visual intention |
+| --- | --- | --- |
+| **Waiting for GPS** | SD card initialised, but no valid GPS fix | A calm, repeating pulse |
+| **Recording** | GPS fix available and the latest SD write succeeded | A travelling line or wave |
+| **SD error** | SD initialisation fails, or a data write fails | An unmistakable warning pattern |
 
-**Option B — Record without GPS.** Continue recording GSR data at a defined interval even without a valid GPS fix. Mark missing location values clearly in the CSV.
+**Priority:** SD error overrides other states. If the SD card is healthy but the GPS fix is lost, return to Waiting. Only show Recording after a successful write, not merely because a GPS fix exists.
 
-**Option C — Improve timing.** Explore a `millis()`-based approach that avoids unnecessary blocking delays and allows more regular GPS processing and GSR sampling.
+These are starting points for the visual language: you may design different animations, provided the three states are clearly distinguishable.
 
-**Option D — Your own extension.** Propose a change that can be demonstrated and tested within the workshop.
+## Stage 1 — Understand the existing code (15 minutes)
 
-### Stage 1 — Discuss before coding
+Open your **working Day 2 sketch** and locate:
 
-Show the LLM the **actual Day 2 sketch**. Explain what works, what you want to change and which parts must remain intact.
+- `readGPS()`: where does the program determine whether a valid GPS fix is available?
+- `saveData()`: how can it report that a CSV write succeeded or failed?
+- `setup()`: where is SD card initialisation checked?
+- `loop()`: where should the status display be updated?
 
-> We have a working Arduino Uno R4 WiFi logger using GSR, GPS and an SD card. It is organised into `readGSR()`, `readGPS()` and `saveData()`. I want to add an LED-matrix status display. Do not generate code yet. Help me identify the required states, which functions should change, and any conflicts with GPS reception or SD writing.
+Discuss this with the LLM **without requesting code**:
 
-### Stage 2 — Define success
+> I have a working Arduino Uno R4 WiFi data logger with GSR, GPS and SD card modules. I want to add a status display on the onboard 12 × 8 LED matrix. Before generating code, identify where my existing sketch determines GPS validity and SD write success. Suggest how to represent Waiting, Recording and SD Error without disrupting sampling or logging. Preserve the current pins and CSV structure.
 
-For Option A, example tests are:
+Do not assume that a GPS receiver providing serial data means it has a valid **fix**.
 
-| Test | Expected result |
-| --- | --- |
-| Power on without a GPS fix | Waiting pattern |
-| Valid GPS data and successful SD writes | Recording pattern |
-| SD card unavailable at startup | Distinct error signal |
+## Stage 2 — Specify the interface (15 minutes)
 
-Discuss transitions and priorities: should a warning interrupt another animation? Should a pattern restart when its state changes?
+Sketch three patterns on a 12 × 8 grid or describe them in words. Decide:
 
-### Stage 3 — Change the smallest useful part
+1. How will each state be visually recognisable?
+2. What happens when the state changes?
+3. Which state has priority?
+4. How frequently must the animation update?
 
-Ask the LLM to **preserve pin assignments, CSV structure and existing modules** unless a change is essential. Request an explanation of each edit. Compare new and old versions.
+Ask the LLM to propose a **small, separate display module** (for example `updateStatusDisplay()`) and a clear way of representing state. An `enum` such as `WAITING_FOR_GPS`, `RECORDING`, `SD_ERROR` is one possible approach.
 
-### Stage 4 — Test the complete system
+## Stage 3 — Implement incrementally (30 minutes)
 
-Upload the code and run the agreed tests. **Check the CSV data as well as the LED display.** An attractive animation is not a successful modification if it interrupts logging.
+1. **Start with the Day 2 sketch**, not a rewritten logger.
+2. Add the matrix library and initialise it in `setup()`.
+3. Implement the three status patterns, initially switching between them with a temporary test variable.
+4. Connect the patterns to **real GPS validity and SD success/failure conditions**.
+5. Use a **non-blocking animation update**, based on `millis()` or equivalent scheduling, rather than long `delay()` calls. GPS data must still be processed and sensor data logged.
 
-When something fails, describe the observed behaviour and relevant error messages. Ask for a diagnosis before requesting another full rewrite.
+Ask the LLM to explain every change. Preserve the original pin assignments, existing functions and CSV columns. Make one change at a time and compile frequently.
 
-### Stage 5 — Demonstrate and explain
+**Important:** A status such as Recording should be based on an actual successful SD write. Decide what should appear before the first successful write; do not invent a success state.
 
-Be ready to show the original behaviour, intended modification, actual result and at least one design or technical decision you can explain independently.
+## Stage 4 — Test the whole system (20 minutes)
 
-**Outcome:** One tested extension of the Day 2 logger, with understandable changes and a brief record of your reasoning.
+| Test | Expected result | Evidence |
+| --- | --- | --- |
+| SD card ready, GPS has no fix | Waiting animation | Observe the matrix |
+| Valid GPS fix and confirmed successful CSV write | Recording animation | Observe matrix **and inspect CSV** |
+| SD card missing at startup | Error animation | Observe the matrix |
+| GPS fix lost after recording | Returns to Waiting | Observe transition |
+| Normal operation for several minutes | Animation continues without interrupting logging | Check timestamps and rows in CSV |
+
+**Practical note:** A real GPS fix may be difficult indoors. If so, verify the visual state logic using a **temporary simulated GPS-validity flag**, clearly label this as a simulation, and test with real GPS when reception is available. Do not report a simulated test as a successful GPS test.
+
+If an error occurs, describe the **observed behaviour** and relevant compiler or serial output to the LLM before requesting a fix.
+
+## Stage 5 — Demonstrate and reflect (10 minutes)
+
+Show your three states and explain:
+
+- Which existing functions you changed, and why.
+- How the program knows which state to display.
+- How the animation avoids blocking GPS reception and SD logging.
+- What you tested on real hardware, and what (if anything) was simulated.
+
+**Deliverable:** The modified Arduino sketch, a short state specification, and evidence that the CSV logger still works.
 
 ---
 
@@ -297,6 +326,97 @@ flowchart LR
 - What did you learn only by testing the physical Arduino?
 - Which actions would you allow an agent to perform automatically, and which should require your approval?
 
+## Prepared demonstration — Arduino CLI and MCP (Windows)
+
+**The installation is optional for students.** The tutor should configure and test this on a Windows demonstration computer *before class*. The regular Arduino IDE workflow remains available to everyone, including students without an MCP-compatible desktop AI client.
+
+### What the tools do
+
+- **Arduino CLI:** Compiles, uploads and manages Arduino boards from PowerShell instead of using IDE buttons.
+- **Arduino MCP server:** Exposes selected CLI and serial operations as tools to an AI application.
+- **MCP-compatible desktop client:** Allows the assistant to request those operations. A browser-only chat session is not sufficient for this particular local setup.
+
+The example below uses the third-party [HardwareMCP Arduino MCP Server](https://github.com/hardware-mcp/arduino-mcp-server). It is **not an official Arduino product** and has not yet been classroom-tested.
+
+### Windows preparation (tutor / optional student appendix)
+
+**1. Install Arduino CLI.** In PowerShell:
+
+```powershell
+winget install --id ArduinoSA.CLI -e
+```
+
+If this package is unavailable, download the Windows binary from the [official Arduino CLI installation guide](https://docs.arduino.cc/arduino-cli/installation/), extract it, and add its directory to the Windows PATH. Open a **new** PowerShell window:
+
+```powershell
+arduino-cli version
+arduino-cli core update-index
+arduino-cli core install arduino:renesas_uno
+arduino-cli board list
+```
+
+Connect the Uno R4 WiFi by USB and note its port (for example `COM6`). The board identifier (FQBN) is `arduino:renesas_uno:unor4wifi`.
+
+**2. Verify the CLI without AI.** Use a copy of a working sketch in its own folder:
+
+```powershell
+arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi "C:\ArduinoDemo\MatrixDemo"
+arduino-cli upload -p COM6 --fqbn arduino:renesas_uno:unor4wifi "C:\ArduinoDemo\MatrixDemo"
+```
+
+Replace `COM6` with the detected port. If compilation fails, resolve missing libraries or sketch errors **before** adding MCP.
+
+**3. Install Node.js LTS** from [nodejs.org](https://nodejs.org/) (the server requires Node.js 20 or later). Restart PowerShell and verify:
+
+```powershell
+node --version
+npm --version
+npm install -g arduino-mcp-server
+```
+
+**4. Configure Claude Desktop (example local MCP client).** Install Claude Desktop for Windows, then open `%APPDATA%\Claude\claude_desktop_config.json` in a text editor. Add or merge the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "arduino": {
+      "command": "npx.cmd",
+      "args": ["-y", "arduino-mcp-server"],
+      "env": {
+        "ARDUINO_CLI_PATH": "arduino-cli",
+        "ARDUINO_SKETCH_ROOT": "C:\\ArduinoDemo"
+      }
+    }
+  }
+}
+```
+
+The `npx.cmd` executable is used for Windows. If the client cannot find `npx.cmd` or `arduino-cli`, locate them with `where.exe npx` and `where.exe arduino-cli` in PowerShell, then configure the absolute executable paths. Restart Claude Desktop after editing the configuration.
+
+**5. Demonstrate the connection.** Ask the assistant to:
+
+1. Check whether Arduino CLI is available and list connected boards.
+2. Compile the prepared matrix sketch.
+3. Show any compiler diagnostics and propose a minimal correction.
+4. **Ask permission before uploading** the sketch to the connected Uno R4 WiFi.
+5. Upload and observe the physical LED animation.
+
+Close Arduino IDE's Serial Monitor before opening a serial session through MCP, as two programs may not be able to use the same COM port simultaneously.
+
+**Troubleshooting:** Check PATH, COM port, correct board core, JSON syntax, sketch folder location, and whether another program is using the serial port. Do not troubleshoot individual student installations during the compulsory logger exercise.
+
+### Timing for Exercise 005 (30 minutes)
+
+| Time | Activity |
+| --- | --- |
+| 5 minutes | Explain Arduino CLI, MCP and the local client |
+| 15 minutes | Live demonstration: inspect → compile → correct → approve upload |
+| 10 minutes | Discuss what an agent can automate, what still requires judgement, and optional installation |
+
+**Teacher preparation:** Rehearse the entire workflow on the actual Windows demonstration computer and Uno R4 WiFi. Have a working sketch, a deliberately small compiler error, a known COM port and the Arduino IDE fallback ready. These installation instructions are a **proposed setup**, not a verified report of a successful classroom test.
+
+---
+
 ## Before leaving
 
 Save your final sketch, specification and evidence of testing. Keep the original Day 2 sketch so you can compare versions and restore a working system.
@@ -311,3 +431,13 @@ Save your final sketch, specification and evidence of testing. Keep the original
 - [Arduino LED matrix tutorial](https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix/)
 - [Arduino language reference](https://docs.arduino.cc/language-reference/)
 - Earlier **Design to Fabrication** tutorials in this repository cover Arduino/Python/Grasshopper connections, OSC, fabrication and PCB design. These remain reference material rather than required exercises for today's workshop.
+
+---
+
+# Appendix — Further Data Logger Extensions (Optional)
+
+These are **not part of the compulsory 90-minute Exercise 004**. Try them after the workshop if you want to develop the logger further.
+
+- **Continue logging without GPS:** Save GSR readings at a defined interval and mark missing coordinates clearly in the CSV.
+- **Improve timing:** Explore a `millis()`-based scheduler to reduce blocking and improve GPS reception while sampling GSR.
+- **Your own extension:** Define a new behaviour, specify how it will be tested, and preserve the logger's existing modular structure.
