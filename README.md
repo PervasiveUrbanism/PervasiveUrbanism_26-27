@@ -146,7 +146,7 @@ The first weeks of RC15 should be used to become familiar with the basic softwar
 
 | Learning path | Focus | Completion deadline |
 | --- | --- | --- |
-| RC15 Foundations 2 – Coding and Physical Computing | Python and Arduino | **30 October 2026** |
+| RC15 Foundations 2 – Coding and Physical Computing | Python and Arduino | **5 November 2026** |
 | RC15 Foundations 1 – 3D Modelling | Rhino and Grasshopper | **13 November 2026** |
 | RC15 Foundations 3 – Visual Communication & Presentation | Layout, colour, storytelling and confident presentation | **26 November 2026** |
 
