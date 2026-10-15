@@ -271,6 +271,8 @@ Serial.println(51.540530, 6);
 
 Use a card formatted with a filesystem supported by the **SD library**, typically **FAT16 or FAT32**. Many newer or larger cards arrive formatted as exFAT and may not work with this library. Formatting **erases the card**, so back up its contents first. Check the format with your operating system or an appropriate formatting tool.
 
+**Formatting with Rufus (Windows).** You may remember that Windows does not always offer **FAT32** when formatting larger SD cards (particularly cards above 32 GB); it commonly offers **exFAT** instead. This is still a relevant issue for the standard Arduino `SD` library, which expects a FAT filesystem. [Rufus](https://rufus.ie/) is a Windows utility best known for preparing bootable USB drives, but it can also format supported removable media. If you use it for an Arduino SD card, carefully select the **correct device**, choose **FAT32** where available, and do **not** select a bootable image—the goal is an ordinary data card, not a boot disk. Rufus may not list every SD card reader or offer FAT32 for every device; the [SD Association's SD Memory Card Formatter](https://www.sdcard.org/downloads/formatter/) is another option for preparing cards, though it normally follows the card's standard filesystem (which may be exFAT for larger cards). For this workshop, a **small microSD card (up to 32 GB) formatted as FAT32** is usually the simplest choice. **Formatting permanently erases existing files**, so double-check the selected drive before proceeding.
+
 ## First SD card sketch
 
 ```cpp
