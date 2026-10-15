@@ -326,6 +326,139 @@ flowchart LR
 - What did you learn only by testing the physical Arduino?
 - Which actions would you allow an agent to perform automatically, and which should require your approval?
 
+## Arduino CLI — From the IDE to the Command Line
+
+### What is Arduino CLI?
+
+**CLI** stands for *Command-Line Interface*. Arduino CLI is an official Arduino tool for managing boards and libraries, compiling sketches, uploading programs and reading serial output. Instead of clicking buttons in the Arduino IDE, we type commands into a terminal.
+
+**Arduino CLI is not a code editor.** We still write our Arduino program in a `.ino` file using an editor such as Arduino IDE, VS Code or even Notepad. The CLI takes that source code, compiles it for a particular board and uploads the resulting program. It can also create an empty sketch, but it does not provide an environment for editing code.
+
+| Tool | What it does |
+| --- | --- |
+| **Code editor** | Create and change the `.ino` source file |
+| **Arduino CLI** | Install board support, compile, upload and monitor |
+| **Arduino board** | Run the uploaded program |
+
+The Arduino IDE combines editing and build/upload operations in one graphical application. Arduino CLI exposes the latter operations as commands. This is useful for repeatable workflows, scripts and AI assistants connected to suitable tools.
+
+### Why PowerShell?
+
+On Windows, we will use **PowerShell**, a terminal and scripting environment. A *shell* accepts a command, starts the requested program and displays its output. PowerShell is **not** part of Arduino CLI: the CLI also works in Windows Command Prompt, macOS Terminal and Linux shells.
+
+For example:
+
+```powershell
+arduino-cli version
+```
+
+Here `arduino-cli` is the program and `version` is the operation we ask it to perform. PowerShell displays the result.
+
+### Installing Arduino CLI on Windows
+
+In PowerShell, enter:
+
+```powershell
+winget install --id ArduinoSA.CLI -e
+```
+
+**Why this command?** `winget` is Windows Package Manager: it installs software from a package catalogue. `install` requests an installation; `--id ArduinoSA.CLI` identifies the package; and `-e` requires an exact identifier match. This is more repeatable than manually downloading and placing executable files. If `winget` is unavailable, use the [official Arduino CLI installation instructions](https://docs.arduino.cc/arduino-cli/installation/).
+
+Open a **new PowerShell window** after installation and check:
+
+```powershell
+arduino-cli version
+```
+
+If Windows cannot find `arduino-cli`, check whether the executable's directory is on the **PATH**—the list of folders Windows searches when you type a program name.
+
+### Essential commands
+
+| Command | Purpose |
+| --- | --- |
+| `arduino-cli help` | Show commands and help |
+| `arduino-cli version` | Check the installation |
+| `arduino-cli core update-index` | Refresh the board-platform catalogue |
+| `arduino-cli core install arduino:renesas_uno` | Install Uno R4 board support |
+| `arduino-cli core list` | List installed board platforms |
+| `arduino-cli board list` | Find connected boards and ports |
+| `arduino-cli sketch new MySketch` | Create a folder with a starter `.ino` file |
+| `arduino-cli compile` | Compile source code and report errors |
+| `arduino-cli upload` | Upload a compiled sketch to the board |
+| `arduino-cli lib search <name>` | Search for a library |
+| `arduino-cli lib install <name>` | Install a library |
+| `arduino-cli monitor` | Read serial output |
+
+Use `arduino-cli <command> --help` to explore a command's arguments.
+
+### Practical exercise — Compile and upload without the IDE
+
+**1. Prepare the tool and board support:**
+
+```powershell
+arduino-cli version
+arduino-cli core update-index
+arduino-cli core install arduino:renesas_uno
+arduino-cli board list
+```
+
+Connect the **Uno R4 WiFi** with a USB data cable. Note the port shown by `board list` (for example, `COM6`).
+
+**2. Create a sketch:**
+
+```powershell
+arduino-cli sketch new MyFirstSketch
+```
+
+Open `MyFirstSketch/MyFirstSketch.ino` in your preferred text editor. Replace its contents with:
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println("Hello from Arduino!");
+  delay(1000);
+}
+```
+
+**3. Compile the sketch:**
+
+```powershell
+arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi MyFirstSketch
+```
+
+The **FQBN** (*Fully Qualified Board Name*) identifies the target board. Here it is `arduino:renesas_uno:unor4wifi`. Compilation checks the code and builds a program for that hardware; it does **not** upload anything.
+
+**4. Upload the sketch:**
+
+```powershell
+arduino-cli upload -p COM6 --fqbn arduino:renesas_uno:unor4wifi MyFirstSketch
+```
+
+Replace `COM6` with your actual port. Uploading transfers the program to the physical board.
+
+**5. Observe the result:**
+
+```powershell
+arduino-cli monitor -p COM6 -c baudrate=9600
+```
+
+The board should print a message every second. Close any other Serial Monitor before opening this one; the port may not be shareable. Use **Ctrl+C** to stop monitoring.
+
+**Try it:** Change the message in your editor. What must you do before the board runs the new version? Then deliberately introduce a small syntax error, compile again and read the diagnostic message.
+
+### Why this matters for AI and MCP
+
+The sequence is now explicit:
+
+**Editor → Arduino CLI compile → Arduino CLI upload → Physical board**
+
+An AI assistant with **file-editing tools** could modify the sketch. With an appropriate **command-execution tool**, it could request a CLI compilation, inspect compiler errors and propose a correction. An MCP server is one possible way to expose these capabilities to an AI application. The CLI itself does not generate code, and an LLM does not automatically have permission to run commands or upload to hardware.
+
+In the following demonstration, we use this distinction to understand what the AI assistant does, what the tools do and what still requires human observation and approval.
+
 ## Prepared demonstration — Arduino CLI and MCP (Windows)
 
 **The installation is optional for students.** The tutor should configure and test this on a Windows demonstration computer *before class*. The regular Arduino IDE workflow remains available to everyone, including students without an MCP-compatible desktop AI client.
