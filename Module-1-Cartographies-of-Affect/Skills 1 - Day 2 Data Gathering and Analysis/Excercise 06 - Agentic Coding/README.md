@@ -109,6 +109,8 @@ Checking the results can change the answer. An apparently suitable creative work
 
 More importantly, agentic search is **not guaranteed to be factually correct**. A result may contain an incorrect date, an outdated or broken link, a wrong address, or occasionally an event that cannot be verified at all. Better instructions — for example, requiring original source pages and asking the agent to verify each event — can reduce these errors, but they cannot remove the risk completely. ChatGPT itself warns that it can make mistakes and that important information should be checked.
 
+![ChatGPTMistakes](Mistakes.png)
+
 For casual discovery, a result that is *mostly correct* may still be useful. For a data-collection workflow, however, **mostly correct is not good enough**. A few invented or incorrect records contaminate the dataset and may affect everything that happens afterwards.
 
 This gives us a reason to look beyond the quality of the recommendations themselves. The problem is not simply whether the answer looks convincing; it is that the **method is opaque**.
@@ -179,18 +181,6 @@ If you work in a **GitHub repository**, save each working stage as a commit befo
 
 We will build a system that collects event information from selected websites, combines it into a large table, and gives that table to an LLM. The LLM then selects and ranks events that match Tomaso's interests and circumstances.
 
-<!--
-```mermaid
-flowchart LR
-    W[Selected<br/>websites] --> T[Collect information into a table]
-    T --> L[LLM selects and ranks<br/>events for Tomaso]
-
-    style W fill:#F1F5F9,stroke:#94A3B8,color:#334155
-    style T fill:#D1FAE5,stroke:#059669,color:#064E3B
-    style L fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95
-```
--->
-
 
 ![](Sequence.PNG)
 
@@ -202,34 +192,6 @@ Why a table? A website contains navigation, adverts, formatting and other materi
 **For this tutorial, we will build just two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
 
 ![](architecture.PNG)
-
-<!--
-```mermaid
-flowchart TD
-    B["Berlin.de Events"] --> S1("Scraper 01<br/>Python")
-    G["Gratis in Berlin"] --> S2("Scraper 02<br/>Python")
-    S1 -->|Append records| R[("Raw events table")]
-    S2 -->|Append records| R
-    R --> A("Clean and validate addresses<br/>Write short English descriptions<br/>LLM")
-    A --> C("Geocode missing coordinates<br/>Python")
-    C --> E[("Enriched events table<br/>Coordinates and English descriptions")]
-    E --> L("Reconcile duplicates<br/>Evaluate and rank for Tomaso<br/>LLM")
-    L --> N[("Daily recommendations<br/>for Tomaso")]
-
-    classDef python fill:#DBEAFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px;
-    classDef table fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2px;
-    classDef llm fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95,stroke-width:2px;
-    classDef source fill:#F1F5F9,stroke:#94A3B8,color:#334155,stroke-width:1px;
-
-    class S1,S2,C python;
-    class R,E,N table;
-    class A,L llm;
-    class B,G source;
-    linkStyle default stroke:#64748B,stroke-width:1.5px;
-```
-
--->
-
 
 **Color key:** Blue = Python script · Green = table · Purple = LLM action.
 
