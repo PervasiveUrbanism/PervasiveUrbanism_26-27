@@ -53,7 +53,94 @@ Students may already know the Raspberry Pi, but the two devices are designed for
 
 Neither device is universally better. Some newer products also combine microcontrollers and computer-like capabilities, so the distinction is not absolute.
 
-## 2. The Arduino language: write, compile, upload, run
+## 2. From Sensors to Spatial Ideas
+
+Before we begin programming, consider what a microcontroller makes possible. Arduino can connect **inputs** (what a device senses) with **outputs** (how it responds). In an urban investigation, that might mean recording a walk, making an invisible condition perceptible, or extending the body's capacity to sense its surroundings.
+
+The ambition is not simply to attach electronics to clothing. Ask what the device reveals, how it changes the wearer's experience, and whether its measurements support the question being investigated.
+
+### Discover the world of sensors
+
+A sensor translates a physical phenomenon into an electrical signal or digital measurement. Different sensors reveal different aspects of the environment or body; they also introduce different limitations.
+
+| Sensor | What it detects | Possible experiment | What to watch out for |
+| --- | --- | --- | --- |
+| **Light sensor (LDR / BH1750)** | Ambient illumination | A wearable that responds to changing light along a route | Direction, shadows and sensor placement affect readings |
+| **Microphone / sound sensor** | Sound waveform or relative sound level | A device that responds to the rhythm of a street | A basic microphone does **not** provide calibrated decibel measurements |
+| **Accelerometer / gyroscope (IMU)** | Acceleration and rotation | A garment responding to walking, turning or posture | Movement signals require interpretation; orientation may drift |
+| **GPS / GNSS receiver** | Position and time | A portable logger documenting an urban journey | Poor reception indoors or between tall buildings; location is approximate |
+| **Temperature / humidity sensor** | Local thermal and moisture conditions | Comparing microclimates while walking | Body heat and enclosure design can distort measurements |
+| **Particulate-matter sensor (PM2.5 / PM10)** | Airborne particle concentrations | Exploring differences between traffic streets and parks | Needs airflow, power and care with interpretation; not a complete air-quality assessment |
+| **Distance sensor (ultrasonic / time-of-flight)** | Distance to nearby surfaces | A wearable that signals approaching obstacles | Range and accuracy depend on surface and environment |
+| **Capacitive touch sensor** | Changes in electrical capacitance | Interactive fabric patches or responsive surfaces | Moisture, wiring and body contact affect behaviour |
+| **Flex / bend sensor** | Bending of a strip or element | Responsive whiskers, sleeves or articulated surfaces | Measures deformation, not a direct distance or force |
+| **Pressure / force sensor** | Applied pressure or contact force | Detecting steps, grip or pressure on a garment | Often requires calibration and repeatable mounting |
+| **GSR / skin conductance sensor** | Changes in electrical conductance of the skin | Recording bodily responses during a walk | **Does not measure emotion directly**; contact, movement and individuals differ |
+
+Two examples of the components we will actually use in **Day 2**:
+
+<img src="../Skills%202%20-%20Day%202%20Sensors%20and%20Actuators/images/gsr.jpg" alt="GSR sensor and electrodes" width="240">
+
+*GSR sensor: records changes in skin conductance, not a direct measure of emotion.*
+
+<img src="../Skills%202%20-%20Day%202%20Sensors%20and%20Actuators/images/grove_gps.jpg" alt="Grove GPS receiver module" width="240">
+
+*GPS receiver: provides position and time, which can give sensor readings a spatial context.*
+
+**Analogue or digital?** Some sensors produce a changing voltage that Arduino reads with `analogRead()`. Others contain their own electronics and send measurements over a digital interface such as **I²C, UART or SPI**. The connector shape alone does not identify the protocol. We will investigate these distinctions in Day 2.
+
+### Arduino can also act: outputs and actuators
+
+Sensors are only half the story. A responsive object might communicate through **LEDs and addressable light strips**, a **small display**, **vibration motors**, **speakers**, or **servos** that move a physical element. Think about whether the response should be visible to others, felt privately by the wearer, or recorded for later analysis. Motors and high-power LEDs often require their own power supply and driver circuitry; they cannot necessarily be connected directly to an Arduino pin.
+
+### Places to look for inspiration
+
+- [**Instructables — Wearable Electronics Projects**](https://www.instructables.com/circuits/wearables/projects): a broad collection of wearable experiments combining electronics, unusual materials and the body. Browse multiple examples rather than copying one.
+- [**Arduino Project Hub**](https://projecthub.arduino.cc/): documented projects with code, wiring and component lists.
+- [**Adafruit Learning System**](https://learn.adafruit.com/): accessible guides to sensors, programmable light and wearable electronics.
+- [**Kobakant — How To Get What You Want**](https://www.kobakant.at/DIY/): electronic textiles, soft circuits and experimental material techniques, especially relevant to our **Sensing Surfaces** workshop.
+- [**Hackster.io**](https://www.hackster.io/): a large collection of interactive hardware prototypes and project documentation.
+
+**When browsing:** Identify the **input → process → output** relationship. What is genuinely sensed? What happens in response? What makes the device interesting beyond the electronics?
+
+### Quick exercise — Invent a prosthetic sense (15–20 minutes)
+
+In groups of two or three, choose **one urban phenomenon** you want to investigate, **one sensor** and **one form of response**. Sketch a device that could be worn or carried. Show where the sensor sits, how it relates to the body, and how the wearer would experience the output.
+
+Try to answer four questions:
+
+1. **What are we trying to perceive?** For example, light, proximity, movement or an environmental change.
+2. **What can the sensor actually measure?** Distinguish the physical reading from the interpretation you hope to make.
+3. **How does the device respond?** Light, vibration, movement, sound or data recording?
+4. **Why is it a wearable?** How does its position on the body change the experience or measurement?
+
+**Deliverable:** One annotated sketch and a short description using the structure: *“When the device detects …, it responds by …, allowing the wearer to …”*.
+
+Keep the idea ambitious but the first prototype simple. The later **Sensing Surfaces** workshops will help explore how these electronic behaviours might become part of a textile or articulated wearable.
+
+## 3. Choosing a Board
+
+Not every Arduino-compatible board is equally suitable for every prototype. A development board is the platform that runs your program and connects sensors and outputs. Choosing one involves trade-offs between **size, power, connectivity, available pins and ease of use**.
+
+| Board or family | Strength | Considerations | Potential use |
+| --- | --- | --- | --- |
+| **Arduino Uno R4 WiFi** | Excellent teaching platform; 5 V I/O, built-in LED matrix, USB-C and wireless hardware | Larger than most wearable boards; battery integration needs planning | Learning, bench prototypes and our shared workshop exercises |
+| **Arduino Nano family** | Small form factor with Arduino tooling | Features and operating voltages vary substantially by model | Compact sensor prototypes |
+| **Adafruit Feather family** | Compact boards, many wireless variants and battery-oriented designs | Check each model's voltage, charging support and pinout | Wearable or portable prototypes |
+| **ESP32 development boards** | Wi-Fi/Bluetooth capabilities and low-cost options | Usually 3.3 V logic; power consumption and sleep behaviour vary | Connected devices and wireless experiments |
+| **Arduino Mega / Giga** | More I/O and room for complex systems | Physically larger and generally less appropriate for a small wearable | Large multi-sensor installations |
+
+![Arduino Uno R4 WiFi development board](images/arduino-uno-r4-wifi-arduino.jpg)
+
+*Our shared platform: the Arduino Uno R4 WiFi. Its size makes it easy to experiment with, even if a later wearable may need a smaller board.*
+
+**Important:** “Arduino-compatible” does not mean every board has the same pins, voltage, libraries or wireless features. Before choosing hardware, check its documentation and confirm that the sensors and actuators you want to use can be connected safely.
+
+For this module, **everyone starts with the Uno R4 WiFi** so that we can teach and troubleshoot a common system. Choosing a smaller board is a later design decision, once the behaviour works.
+
+Further reading: [Arduino hardware catalogue](https://www.arduino.cc/en/hardware) · [Adafruit Feather family](https://learn.adafruit.com/adafruit-feather/feather-family) · [Arduino Uno R4 WiFi documentation](https://docs.arduino.cc/hardware/uno-r4-wifi/)
+
+## 4. The Arduino language: write, compile, upload, run
 
 An Arduino program is called a **sketch**. We write sketches in the **Arduino IDE** (*Integrated Development Environment*).
 
@@ -72,7 +159,7 @@ Arduino uses C/C++ with built-in functions and libraries for interacting with ha
 
 Arduino is open-source and supported by a broad ecosystem of compatible boards, libraries and electronic modules. Companies such as [Adafruit](https://www.adafruit.com/), [SparkFun](https://www.sparkfun.com/) and [Seeed Studio](https://www.seeedstudio.com/) provide components and documentation. For this workshop, everyone uses the same board so we can concentrate on the code.
 
-## 3. Our board — Arduino Uno R4 WiFi
+## 5. Our board — Arduino Uno R4 WiFi
 
 ![Arduino Uno R4 WiFi board](images/arduino-uno-r4-wifi-arduino.jpg)
 
@@ -85,7 +172,7 @@ For Day 1, identify these parts of your board:
 
 The Uno R4 WiFi also has analogue inputs, an LED matrix and wireless connectivity. We will explore additional hardware capabilities in Day 2. See the [official Uno R4 WiFi documentation](https://docs.arduino.cc/hardware/uno-r4-wifi/) for a pinout and complete technical information.
 
-## 4. Installation and first connection
+## 6. Installation and first connection
 
 1. Download and install the current **Arduino IDE 2.x** from [arduino.cc/en/software](https://www.arduino.cc/en/software).
 2. Connect the Uno R4 WiFi to your computer using a **USB-C data cable**.
@@ -106,7 +193,7 @@ The Uno R4 WiFi also has analogue inputs, an LED matrix and wireless connectivit
 
 ---
 
-# 5. Coding in Arduino (C/C++)
+# 7. Coding in Arduino (C/C++)
 
 Most Arduino sketches use two special functions:
 
@@ -366,7 +453,7 @@ void loop() {
 
 ---
 
-# 6. Further Reading and Reference
+# 8. Further Reading and Reference
 
 ## Technical specifications — Arduino Uno R4 WiFi
 
@@ -396,28 +483,6 @@ The Uno R4 WiFi is a capable general-purpose development board, although it is c
 | `float` | `3.14` | Number with a decimal part |
 
 **Flash** stores the uploaded program, **RAM** holds values used while the program runs, and **EEPROM** provides non-volatile data storage. The exact memory size of a data type can vary by board; use the official documentation when it matters.
-
-## Choosing another board
-
-For later prototypes, consider:
-
-- **Size and weight:** Does it fit into the object or wearable?
-- **Power:** USB, battery or external supply?
-- **Connectivity:** Do you need Wi-Fi, Bluetooth or another protocol?
-- **Inputs and outputs:** How many sensors and actuators are needed?
-- **Documentation:** Are there reliable libraries, examples and community support?
-
-### Adafruit Feather
-
-Compact boards with different processor and wireless options, often well suited to battery-powered and wearable projects. See the [Feather family guide](https://learn.adafruit.com/adafruit-feather/feather-family).
-
-### ESP8266 / NodeMCU
-
-Low-cost Wi-Fi-capable microcontroller boards with a substantial ecosystem of examples. Check voltage requirements and the features of the particular variant.
-
-### Arduino Mega / Giga
-
-Larger boards with many more connections, useful for prototypes involving numerous inputs and outputs. They are generally less suitable where size is critical.
 
 ## Optional extension — Receiving text messages
 
