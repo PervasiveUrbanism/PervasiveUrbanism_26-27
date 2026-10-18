@@ -186,11 +186,13 @@ During the Q&A, **we will look at your code and ask you to explain it**. We will
 
 We will also assess **the outcome, graphic quality and narrative**: how effectively the work addresses your original intention and how clearly you communicate its findings and limitations. You must demonstrate your own understanding in your answers. Full assessment requirements will be provided in the assessment brief.
 
-## YouTube
+## Written tutorials and previous recordings
 
-Recordings of the 2026–27 skills tutorials will be linked here once available.
+For 2026–27, we are moving away from recording skills workshops for YouTube. Instead, **the written tutorials in this repository are the primary learning resource**. Each tutorial is developed alongside its live workshop, closely following the session's sequence of explanations, code examples and practical exercises.
 
-Recordings from previous years can be used as extended material:
+This makes it easier to follow the workshop, return to a particular step, reread an explanation that was unclear, and work through the material at your own pace. The tutorials and the GitHub resources are deliberately connected: the text, example code and exercises belong together and will be updated as the course develops.
+
+**Recordings from previous years remain available** through the playlists below. They can provide additional context, but may not reflect the current curriculum, software versions or exercises:
 
 - [Skills 2024/25](https://www.youtube.com/playlist?list=PL0TJgiFZ0aRLwPoAfxv-mIsKGgSE3zlBg)
 - [Skills 2023/24](https://www.youtube.com/playlist?list=PL0TJgiFZ0aRLx7_uol3rhIsS53ecXHYlr)
