@@ -26,11 +26,11 @@ Berlin is particularly interesting for our research because it has been shaped b
 
 Think of Berlin in the Golden Twenties, when it was a centre of art, science and culture. Then came the Nazi period, the destruction of the Second World War and the reconstruction of a divided city under two opposing political systems. East and West developed in very different ways, physically as well as socially.
 
-Although the Wall came down more than thirty years ago, many of these differences are still visible. The city also has to confront difficult questions about its history: how can you have a reconstitute a capital city with such a difficult heritage you deal with parts of your heritage that you are not proud of?
+Although the Wall came down more than thirty years ago, many of these differences are still visible. It also raises a difficult question: how do you rebuild a capital city while confronting the parts of its history that you cannot be proud of?
 
 All these layers make Berlin a city that is not necessarily beautiful in a conventional sense, but one full of cracks, contrasts and controversies.
 
-Because of this Berlin has a strong history of alternative cultures, experimentation, migration and political activism. Today, it also faces development pressure, gentrification and conflicts over who has access to urban space.
+Berlin also has a strong history of alternative cultures, experimentation, migration and political activism. Today, it also faces development pressure, gentrification and conflicts over who has access to urban space.
 
 That makes it a fascinating place to investigate how different communities, identities and ways of living coexist, overlap or come into conflict.
 
@@ -46,7 +46,7 @@ Today, an enormous amount of information about cities exists online. People shar
 
 We want to explore how we can collect some of this information and use it to understand the city from different perspectives.
 
-You will learn how to use Python to gather, organise and analyse data. We will also introduce AI-assisted programming, so you learn that as well and familiarise yourself with the intricacies of today’s AI landscape.
+You will learn how to use Python to gather, organise and analyse data. We will also introduce AI-assisted programming. Beyond learning to code, we want you to become familiar with what today's AI tools can do, where they are useful and where you need to be critical.
 
 The maps you see here are examples of what we mean by *Cartographies of Affect*. They don't simply show streets and buildings. They try to make visible patterns, experiences and relationships that are harder to see in a conventional map.
 
@@ -89,7 +89,7 @@ What if we could develop a wearable device that allows us to perceive something 
 
 The interesting question is not so much what the device can do technically, but how it might change our experience of a place.
 
-By experience I mean not necessarily our perception only, but it can also affect our interaction with people or places. 
+And by experience, I don't just mean perception. A device might also change how we interact with other people or with a particular place.
 
 In this phase, you will begin to turn your research questions into physical experiments, working at the scale of the body.
 
@@ -107,8 +107,9 @@ But we are not interested in technology for its own sake. The device should rela
 
 We want you to experiment, test different ideas and see what happens when you introduce your device into a real environment.
 
-@chatgpt: this slide also introduces the two skills workshop: arduino and wearable.
-Talk about the facilities at the Bartlett and the opportunity to design not only a technical urban prosthesis but also a chance to turn that into a fashion item.
+Two skills workshops will support this work. In the Arduino workshop, you will learn the basics of physical computing: how to connect sensors, collect information and make a device respond. In the wearable workshop, you will explore how to integrate these technologies into something you can actually wear.
+
+You will also have access to the making facilities at the Bartlett, so you can experiment with materials and fabrication techniques. And there is a design opportunity here beyond the electronics. Your urban prosthesis could also become an expressive object, perhaps even something closer to a fashion piece. We want you to think about how it works, but also how it is worn and how it looks.
 
 ## Slide 14 — Testing the Prosthetic Clouds in Berlin
 
@@ -134,18 +135,24 @@ You will take what you have learned from your research and your experiments with
 
 The central question is: what happens when we take the principles of a small wearable device and apply them at an architectural or urban scale?
 
-@chatgpt: as for an example, you see here a group two years ago that have been working on the topic of memory.the pivotal question for them was: what happens when memory becomes political. Their project site was the forgotten docks of the east India company. Here they have been working on a sort of an urban museum installation that tells the brutal story of the east India company from different perspectives such as personalised, ever changing and from different perspectives. 
+As an example, you can see here a project by a student group from two years ago. They were working on the topic of memory, and their central question was: what happens when memory becomes political?
 
+They chose the former East India Company docks as their site, a place with a difficult and often overlooked history.
 
-In any case, 
-The important thing is that your architectural proposal grows out of your research and experiments, rather than starting with a predetermined building type or programme.
+Their proposal was a kind of urban museum installation that told the brutal history of the East India Company through different perspectives. Rather than presenting one fixed account, they explored how the story could become personal, change over time and reveal different points of view.
+
+This is one example of how a research question can develop into an architectural proposal that is both spatial and responsive.
+
+The important thing is that your proposal grows out of your research and experiments, rather than starting with a predetermined building type or programme.
 
 ## Slide 16 — Developing Architectural Scenarios
 
-In this final phase, you will begin to develop your own architectural scenarios.
+In this final phase, you will begin to develop your own architectural scenarios. We don't expect everyone to design the same kind of building or follow a conventional architectural programme. What matters is how your proposal responds to the specific conditions you have investigated.
 
-We don't expect everyone to design the same kind of building or follow a conventional architectural programme.
+I'd like to finish with a video from one of last year's student groups. They were working on overtourism in Venice.
 
-Instead, we want you to think about how architecture could respond to the specific conditions you have investigated.
+As you probably know, the number of visitors Venice has to accommodate creates enormous pressure on the city. But their project also asked a more personal question: how can local inhabitants maintain a sense of belonging in a place that is increasingly shaped by tourism?
 
-I like to close with a project video of one of last year’s student groups. They have been working on the topic of overturism in Venice. As you might know the amount of turism that Venice has to cope with is significant and represents a challenge to this city in many ways. And how can inhabitants still develop a sense of belonging to where they are from. Have a look at how they formulated the problem, how they developed the project the solution they found and how they constructed a narrative arc from the beginning to the end 
+As you watch the video, pay attention to how the students frame the problem, develop their proposal and communicate their ideas. Notice how they construct a narrative from the initial research question through to the architectural response.
+
+Let's have a look.
