@@ -1,160 +1,127 @@
 # RC15 Launch Presentation — Speaking Notes
 
-**21 October 2026 · Temporary working document**
+**21 October 2026 · Shortened version · Target: 15 minutes speaking, plus video**
 
 ## Slide 8 — Revealing
 
 We start the year with a phase we call *Revealing*.
 
-Before we begin designing anything, we want to understand the city and the different ways in which people experience it.
-
-A city is not experienced in the same way by everyone. The same street, square or neighbourhood can mean very different things to different people. Some places feel welcoming, others less so.
+Before designing anything, we want to understand the city and the different ways people experience it. The same street or neighbourhood can mean very different things to different people. Some places feel welcoming, others less so.
 
 We find these differences interesting, and we want you to investigate them and make them visible.
 
-You will work in groups of three or four and develop your own research question. In the skills module, we will introduce computational tools to help you collect, analyse and visualise information from digital platforms, archives, images and other sources.
+Working in groups of three or four, you will develop your own research question. Our skills module will introduce tools to collect, analyse and visualise information from digital platforms, archives and other sources.
 
-The outcome will be what we call *Cartographies of Affect*: maps that go beyond the physical layout of the city to reveal its social, cultural and emotional dimensions.
+The outcome will be *Cartographies of Affect*: maps that go beyond the physical city to reveal its social, cultural and emotional dimensions.
 
-Importantly, we don't expect you to arrive at a design proposal immediately. We want you to develop a strong research question that can guide your work throughout the year.
+We don't expect a design proposal straight away. We want a strong research question that can guide your work throughout the year.
 
 ## Berlin — City of Cracks and Tensions
 
 This year, our city of investigation is Berlin.
 
-Berlin is particularly interesting for our research because it has been shaped by very different political, social and cultural systems.
+Berlin has a peculiar history. Think of the Golden Twenties, when it was a centre of art, science and culture. Then came the Nazi period, the destruction of the Second World War and the reconstruction of a divided city under two opposing political systems.
 
-Think of Berlin in the Golden Twenties, when it was a centre of art, science and culture. Then came the Nazi period, the destruction of the Second World War and the reconstruction of a divided city under two opposing political systems. East and West developed in very different ways, physically as well as socially.
+East and West developed differently, physically and socially. Although the Wall came down more than thirty years ago, many differences are still visible. And how do you rebuild a capital while confronting the parts of its history you cannot be proud of?
 
-Although the Wall came down more than thirty years ago, many of these differences are still visible. It also raises a difficult question: how do you rebuild a capital city while confronting the parts of its history that you cannot be proud of?
+All these layers make Berlin a city that is not necessarily beautiful in a conventional sense, but full of cracks, contrasts and controversies.
 
-All these layers make Berlin a city that is not necessarily beautiful in a conventional sense, but one full of cracks, contrasts and controversies.
+It is also a city of alternative cultures, migration, experimentation and political activism. Today, gentrification and development pressure create new conflicts over urban space.
 
-Berlin also has a strong history of alternative cultures, experimentation, migration and political activism. Today, it also faces development pressure, gentrification and conflicts over who has access to urban space.
-
-That makes it a fascinating place to investigate how different communities, identities and ways of living coexist, overlap or come into conflict.
-
-We don't want you to study Berlin simply as tourists or produce a conventional urban analysis. We want you to find something specific that interests you, perhaps something unexpected, and develop your own perspective on the city.
-
-In January, we will travel to Berlin together. This will give you the opportunity to investigate your questions on site and, later, to test your physical prototypes in the city itself.
+We want you to find something specific, perhaps unexpected, rather than study Berlin simply as tourists. In January, we will visit the city to investigate your questions and later test your prototypes.
 
 ## Slide 9 — Skills Module 01: Data Scraping the City
 
-To support this first phase of research, we will introduce our first skills module, *Data Scraping the City*.
+Our first skills module is *Data Scraping the City*.
 
-Today, an enormous amount of information about cities exists online. People share their experiences, opinions, photographs and observations through digital platforms, social media and other sources.
+An enormous amount of information about cities exists online. People share opinions, photographs and experiences through social media and other digital platforms.
 
-We want to explore how we can collect some of this information and use it to understand the city from different perspectives.
+We want to explore how to collect some of this information and use it to understand the city from different perspectives.
 
-You will learn how to use Python to gather, organise and analyse data. We will also introduce AI-assisted programming. Beyond learning to code, we want you to become familiar with what today's AI tools can do, where they are useful and where you need to be critical.
+You will learn to use Python to gather, organise and analyse data. We will also introduce AI-assisted programming, including its possibilities and limitations.
 
-The maps you see here are examples of what we mean by *Cartographies of Affect*. They don't simply show streets and buildings. They try to make visible patterns, experiences and relationships that are harder to see in a conventional map.
+The maps here are examples of *Cartographies of Affect*. They reveal patterns and relationships that are difficult to see on a conventional map.
 
 ## Slide 10 — From Data to Cartographies of Affect
 
-Collecting data is only the first step. The more interesting question is what we can learn from it and how we can represent our findings.
+Collecting data is only the beginning. The more interesting question is what we learn from it and how we represent it.
 
-A map doesn't necessarily have to look like a traditional geographical map. It might be a network, a timeline, a diagram or a more experimental visualisation combining locations with text, images and other information.
+A map doesn't have to be geographical. It could be a network, a timeline, a diagram or an experimental visualisation combining places, images and text.
 
-For example, we might investigate how different groups perceive the same neighbourhood, where certain activities take place, or how attitudes towards a particular space change over time.
+We might investigate how different communities perceive the same neighbourhood, or how attitudes towards a place change over time.
 
-We will work with tools such as Python and Rhino, but we also want you to develop your own ways of representing information. There isn't one correct visual language for these maps. The representation should respond to your research question.
+You will work with Python and Rhino, but we want you to develop your own visual language. The representation should respond to your research question.
 
-And we need to be critical about the data itself. Online information is never a complete or neutral picture of a city. We need to ask who produced it, whose experiences it represents and what might be missing.
+And remember that online data is never a complete or neutral picture of a city. Who produces it? Whose experiences are missing?
 
-The aim is not simply to produce an impressive graphic. It is to discover something meaningful about Berlin and turn that discovery into a research question that can guide your design work.
-
+The aim is not simply an impressive graphic, but a meaningful discovery that can guide your design work.
 
 ## Slide 11 — 02: Prototyping
 
-In the second phase, we move from observing and analysing the city to experimenting with it.
+The second phase is *Prototyping*. We move from observing the city to experimenting with it.
 
-We call this phase *Prototyping*.
+You will explore your research question through a physical device that we call a *Prosthetic Cloud*.
 
-You will take the research question you developed during the first phase and explore it through a physical device, something we call a *Prosthetic Cloud*.
-
-The idea is to create something that changes or extends the way we perceive and interact with our surroundings.
-
-Rather than simply observing a particular condition in the city, we now want to actively engage with it and see what happens.
+The idea is to extend or change how we perceive and interact with our surroundings. Instead of only observing an urban condition, we want to engage with it and see what happens.
 
 ## Slide 12 — Prosthetic Clouds
 
-When we talk about prosthetics, we usually think of something that replaces a missing part of the body. But prosthetics can also extend our existing abilities.
+When we think of prosthetics, we usually imagine something that replaces a missing part of the body. But they can also extend our abilities. Think of glasses or hearing aids.
 
-Think about a pair of glasses, for example, or a hearing aid. These are relatively simple technologies that change how we perceive the world.
+What if a wearable device allowed us to notice something we normally cannot perceive? It might respond to environmental conditions, information from the city or the presence of other people.
 
-We want to take this idea a little further.
+The interesting question is not simply what the device can do technically, but how it changes our experience of a place.
 
-What if we could develop a wearable device that allows us to perceive something we would normally not notice? It could respond to environmental conditions, information from the city, or the presence of other people.
+And by experience, I don't just mean perception. It might also change how we interact with people or our surroundings.
 
-The interesting question is not so much what the device can do technically, but how it might change our experience of a place.
-
-And by experience, I don't just mean perception. A device might also change how we interact with other people or with a particular place.
-
-In this phase, you will begin to turn your research questions into physical experiments, working at the scale of the body.
+This is where your research question becomes a physical experiment at the scale of the body.
 
 ## Slide 13 — From Research to Experimentation
 
-In this phase, you will start building and experimenting with your own Prosthetic Clouds.
+You will build your own Prosthetic Clouds using sensors, electronics, programming and digital fabrication.
 
-We will introduce you to a range of tools and techniques, including Arduino, sensors, electronics and digital fabrication.
+The device might react to sound, movement, temperature or other people. But the technology should serve your research question, not the other way around.
 
-The aim is to develop a wearable device that can sense something in its surroundings and respond to it in some way.
+Two workshops will support you. In the Arduino workshop, you will learn how to connect sensors, collect data and make devices respond. In the wearable workshop, you will explore how to integrate these technologies into something you can wear.
 
-For example, it might react to sound, movement, temperature or the proximity of other people.
+The Bartlett's making facilities will give you opportunities to experiment with materials and fabrication.
 
-But we are not interested in technology for its own sake. The device should relate to the research question you developed in the first phase.
-
-We want you to experiment, test different ideas and see what happens when you introduce your device into a real environment.
-
-Two skills workshops will support this work. In the Arduino workshop, you will learn the basics of physical computing: how to connect sensors, collect information and make a device respond. In the wearable workshop, you will explore how to integrate these technologies into something you can actually wear.
-
-You will also have access to the making facilities at the Bartlett, so you can experiment with materials and fabrication techniques. And there is a design opportunity here beyond the electronics. Your urban prosthesis could also become an expressive object, perhaps even something closer to a fashion piece. We want you to think about how it works, but also how it is worn and how it looks.
+And this is not just an electronics exercise. Your prosthesis can also be an expressive object, perhaps even a fashion piece. Think about how it works, how it is worn and how it looks.
 
 ## Slide 14 — Testing the Prosthetic Clouds in Berlin
 
-An important part of this phase is that we don't want the Prosthetic Clouds to remain experiments in the studio.
+We don't want these devices to remain studio experiments.
 
-During our field trip to Berlin in January, you will take your devices into the city and test them in real situations.
+In January, you will take them to Berlin and test them in real situations. The city is unpredictable: people behave differently, conditions change and your device may respond in unexpected ways.
 
-This is where things become interesting, because the city is unpredictable. People behave differently, environmental conditions change, and your device might respond in ways you didn't anticipate.
+You will document these encounters through short videos and observations.
 
-We want you to document these encounters, particularly through short videos that record both the experience and your observations.
+The question is not simply whether the device works. Does it change how you experience a place or interact with people? Does it make you reconsider your original question?
 
-The aim is not simply to demonstrate that your device works. We want to understand whether it changes how you experience a place, how you interact with other people, or how you understand the questions you started with.
-
-These findings will become an important starting point for the final phase of your architectural project.
+These findings will feed into the final phase.
 
 ## Slide 15 — 03: Projecting
 
-In the third and final phase, we move from the scale of the body to the scale of architecture and the city.
+The final phase is *Projecting*. We move from the body to architecture and the city, using what we learned from research and prototyping to develop an architectural proposal.
 
-We call this phase *Projecting*.
+Here is a project from two years ago. The students began with a broad interest in memory. Through a long, step-by-step process, they discovered that the same historical events are narrated differently in different countries.
 
-You will take what you have learned from your research and your experiments with the Prosthetic Clouds and begin to develop an architectural proposal.
+Their question became: *What happens when memory becomes political?* Who decides how history is told?
 
-The central question is: what happens when we take the principles of a small wearable device and apply them at an architectural or urban scale?
+This led to a speculative open-air museum at the forgotten docks of the East India Company.
 
-Here you can see a project from one of our student groups two years ago.
+The proposal gradually developed into a series of VR stations. Visitors could indicate their preferences and experience personalised accounts of the company's history. Each visit might reveal a different perspective.
 
-The group started with a broad interest in memory and how we remember historical events. Through a long, step-by-step research process, they discovered that the same historical events are often narrated very differently in different countries.
-
-This raised an interesting question for them: *What happens when memory becomes political?* Who decides how history is told, and whose perspective do we remember?
-
-That became the starting point for the idea of an open-air museum, or perhaps an open-air archive, at the forgotten docks of the East India Company.
-
-Their proposal gradually developed into a series of VR stations. Visitors could indicate their preferences, and the museum would present personalised accounts of the company's history from different perspectives. Every time you visited, you might discover another side of the story.
-
-I think this is a good example of what we expect from you. You don't need to know at the beginning what kind of building or intervention you want to design. Through research, experimentation and a series of decisions, your architectural project will gradually take shape.
+This is what I want you to take from the example: the students did not start by deciding to design a museum. Their architectural proposal emerged gradually through research, experimentation and a series of decisions.
 
 ## Slide 16 — Developing Architectural Scenarios
 
-In this final phase, you will begin to develop your own architectural scenarios. We don't expect everyone to design the same kind of building or follow a conventional architectural programme. What matters is how your proposal responds to the specific conditions you have investigated.
+We don't expect everyone to design the same kind of building. What matters is that your architectural proposal grows from the questions you have investigated.
 
-I'd like to finish with a video from one of last year's student groups. They were working on overtourism in Venice.
+I'd like to finish with a video from one of last year's student groups, who investigated overtourism in Venice.
 
-As you probably know, the number of visitors Venice has to accommodate creates enormous pressure on the city. But their project also asked a more personal question: how can local inhabitants maintain a sense of belonging in a place that is increasingly shaped by tourism?
+Tourism puts enormous pressure on the city. Their project asked how local inhabitants can maintain a sense of belonging in a place increasingly shaped by visitors.
 
-As you watch the video, pay attention to how the students frame the problem, develop their proposal and communicate their ideas. Notice how they construct a narrative from the initial research question through to the architectural response.
+As you watch, pay attention to how they frame the problem, develop their proposal and build a narrative from the research question to the architectural response.
 
 Let's have a look.
