@@ -10,11 +10,11 @@ We start the year with a phase we call *Revealing*.
 
 Before we begin designing anything, we want to understand the city and the different ways in which people experience it.
 
-A city is not experienced in the same way by everyone. The same street, square or neighbourhood can mean very different things to different people. Some places feel welcoming, others feel inaccessible. Some are highly visible, while others are almost invisible.
+A city is not experienced in the same way by everyone. The same street, square or neighbourhood can mean very different things to different people. Some places feel welcoming, others not so.
 
-We want you to investigate these differences and make them visible.
+We find these differences very interesting and we want you to investigate these differences and make them visible.
 
-You will work in groups of three or four and develop your own research question. We will introduce a range of computational tools to help you collect, analyse and visualise information, including data from digital platforms, archives, images and other sources.
+You will work in groups of three or four and develop your own research question. In the skill module we will introduce a range of computational tools to help you collect, analyse and visualise information, including data from digital platforms, archives, images and other sources.
 
 The outcome will be what we call *Cartographies of Affect*: maps that go beyond the physical layout of the city and reveal its social, cultural and emotional dimensions.
 
@@ -26,7 +26,7 @@ This year, our city of investigation is Berlin.
 
 Berlin is a particularly interesting place for our research because it has been shaped by very different political, social and cultural systems.
 
-For decades, the city was divided into East and West. These two parts developed in very different ways, both physically and socially. And even though the Wall came down more than thirty years ago, many of these differences are still visible today.
+Berlin has a very peculiar history, the golden 20ties where Berlin was a hotspot of art, science and culture. Over the third reich, and the destruction in the second world wars. The reconstruction by two different political systems that split the city into East and West. These two parts developed in very different ways, both physically and socially. And even though the Wall came down more than thirty years ago, many of these differences are still visible today. All these layers are still visble today and there is the question with how do you deal with parts of your hertage you are not proud of. All this makes berlin not a particry beatiful city, but a city of cracks and tensions. 
 
 But Berlin is also a city of alternative cultures, experimentation, migration and political activism. At the same time, it is experiencing increasing development pressure, gentrification and conflicts over who has access to urban space.
 
@@ -36,7 +36,7 @@ We don't want you to study Berlin simply as tourists or to produce a conventiona
 
 In January, we will travel to Berlin together. That will give you an opportunity to test your research and, later, your physical prototypes in the city itself.
 
-**Suggested transition:** So, where are we going to carry out this investigation? This year, we're going to Berlin.
+**Suggested transition:** 
 
 ## Earlier draft — Slide 9: Cartographies of Affect — Making the Invisible Visible
 
