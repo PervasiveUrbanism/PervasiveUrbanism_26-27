@@ -78,15 +78,15 @@ This is where your research question becomes a physical experiment at the scale 
 
 ## Slide 13 — From Research to Experimentation
 
-You will build your own Prosthetic Clouds using sensors, electronics, programming and digital fabrication.
+You will develop your Prosthetic Clouds through two skills workshops.
 
-The device might react to sound, movement, temperature or other people. But the technology should serve your research question, not the other way around.
+The first introduces Arduino, sensors and physical computing. You will learn to build devices that sense and respond to their surroundings.
 
-Two workshops will support you. In the Arduino workshop, you will learn how to connect sensors, collect data and make devices respond. In the wearable workshop, you will explore how to integrate these technologies into something you can wear.
+The second, led by Arantza Vilas, explores fashion, textiles and craft. This is something we particularly want to push this year: combining traditional making techniques with electronics and responsive technologies.
 
-The Bartlett's making facilities will give you opportunities to experiment with materials and fabrication.
+With access to the Bartlett's making facilities, we want you to explore the Prosthetic Cloud not just as a technical device, but also as a crafted, expressive object that can be worn.
 
-And this is not just an electronics exercise. Your prosthesis can also be an expressive object, perhaps even a fashion piece. Think about how it works, how it is worn and how it looks.
+The ambition is to bring technology, fashion and craft together.
 
 ## Slide 14 — Testing the Prosthetic Clouds in Berlin
 
