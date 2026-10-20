@@ -26,11 +26,11 @@ Berlin is particularly interesting for our research because it has been shaped b
 
 Think of Berlin in the Golden Twenties, when it was a centre of art, science and culture. Then came the Nazi period, the destruction of the Second World War and the reconstruction of a divided city under two opposing political systems. East and West developed in very different ways, physically as well as socially.
 
-Although the Wall came down more than thirty years ago, many of these differences are still visible. The city also has to confront difficult questions about its history: how do you deal with parts of your heritage that you are not proud of?
+Although the Wall came down more than thirty years ago, many of these differences are still visible. The city also has to confront difficult questions about its history: how can you have a reconstitute a capital city with such a difficult heritage you deal with parts of your heritage that you are not proud of?
 
-All these layers make Berlin a city that is not necessarily beautiful in a conventional sense, but one full of cracks, contrasts and tensions.
+All these layers make Berlin a city that is not necessarily beautiful in a conventional sense, but one full of cracks, contrasts and controversies.
 
-At the same time, Berlin has a strong history of alternative cultures, experimentation, migration and political activism. Today, it also faces development pressure, gentrification and conflicts over who has access to urban space.
+Because of this Berlin has a strong history of alternative cultures, experimentation, migration and political activism. Today, it also faces development pressure, gentrification and conflicts over who has access to urban space.
 
 That makes it a fascinating place to investigate how different communities, identities and ways of living coexist, overlap or come into conflict.
 
@@ -46,7 +46,7 @@ Today, an enormous amount of information about cities exists online. People shar
 
 We want to explore how we can collect some of this information and use it to understand the city from different perspectives.
 
-You will learn how to use Python to gather, organise and analyse data. We will also introduce AI-assisted programming, so you don't need previous coding experience.
+You will learn how to use Python to gather, organise and analyse data. We will also introduce AI-assisted programming, so you learn that as well and familiarise yourself with the intricacies of today’s AI landscape.
 
 The maps you see here are examples of what we mean by *Cartographies of Affect*. They don't simply show streets and buildings. They try to make visible patterns, experiences and relationships that are harder to see in a conventional map.
 
