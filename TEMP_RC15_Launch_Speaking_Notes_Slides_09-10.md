@@ -135,15 +135,17 @@ You will take what you have learned from your research and your experiments with
 
 The central question is: what happens when we take the principles of a small wearable device and apply them at an architectural or urban scale?
 
-As an example, you can see here a project by a student group from two years ago. They were working on the topic of memory, and their central question was: what happens when memory becomes political?
+Here you can see a project from one of our student groups two years ago.
 
-They chose the former East India Company docks as their site, a place with a difficult and often overlooked history.
+The group started with a broad interest in memory and how we remember historical events. Through a long, step-by-step research process, they discovered that the same historical events are often narrated very differently in different countries.
 
-Their proposal was a kind of urban museum installation that told the brutal history of the East India Company through different perspectives. Rather than presenting one fixed account, they explored how the story could become personal, change over time and reveal different points of view.
+This raised an interesting question for them: *What happens when memory becomes political?* Who decides how history is told, and whose perspective do we remember?
 
-This is one example of how a research question can develop into an architectural proposal that is both spatial and responsive.
+That became the starting point for the idea of an open-air museum, or perhaps an open-air archive, at the forgotten docks of the East India Company.
 
-The important thing is that your proposal grows out of your research and experiments, rather than starting with a predetermined building type or programme.
+Their proposal gradually developed into a series of VR stations. Visitors could indicate their preferences, and the museum would present personalised accounts of the company's history from different perspectives. Every time you visited, you might discover another side of the story.
+
+I think this is a good example of what we expect from you. You don't need to know at the beginning what kind of building or intervention you want to design. Through research, experimentation and a series of decisions, your architectural project will gradually take shape.
 
 ## Slide 16 — Developing Architectural Scenarios
 
