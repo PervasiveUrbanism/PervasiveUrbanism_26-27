@@ -63,3 +63,50 @@ We will work with tools such as Python and Rhino, but we also want you to develo
 And we need to be critical about the data itself. Online information is never a complete or neutral picture of a city. We need to ask who produced it, whose experiences it represents and what might be missing.
 
 The aim is not simply to produce an impressive graphic. It is to discover something meaningful about Berlin and turn that discovery into a research question that can guide your design work.
+
+
+## Slide 11 — 02: Prototyping
+
+In the second phase, we move from observing and analysing the city to experimenting with it.
+
+We call this phase *Prototyping*.
+
+You will take the research question you developed during the first phase and explore it through a physical device, something we call a *Prosthetic Cloud*.
+
+The idea is to create something that changes or extends the way we perceive and interact with our surroundings.
+
+Rather than simply observing a particular condition in the city, we now want to actively engage with it and see what happens.
+
+## Slide 12 — Prosthetic Clouds
+
+Here we introduce the idea of *Prosthetic Clouds*.
+
+When we talk about prosthetics, we usually think of something that replaces a missing part of the body. But prosthetics can also extend our existing abilities.
+
+Think about a pair of glasses, for example, or a hearing aid. These are relatively simple technologies that change how we perceive the world.
+
+We want to take this idea a little further.
+
+What if we could develop a wearable device that allows us to perceive something we would normally not notice? It could respond to environmental conditions, information from the city, or the presence of other people.
+
+The interesting question is not so much what the device can do technically, but how it might change our experience of a place.
+
+In this phase, you will begin to turn your research questions into physical experiments, working at the scale of the body.
+
+## Slide 13 — From Research to Experimentation
+
+In this phase, you will start building and experimenting with your own Prosthetic Clouds.
+
+We will introduce you to a range of tools and techniques, including Arduino, sensors, electronics and digital fabrication.
+
+The aim is to develop a wearable device that can sense something in its surroundings and respond to it in some way.
+
+For example, it might react to sound, movement, temperature or the proximity of other people.
+
+But we are not interested in technology for its own sake. The device should relate to the research question you developed in the first phase.
+
+We want you to experiment, test different ideas and see what happens when you introduce your device into a real environment.
+
+And importantly, we don't expect everything to work perfectly. Sometimes an unexpected result or even a failed experiment can reveal something interesting.
+
+The purpose of prototyping is to learn through making.
