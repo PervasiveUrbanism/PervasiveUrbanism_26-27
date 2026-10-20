@@ -79,8 +79,6 @@ Rather than simply observing a particular condition in the city, we now want to 
 
 ## Slide 12 — Prosthetic Clouds
 
-Here we introduce the idea of *Prosthetic Clouds*.
-
 When we talk about prosthetics, we usually think of something that replaces a missing part of the body. But prosthetics can also extend our existing abilities.
 
 Think about a pair of glasses, for example, or a hearing aid. These are relatively simple technologies that change how we perceive the world.
@@ -90,6 +88,8 @@ We want to take this idea a little further.
 What if we could develop a wearable device that allows us to perceive something we would normally not notice? It could respond to environmental conditions, information from the city, or the presence of other people.
 
 The interesting question is not so much what the device can do technically, but how it might change our experience of a place.
+
+By experience I mean not necessarily our perception only, but it can also affect our interaction with people or places. 
 
 In this phase, you will begin to turn your research questions into physical experiments, working at the scale of the body.
 
@@ -107,9 +107,8 @@ But we are not interested in technology for its own sake. The device should rela
 
 We want you to experiment, test different ideas and see what happens when you introduce your device into a real environment.
 
-And importantly, we don't expect everything to work perfectly. Sometimes an unexpected result or even a failed experiment can reveal something interesting.
-
-The purpose of prototyping is to learn through making.
+@chatgpt: this slide also introduces the two skills workshop: arduino and wearable.
+Talk about the facilities at the Bartlett and the opportunity to design not only a technical urban prosthesis but also a chance to turn that into a fashion item.
 
 ## Slide 14 — Testing the Prosthetic Clouds in Berlin
 
@@ -135,12 +134,10 @@ You will take what you have learned from your research and your experiments with
 
 The central question is: what happens when we take the principles of a small wearable device and apply them at an architectural or urban scale?
 
-For example, a device that responds to environmental conditions might inspire a building or public space that can adapt to its surroundings.
+@chatgpt: as for an example, you see here a group two years ago that have been working on the topic of memory.the pivotal question for them was: what happens when memory becomes political. Their project site was the forgotten docks of the east India company. Here they have been working on a sort of an urban museum installation that tells the brutal story of the east India company from different perspectives such as personalised, ever changing and from different perspectives. 
 
-In other words, *prosthetics become infrastructure*.
 
-We are interested in architecture that does more than provide a fixed physical environment. We want to explore spaces and systems that can sense, respond and adapt to changing conditions.
-
+In any case, 
 The important thing is that your architectural proposal grows out of your research and experiments, rather than starting with a predetermined building type or programme.
 
 ## Slide 16 — Developing Architectural Scenarios
@@ -151,12 +148,4 @@ We don't expect everyone to design the same kind of building or follow a convent
 
 Instead, we want you to think about how architecture could respond to the specific conditions you have investigated.
 
-For example, could a public space respond to the different needs of its users? Could a building adapt to changing environmental conditions? Or could architecture help different communities interact in new ways?
-
-These are just examples. Your proposal should emerge from your own research and the experiments you carried out with your Prosthetic Clouds.
-
-We want you to explore architecture as something that is not necessarily fixed, but capable of changing, responding and interacting with its surroundings.
-
-Of course, this still needs to become an architectural project. You will need to consider space, material, structure and how people actually use the environment you propose.
-
-The challenge is to turn your ideas into a convincing spatial proposal, rather than simply presenting an interesting technological concept.
+I like to close with a project video of one of last year’s student groups. They have been working on the topic of overturism in Venice. As you might know the amount of turism that Venice has to cope with is significant and represents a challenge to this city in many ways. And how can inhabitants still develop a sense of belonging to where they are from. Have a look at how they formulated the problem, how they developed the project the solution they found and how they constructed a narrative arc from the beginning to the end 
