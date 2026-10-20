@@ -110,3 +110,53 @@ We want you to experiment, test different ideas and see what happens when you in
 And importantly, we don't expect everything to work perfectly. Sometimes an unexpected result or even a failed experiment can reveal something interesting.
 
 The purpose of prototyping is to learn through making.
+
+## Slide 14 — Testing the Prosthetic Clouds in Berlin
+
+An important part of this phase is that we don't want the Prosthetic Clouds to remain experiments in the studio.
+
+During our field trip to Berlin in January, you will take your devices into the city and test them in real situations.
+
+This is where things become interesting, because the city is unpredictable. People behave differently, environmental conditions change, and your device might respond in ways you didn't anticipate.
+
+We want you to document these encounters, particularly through short videos that record both the experience and your observations.
+
+The aim is not simply to demonstrate that your device works. We want to understand whether it changes how you experience a place, how you interact with other people, or how you understand the questions you started with.
+
+These findings will become an important starting point for the final phase of your architectural project.
+
+## Slide 15 — 03: Projecting
+
+In the third and final phase, we move from the scale of the body to the scale of architecture and the city.
+
+We call this phase *Projecting*.
+
+You will take what you have learned from your research and your experiments with the Prosthetic Clouds and begin to develop an architectural proposal.
+
+The central question is: what happens when we take the principles of a small wearable device and apply them at an architectural or urban scale?
+
+For example, a device that responds to environmental conditions might inspire a building or public space that can adapt to its surroundings.
+
+In other words, *prosthetics become infrastructure*.
+
+We are interested in architecture that does more than provide a fixed physical environment. We want to explore spaces and systems that can sense, respond and adapt to changing conditions.
+
+The important thing is that your architectural proposal grows out of your research and experiments, rather than starting with a predetermined building type or programme.
+
+## Slide 16 — Developing Architectural Scenarios
+
+In this final phase, you will begin to develop your own architectural scenarios.
+
+We don't expect everyone to design the same kind of building or follow a conventional architectural programme.
+
+Instead, we want you to think about how architecture could respond to the specific conditions you have investigated.
+
+For example, could a public space respond to the different needs of its users? Could a building adapt to changing environmental conditions? Or could architecture help different communities interact in new ways?
+
+These are just examples. Your proposal should emerge from your own research and the experiments you carried out with your Prosthetic Clouds.
+
+We want you to explore architecture as something that is not necessarily fixed, but capable of changing, responding and interacting with its surroundings.
+
+Of course, this still needs to become an architectural project. You will need to consider space, material, structure and how people actually use the environment you propose.
+
+The challenge is to turn your ideas into a convincing spatial proposal, rather than simply presenting an interesting technological concept.
