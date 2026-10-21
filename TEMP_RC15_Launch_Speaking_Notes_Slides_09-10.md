@@ -66,13 +66,13 @@ The idea is to extend or change how we perceive and interact with our surroundin
 
 ## Slide 12 — Prosthetic Clouds
 
-When we think of prosthetics, we usually imagine something that replaces a missing part of the body. But they can also extend our abilities. Think of glasses or hearing aids.
+When we think of prosthetics, we usually imagine something that replaces a missing part of the body. But prosthetics can also extend our abilities. Think of glasses or hearing aids.
 
 What if a wearable device allowed us to notice something we normally cannot perceive? It might respond to environmental conditions, information from the city or the presence of other people.
 
 The interesting question is not simply what the device can do technically, but how it changes our experience of a place.
 
-And by experience, I don't just mean perception. It might also change how we interact with people or our surroundings.
+And importantly, this relationship can work both ways. The device may also influence how others perceive us, interact with us or respond to our presence.
 
 This is where your research question becomes a physical experiment at the scale of the body.
 
@@ -102,7 +102,15 @@ These findings will feed into the final phase.
 
 ## Slide 15 — 03: Projecting
 
-The final phase is *Projecting*. We move from the body to architecture and the city, using what we learned from research and prototyping to develop an architectural proposal.
+In the final phase, Projecting, we move from the scale of the body to architecture and the city.
+
+This is where transduction becomes particularly important.
+
+Our Prosthetic Clouds are not simply devices that change how we perceive the city. They are experiments in how people, technologies and environments interact.
+
+The ambition is to develop these experiments into larger urban systems that can change how public space functions, how people interact and how the city is organised.
+
+We are not simply making the devices bigger. We are exploring how new relationships can emerge and potentially transform the city.
 
 Here is a project from two years ago. The students began with a broad interest in memory. Through a long, step-by-step process, they discovered that the same historical events are narrated differently in different countries.
 
