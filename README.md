@@ -3,16 +3,16 @@
 
 
 # Dates
-| Nr | Date | Module | Topic | Time | Location |
-| --: | --- | --- | --- | --- | --- |
-| 1 | 06.11.2026 | Module 1.1 | Cartographies of Affect: Python 101 | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
-| 2 | 20.11.2026 | Module 1.2 | Cartographies of Affect: Data Gathering and Analysis | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
-| 3 | 23.11.2026 | Module 1.3 | Cartographies of Affect: Data Representation | 14:00 - 18:00 | TBC |
-| 4 | 27.11.2026 | Module 3.1 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street: rooms 3.01a and 3.01b (10:30 - 13:30); room 5.04 (13:30 - 16:30) |
-| 5 | 30.11.2026 | Module 2.1 | Prosthetic Clouds: Arduino 101 | 14:00 - 18:00 | TBC |
-| 6 | 04.12.2026 | Module 3.2 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street, rooms 3.01a and 3.01b |
-| 7 | 11.12.2026 | Module 2.2 | Prosthetic Clouds: Sensors and Actuators | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
-| 8 | 18.12.2026 | Module 2.3 | Prosthetic Clouds: Design, Fabrication and Data Communication | 10:00 - TBC | 22 Gordon Street, room 3.08 N |
+| Nr | Date | Weekday | Module | Topic | Time | Location |
+| --: | --- | --- | --- | --- | --- | --- |
+| 1 | 06.11.2026 | Friday | Module 1.1 | Cartographies of Affect: Python 101 | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 2 | 20.11.2026 | Friday | Module 1.2 | Cartographies of Affect: Data Gathering and Analysis | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 3 | 23.11.2026 | Monday | Module 1.3 | Cartographies of Affect: Data Representation | 14:00 - 18:00 | TBC |
+| 4 | 27.11.2026 | Friday | Module 3.1 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street: rooms 3.01a and 3.01b (10:30 - 13:30); room 5.04 (13:30 - 16:30) |
+| 5 | 30.11.2026 | Monday | Module 2.1 | Prosthetic Clouds: Arduino 101 | 14:00 - 18:00 | TBC |
+| 6 | 04.12.2026 | Friday | Module 3.2 | Textiles - Sensing surfaces | 10:30 - 16:30 | 22 Gordon Street, rooms 3.01a and 3.01b |
+| 7 | 11.12.2026 | Friday | Module 2.2 | Prosthetic Clouds: Sensors and Actuators | 14:00 - 18:00 | 22 Gordon Street, room 3.08 N |
+| 8 | 18.12.2026 | Friday | Module 2.3 | Prosthetic Clouds: Design, Fabrication and Data Communication | 10:00 - TBC | 22 Gordon Street, room 3.08 N |
 
 Room bookings for 23 and 30 November, and the end time on 18 December, are to be confirmed.
 
