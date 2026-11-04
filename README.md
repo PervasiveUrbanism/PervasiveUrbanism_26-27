@@ -55,11 +55,18 @@ The examples also introduce **image analysis in Python**, including object detec
 
 ### Module 1 assignment: Urban data investigation
 
-**Find an online dataset, build a structured database and visualise it to investigate a question about a chosen area.** You might study events within a neighbourhood, Flickr photographs over a defined period, or the distribution of shops and other infrastructure. Define the area, time period and purpose of your investigation before collecting the data.
+**Find an online urban dataset and investigate a question about a chosen area through Python.** Sources might include a website, an API, an open-data platform or geotagged photographs. Define your research question, geographical area and time period.
 
-Document your sources and collection method, organise and check the data, and develop maps, graphs or spatial representations that communicate your findings. Explain what your dataset reveals, what it leaves out and how those limitations affect your interpretation. AI assistance may support the workflow, but you must understand and be able to explain the process.
+**Submission: an executable Jupyter notebook** containing:
 
-**Technical execution, research intention, graphic quality and narrative all matter.** Present a clear relationship between your question, the method you chose and the story supported by your results. This work will form part of your presentation and discussion in the final oral examination.
+1. **Research question and source:** Explain what you are investigating and identify the data source.
+2. **Data acquisition:** Show the Python code used to collect the dataset, and explain how it works.
+3. **Data processing:** Document how you cleaned, checked and structured the collected data.
+4. **Visualisation:** Generate at least one meaningful graph, map or other visualisation **within the notebook**.
+5. **AI methodology:** Explain your AI-assisted coding strategy, significant prompts or iterations, and how you tested and verified the generated code and results.
+6. **Interpretation:** Discuss what the findings reveal and the limitations of the data and method.
+
+The notebook should tell a coherent story from question to data collection, analysis and visualisation. **Technical execution, research intention, graphic quality and narrative all matter.** Be ready to run the notebook and explain your code and results during the oral examination.
 
 ## Skills Module 2: Prosthetic Clouds
 
@@ -96,11 +103,26 @@ The examples also show how to connect your prototype to **Python and Grasshopper
 
 ### Module 2 assignment: Wearable urban data logger
 
-**Design and build your own Arduino-based sensing device that records sensor measurements together with GPS coordinates and timestamps.** Choose or develop a sensor appropriate to a question about your experience of the city, and explain why its measurements are relevant. Integrate the sensor and GPS into a portable prototype, considering how it is worn or carried and how its components are assembled.
+**Design and build an Arduino-based sensing device that records measurements together with GPS coordinates and timestamps.** Start from the Skills workshop data logger, but develop it further by integrating additional components or sensors relevant to your urban investigation. Consider the device's assembly, power supply and how it is worn or carried.
 
-Test your logger before fieldwork, then undertake **several walks** to collect data. Record the route and conditions for each walk, check the quality of the sensor readings and GPS positions, and save the data in a structured format that can be analysed in Python or Rhino/Grasshopper.
+**Submission and demonstration requirements:**
 
-Develop **maps and visualisations** that relate your measurements to location and time, and compare the walks. Explain the behaviour of your sensor, the logic of the logging code, any gaps or inaccuracies in the data, and what the results suggest about the urban conditions or experiences you set out to investigate. Present the prototype, data workflow and findings in the final oral examination.
+1. **Working prototype:** Build and test a functioning, extended Arduino data logger.
+2. **Arduino code:** Submit the complete program and explain the sensor readings, GPS, timestamps and recording process.
+3. **Urban fieldwork:** Take the logger on **several walks**, documenting the routes, conditions and collected measurements. Check the quality of the readings and GPS positions.
+4. **Data visualisation:** Process and visualise the recorded data in **Python or Rhino/Grasshopper**, relating measurements to location and time and comparing the walks.
+5. **AI methodology:** Explain how AI helped with coding, hardware troubleshooting or visualisation, and how you tested and corrected its suggestions.
+6. **Documentation:** Provide photographs of the prototype and its use, a description of the components and workflow, and a discussion of results and limitations.
+
+**Bring your working prototype to the oral examination** and be ready to demonstrate it, explain the code and discuss your fieldwork. Submit the Arduino code, visualisation files and supporting documentation.
+
+### Requirements for both modules
+
+**AI-assisted coding:** AI tools are encouraged, but you must explain your development strategy, verify the results and understand the code you submit. **AI-generated code is acceptable, but unexamined code is not.**
+
+**English:** All submitted explanations, code comments, notebook text, visualisation labels and results must be in English. Translate or explain any relevant source data in another language. Set IDEs and software interfaces to **English**, including for screenshots and the oral examination. No untranslated non-English code comments.
+
+**Oral examination:** Be prepared to explain how you acquired and visualised your data, how your Arduino logger works and what your walks revealed, and how you used, tested and corrected AI-generated code.
 
 ## Skills Module 3: Textile Workshop - Sensing surfaces
 
