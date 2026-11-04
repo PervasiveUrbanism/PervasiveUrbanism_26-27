@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#111}.heading{font-size:56px;font-weight:700}.sub{font-size:27px}.section{font-size:35px;font-weight:700}.small{font-size:25px}.code{font-family:Consolas,Menlo,monospace;font-size:25px}.line{fill:none;stroke:#111;stroke-width:3;stroke-linejoin:round}.node{fill:white;stroke:#111;stroke-width:3}.arrow{fill:#111}</style>
+<rect width="1600" height="900" fill="white"/>
+<rect x="26" y="25" width="605" height="845" class="line"/><rect x="649" y="25" width="925" height="845" class="line"/>
+<text x="62" y="99" class="heading">Conditions</text><text x="62" y="141" class="sub">Make a decision and run different code</text><text x="62" y="175" class="sub">based on a condition.</text>
+<path d="M324 205 V267" class="line"/><path d="M315 256 L324 272 L333 256 Z" class="arrow"/>
+<path d="M324 275 L443 361 L324 447 L205 361 Z" class="node"/><text x="324" y="370" text-anchor="middle" class="section">x &gt; 10?</text>
+<text x="156" y="335" class="small">Yes</text><text x="492" y="335" class="small">No</text>
+<path d="M205 361 H126 V481" class="line"/><path d="M117 471 L126 487 L135 471 Z" class="arrow"/>
+<path d="M443 361 H528 V481" class="line"/><path d="M519 471 L528 487 L537 471 Z" class="arrow"/>
+<rect x="60" y="490" width="210" height="86" class="node"/><text x="165" y="544" text-anchor="middle" class="small">Do this</text>
+<rect x="423" y="490" width="177" height="86" class="node"/><text x="511" y="544" text-anchor="middle" class="small">Do that</text>
+<path d="M165 576 V620 H324 M511 576 V620 H324 V653" class="line"/><path d="M315 645 L324 661 L333 645 Z" class="arrow"/>
+<rect x="65" y="695" width="530" height="148" fill="#f4f4f4" rx="8"/>
+<text x="93" y="732" class="code">if x &gt; 10:</text><text x="135" y="763" class="code">print("Do this")</text><text x="93" y="794" class="code">else:</text><text x="135" y="825" class="code">print("Do that")</text>
+<text x="682" y="99" class="heading">Loops</text><text x="682" y="141" class="sub">Repeat a block of code multiple times.</text>
+<path d="M1110 193 V843" stroke="#bbb" stroke-width="2"/>
+<text x="700" y="229" class="section">for loop</text><text x="700" y="269" class="small">Repeat for each item</text><text x="700" y="300" class="small">in a sequence.</text>
+<path d="M893 319 V364" class="line"/><path d="M884 353 L893 370 L902 353 Z" class="arrow"/>
+<path d="M767 376 H1019 L1050 413 L1019 450 H767 L736 413 Z" class="node"/><text x="893" y="422" text-anchor="middle" class="small">for item in list</text>
+<path d="M893 450 V486" class="line"/><path d="M884 476 L893 492 L902 476 Z" class="arrow"/>
+<rect x="759" y="499" width="267" height="92" class="node"/><text x="892" y="538" text-anchor="middle" class="small">Do something</text><text x="892" y="568" text-anchor="middle" class="small">with item</text>
+<path d="M893 591 V625 H1071 V413 H1050" class="line"/><path d="M1061 404 L1045 413 L1061 422 Z" class="arrow"/>
+<path d="M893 625 V670" class="line"/><path d="M884 659 L893 676 L902 659 Z" class="arrow"/>
+<rect x="687" y="695" width="391" height="148" rx="8" fill="#f4f4f4"/>
+<text x="708" y="745" class="code">for item in [1, 2, 3]:</text><text x="745" y="789" class="code">print(item)</text>
+<text x="1150" y="229" class="section">while loop</text><text x="1150" y="269" class="small">Repeat while a</text><text x="1150" y="300" class="small">condition is true.</text>
+<path d="M1373 320 V362" class="line"/><path d="M1364 352 L1373 369 L1382 352 Z" class="arrow"/>
+<path d="M1373 370 L1482 439 L1373 508 L1264 439 Z" class="node"/><text x="1373" y="447" text-anchor="middle" class="small">x &lt; 3?</text>
+<text x="1488" y="421" class="small">No</text><text x="1384" y="530" class="small">Yes</text>
+<path d="M1482 439 H1540 V659" class="line"/><path d="M1531 650 L1540 667 L1549 650 Z" class="arrow"/>
+<path d="M1373 508 V545" class="line"/>
+<rect x="1233" y="551" width="280" height="92" class="node"/><text x="1373" y="588" text-anchor="middle" class="small">Do something</text><text x="1373" y="617" text-anchor="middle" class="small">and update x</text>
+<path d="M1373 643 V671 H1188 V439 H1264" class="line"/><path d="M1253 430 L1270 439 L1253 448 Z" class="arrow"/>
+<rect x="1141" y="695" width="399" height="148" rx="8" fill="#f4f4f4"/>
+<text x="1165" y="730" class="code">x = 0</text><text x="1165" y="761" class="code">while x &lt; 3:</text><text x="1206" y="792" class="code">print(x)</text><text x="1206" y="823" class="code">x += 1</text>
+</svg>
