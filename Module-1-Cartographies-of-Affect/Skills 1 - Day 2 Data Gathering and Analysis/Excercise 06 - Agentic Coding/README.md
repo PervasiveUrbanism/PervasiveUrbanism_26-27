@@ -53,19 +53,21 @@ Because he works irregular shifts, **evenings and weekends** are usually the bes
 
 ## 3. Your First Agent
 
-Instead of searching for events ourselves, we can ask ChatGPT to do this repeatedly on Tomaso's behalf:
+Instead of searching for events ourselves, we can ask ChatGPT to search on Tomaso's behalf. We will **run the search once**, inspect what it finds and then make it repeat automatically.
+
+A **one-off agentic search** runs when we ask for it. A **scheduled task** runs a similar brief at a specified time, such as every Thursday. Scheduling does not make the results more accurate; it only makes the task repeat. We still need to examine where the information came from and whether it is reliable.
 
 > **Every Thursday, find things Tomaso could do in Berlin during the coming week.**
 
-We can turn this into a **scheduled task** in ChatGPT. No Python is required. We describe the goal in natural language and tell the agent when it should run.
+No Python is required for this first experiment. We describe the goal in natural language, let ChatGPT search and inspect the results before adding a schedule.
 
 ![Scheduled Task](ScheduledTask.png)
 
-### Exercise
+### Exercise — Run the search
 
-Create a new scheduled task in ChatGPT using a prompt similar to:
+Start a new ChatGPT conversation and use a prompt similar to:
 
-> Every Thursday, search for events and activities happening in Berlin during the following seven days that Tomaso might enjoy.
+> Search for events and activities happening in Berlin during the next seven days that Tomaso might enjoy.
 >
 > Tomaso is 24, moved from Bologna to Berlin six months ago, lives at Wipperstraße 13 in Neukölln, works part-time in a café, and is looking to meet people and make friends. He likes electronic and experimental music, small concerts, architecture and urban culture, photography, independent cinema, markets, food and cooking.
 >
@@ -77,7 +79,9 @@ The requested output has a simple spatial data structure:
 
 `event | date | time | venue | address | latitude | longitude | price | source_url | recommendation`
 
-> **Run the task once and examine the results.**
+Run this **one-off search** first. Read the recommendations and open some of their source links. Then create a **scheduled task** using the same brief, asking ChatGPT to run it every Thursday and search for the following seven days. If scheduling is unavailable, the one-off search is sufficient for the exercise.
+
+The original sources and dates matter more than how convincing the final recommendations sound. The next step is to check this.
 
 ### Reference run — 4 October 2026
 
@@ -96,6 +100,17 @@ We tested the brief with a live search for **5–11 October 2026**. The table be
 | Mit allen Sinnen im Waldgarten | Sat 10.10, 15:00–16:30 | Waldgarten Berlin-Britz, Leonberger Ring 54, 12349 Berlin | 52.42721 | 13.42883 | Free | Guided sensory walk through a community garden; participatory and locally grounded. Registration required. | https://www.umweltkalender-berlin.de/angebote/details/99821?dat=2026-10-10 |
 | Gardens of Disco | Sat 10.10, 21:00 | Orangerie Neukölln, Schierker Straße 8, 12051 Berlin | 52.47058 | 13.43609 | €12 | Small-scale Disco, Italo, House and experimental electronic music in a local setting; probably the strongest music match. | https://www.orangerie-nk.de/ |
 
+### Exercise — Verify three recommendations
+
+Select **three events** from your own search results. For each event, open its **original organiser or venue page**, where available, rather than relying only on an event aggregator. Record whether you can confirm:
+
+- **Date and time:** Is the event happening during the requested week?
+- **Price and access:** Is the stated price correct? Are there booking requirements or age restrictions?
+- **Place:** Does the address match the venue? Are the coordinates plausible?
+- **Source:** Does the link lead to information about this particular event, rather than a generic homepage?
+
+Mark each field as **verified**, **uncertain** or **incorrect**, and note the source you checked. If you cannot establish a fact, leave it uncertain instead of guessing. Compare the verification with the agent's original recommendation: did any result become less suitable for Tomaso?
+
 ### First observations
 
 At first sight, the result is impressive. The agent has searched for current events, interpreted Tomaso's preferences and returned structured spatial data. But the table also exposes the limits of the process.
@@ -110,7 +125,7 @@ More importantly, agentic search is **not guaranteed to be factually correct**. 
 
 ![ChatGPTMistakes](Mistakes.png)
 
-For casual discovery, a result that is *mostly correct* may still be useful. For a data-collection workflow, however, **mostly correct is not good enough**. A few invented or incorrect records contaminate the dataset and may affect everything that happens afterwards.
+For casual discovery, a result that is *mostly correct* may still be useful. For a data-collection workflow, however, **a plausible recommendation is not yet a verified data record**. A few invented or incorrect records can contaminate the dataset and affect everything that happens afterwards.
 
 This gives us a reason to look beyond the quality of the recommendations themselves. The problem is not simply whether the answer looks convincing; it is that the **method is opaque**.
 
