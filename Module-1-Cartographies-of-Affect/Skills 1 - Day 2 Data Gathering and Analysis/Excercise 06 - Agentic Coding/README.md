@@ -209,7 +209,6 @@ Why a table? A website contains navigation, adverts, formatting and other materi
 
 **Our target is to develop two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
 
-**Existing code in this repository:** The [Codes folder](Codes/) currently contains a working example of a different source: **Umweltkalender Berlin**. It includes a Python scraper, setup instructions and a small set of tests. It demonstrates how an agent-assisted scraper can be structured and checked, but it is **not** an implementation of either proposed scraper above. It also uses a shorter, eight-column CSV schema. Treat it as an **independent reference example**, not as the combined events pipeline or an output compatible with the target schema without adaptation.
 
 ![](architecture.PNG)
 
@@ -243,7 +242,7 @@ Later enrichment should preserve the original `address` and `description` and ad
 
 ### 5.3 Development Steps
 
-Develop one stage at a time. The prompts below are starting points; use the shared schema and brief from Section 5.2 throughout. **Steps 1–4 are the proposed workshop development tasks, not completed code in this repository; steps 5–7 describe later extensions.** The Umweltkalender scraper in [Codes](Codes/) is a separate reference implementation.
+Develop one stage at a time. The prompts below are starting points; use the shared schema and brief from Section 5.2 throughout. **Steps 1–4 are the proposed workshop development tasks, not completed code in this repository; steps 5–7 describe later extensions.**
 
 1. **Inspect both sources.** Open listings and individual event pages. Review date coverage, pagination, available fields and likely failure points.
 
