@@ -135,39 +135,43 @@ We know the brief and we can see the output, but we do not yet know exactly how 
 
 ## 4. Inside the Search
 
-Our first agent appears simple. We gave it a description of Tomaso and received ten recommendations.
+We gave the agent Tomaso's profile and received ten recommendations. The result looks like a simple table, but producing it involved several different kinds of work.
 
-But between those two things, quite a lot happened.
+**Brief → Search → Extract → Interpret → Filter → Rank → Output**
 
-**Tomaso's brief → Search → Sources → Extraction → Interpretation → Filtering → Ranking → Output**
+This is a useful *model* of the workflow, not a record of the agent's exact internal steps. Unless we can inspect its tool calls and intermediate results, we cannot assume that it followed this sequence or checked every field.
 
-The agent had to decide:
+Consider what the agent might have had to decide:
 
-- **where to search** — which websites, calendars and event platforms to inspect;
-- **what to extract** — dates, prices, addresses, coordinates and descriptions;
-- **what to interpret** — whether an event feels social, interesting or appropriate for Tomaso;
-- **what to exclude** — events that are too expensive, too far away, require fluent German or otherwise conflict with the brief;
-- **how to rank** — which ten events are ultimately worth recommending.
+- **Search:** Which websites, event calendars and queries should it use?
+- **Extract:** What do the sources actually say about dates, prices, venues and access?
+- **Interpret:** Does an event seem social, accessible and relevant to Tomaso?
+- **Filter:** Which events appear to meet his budget, travel and language constraints?
+- **Rank:** Which ten events should appear in the final recommendations?
 
-In our first experiment, all of these decisions were bundled together inside a single agentic search.
+These decisions are not all the same. An event's advertised **price** is a source fact that we can check. Whether the event is a **good place to make friends** is an interpretation. A **30-minute journey** requires a route and a mode of transport, not just an address. The resulting table can make all three look equally certain, even when they are not.
 
-We defined the **input** — Tomaso — and the **output** — ten recommendations — but we had very little control over what happened in between.
+### From a convincing answer to a reproducible method
 
-That is powerful, but it also creates a methodological problem:
+In our first experiment, we specified the **input** (Tomaso's brief) and the **output** (ten recommendations), but we did not define or record each step in between. The agent may have chosen different websites or made different judgements on another run. Even when the output looks plausible, we may struggle to explain why one event was selected and another was ignored.
 
-> **Which parts of this process should we delegate to AI, and which parts should we control ourselves?**
+For a reproducible urban dataset, we want to be able to answer more specific questions: **Where did each record come from? When was it collected? Which details were missing? Which decisions were made by code, and which by an LLM?**
+
+That leads to the main question for the next part of the exercise:
+
+> **Which decisions should we delegate to AI, and which should we make explicit in our workflow?**
 
 ### Taking control of the search
 
-One obvious place to intervene is at the beginning.
+One place to intervene is at the beginning. Instead of allowing an agent to choose any source on the web, we can select a small set of Berlin event websites ourselves.
 
-Instead of asking an agent to decide **where on the web to search**, we can define the sources ourselves.
+**Selected sources → Python scrapers → Shared events table → Later interpretation and recommendations**
 
-**Known Berlin websites → collect events → structured dataset**
+Each scraper will collect source information in a consistent format, keeping the original links and leaving unknown fields blank. We can inspect the resulting rows against their source pages, run the collection again for another week and see which stage failed if the data is incomplete.
 
-Now we know where the information came from. We can inspect the original pages, repeat the process later, and compare what different sources contribute.
+This does not make the dataset automatically accurate: websites change, scrapers can misread pages and sources can contain errors. It does, however, give us a **visible process that we can test and revise**.
 
-This changes the role of AI. Rather than asking it to perform the entire search, we can use it to help us **build the search process itself**.
+The role of AI changes. Instead of asking it to carry out the entire search and deliver a finished answer, we will ask a coding agent to **help us construct and test the collection process**, one part at a time.
 
 ## 5. Building a Controlled Search
 
