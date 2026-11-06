@@ -1,40 +1,39 @@
 # Exercise 06 — Agentic Coding
 
-This exercise introduces **LLM agents**, a relatively new way of working with large language models that potentially represents a fundamental shift in how we interact with computers. Rather than giving a computer a sequence of explicit commands, or asking an LLM a single question and receiving an answer, we can give an agent a **goal** and allow it to work towards that goal through a sequence of actions. It can decide what steps are required, use tools, search for information, write and execute code, inspect results and adapt what it does next.
+Large language models can do more than answer questions or generate code. When connected to tools, an **AI agent** can pursue a goal through several steps: searching for information, inspecting results, deciding what to do next and, when permitted, taking further actions.
 
-This changes the relationship between user and computer. We are no longer necessarily specifying every operation ourselves; we are **delegating parts of a process**. This creates considerable new possibilities, but it also introduces new problems. What decisions has the agent made for us? Can we understand what it has done? How reliable are its results? When should we trust it, and when should we intervene? Learning to work with agents therefore means understanding both their **potential and their limitations**.
+This is different from a conventional program, where we specify the operations in advance, and from a single exchange with a chatbot. In an **agentic workflow**, we delegate some decisions about *how* to complete a task. The agent does not necessarily act without us: we can define limits, inspect intermediate results and decide which actions require approval.
 
-In this exercise, we will explore two aspects of working with LLM agents:
+For urban research, this creates opportunities to collect and interpret information that would otherwise take considerable manual effort. It also raises methodological questions. Which sources did the agent choose? Which results did it exclude? What assumptions did it make? Can we verify its work and repeat the process?
 
-- **Agentic workflows and automation** — where an agent carries out a sequence of tasks on our behalf. We will explore this through **agentic search**, asking an agent to repeatedly search Berlin for events relevant to a particular person.
+We will investigate these questions in two stages:
 
-- **Agentic coding** — where we work with a coding agent to develop a more explicit and controlled computational process ourselves.
+- **Agentic search:** delegate the discovery of Berlin events to an AI agent and evaluate its recommendations.
+- **Agentic coding:** work with a coding agent to build a more explicit, testable process for collecting event information.
 
-These two approaches will allow us to examine the same problem from different directions: first by **delegating a process to an agent**, and then by **working with an agent to construct the process ourselves**.
+Both stages start with the same problem. The difference is **where we place control**: first we delegate much of the search; then we decide how the search should operate and ask an agent to help implement it.
 
 ## 1. Agentic Search
 
-A conventional web search starts with a **query**. We might search for *experimental music Berlin this weekend*. The search engine returns a ranked collection of pages, but the work of interpreting those pages remains largely with us.
+A conventional web search begins with a **query**, such as *experimental music Berlin this weekend*. A search engine returns a collection of pages, and we decide which ones are relevant.
 
 **Query → Search → Results → Human interpretation**
 
 ![Google Search](GoogleSearch.png)
 
-Agentic search changes this relationship. Instead of describing only what we want to find, we can describe **what we are trying to achieve**.
+With agentic search, we describe a **goal** rather than just a query. For example, we might ask an agent to find activities suitable for someone who has recently moved to Berlin. The agent may try several searches, inspect different sources, compare information and refine its approach before presenting recommendations.
 
-**Brief → Agent searches → Agent investigates → Agent interprets → Answer**
+**Brief → Search → Inspect sources → Compare and filter → Recommendations**
 
 ![Agentic Search](SearchStrategy.png)
 
-This is a significant change. The agent is no longer only retrieving information. It is making decisions about where to search, what information matters, how different pieces of information relate to one another and what should ultimately be presented to us.
+The distinction is not simply that the answer is longer or more personalised. The important change is that the agent makes **intermediate decisions**. It decides which searches to try, which pages to inspect and which results to include. These decisions depend on its instructions, the tools it can access and the information available. They may also be mistaken.
 
-This places agentic search somewhere between **retrieval and simulation**. It does not simply ask what exists in a city. It can ask what becomes relevant **for a particular person, in a particular place, at a particular time**.
+This makes agentic search particularly interesting for urban research. The same city can offer very different possibilities depending on someone's interests, income, mobility, language or available time. A search designed for a particular person can reveal those differences—but only through the assumptions built into the brief and the agent's choices.
 
-For urban research, this is interesting because the same city can be searched from very different positions. Age, income, mobility, language, interests and social circumstances all change what the city appears to offer.
+In this exercise, we will work with **Tomaso**, a fictional resident of Berlin. First, we will ask an agent to find activities for him. Then we will examine what it found, what it missed and whether we can verify its claims. Finally, we will take control of more of the process by designing a repeatable data-collection workflow.
 
-In this exercise we will explore this through a fictional resident called Tomaso. We will first give an AI agent considerable freedom to search Berlin on his behalf. We will then examine how it searched, what it ignored, which assumptions it made, and whether its results can be trusted. Finally, we will progressively take control of parts of the process ourselves.
-
-The aim is therefore not simply to use an AI agent, but to understand **what changes when search itself becomes agentic**.
+The aim is not merely to obtain convincing recommendations. It is to understand **how a result was produced, what we can trust and which decisions we should keep under our control**.
 
 ## 2. Meet Tomaso
 
