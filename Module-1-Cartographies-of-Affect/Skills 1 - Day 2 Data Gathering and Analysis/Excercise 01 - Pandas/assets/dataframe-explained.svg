@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="410" viewBox="0 0 960 410"><rect width="960" height="410" fill="white"/><style>text{font-family:Arial,Helvetica,sans-serif;fill:#202020}.h{font-size:22px;font-weight:bold}.t{font-size:20px}.s{font-size:17px;fill:#555}.grid{stroke:#bbb;stroke-width:1}.bold{font-weight:bold}</style>
+<text x="36" y="39" class="h">A Pandas DataFrame</text><text x="36" y="67" class="s">A table of records (rows) and variables (columns)</text>
+<rect x="35" y="90" width="590" height="255" rx="4" fill="#fafafa" stroke="#333"/>
+<rect x="35" y="90" width="590" height="63" fill="#eaeaea"/>
+<rect x="35" y="153" width="88" height="192" fill="#f5f5f5"/>
+<rect x="311" y="153" width="177" height="192" fill="#f0f0f0"/>
+<g class="grid"><path d="M123 90 V345 M311 90 V345 M488 90 V345 M35 153 H625 M35 217 H625 M35 281 H625"/></g>
+<text x="79" y="130" class="t bold" text-anchor="middle">index</text><text x="216" y="130" class="t bold" text-anchor="middle">city</text><text x="399" y="130" class="t bold" text-anchor="middle">temperature</text><text x="556" y="130" class="t bold" text-anchor="middle">visitors</text>
+<text x="79" y="195" class="t" text-anchor="middle">0</text><text x="216" y="195" class="t" text-anchor="middle">Berlin</text><text x="399" y="195" class="t" text-anchor="middle">18</text><text x="556" y="195" class="t" text-anchor="middle">120</text>
+<text x="79" y="259" class="t" text-anchor="middle">1</text><text x="216" y="259" class="t" text-anchor="middle">London</text><text x="399" y="259" class="t" text-anchor="middle">16</text><text x="556" y="259" class="t" text-anchor="middle">95</text>
+<text x="79" y="322" class="t" text-anchor="middle">2</text><text x="216" y="322" class="t" text-anchor="middle">Paris</text><text x="399" y="322" class="t" text-anchor="middle">21</text><text x="556" y="322" class="t" text-anchor="middle">110</text>
+<path d="M401 344 V375 H695" fill="none" stroke="#333" stroke-width="2"/><text x="710" y="380" class="s">Column = Series</text>
+<path d="M625 247 H695" fill="none" stroke="#333" stroke-width="2"/><text x="710" y="252" class="s">Row = record</text>
+<path d="M488 184 H695 V156" fill="none" stroke="#333" stroke-width="2"/><text x="710" y="152" class="s">Single value</text><text x="710" y="176" class="s">(e.g. 18)</text>
+<text x="35" y="395" class="s">Illustrative data, not the Flickr dataset.</text></svg>
