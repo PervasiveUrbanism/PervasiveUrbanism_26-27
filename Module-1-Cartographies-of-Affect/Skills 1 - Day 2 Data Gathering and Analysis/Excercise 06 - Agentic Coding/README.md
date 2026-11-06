@@ -207,19 +207,21 @@ Each website needs its own **scraper**: a Python script that extracts event info
 
 Why a table? A website contains navigation, adverts, formatting and other material alongside its events. Extracting the relevant information into rows and columns gives us a consistent dataset: each row represents an event, with fields such as its date, venue, address, price and description. This makes it easier to inspect and compare events, combine information from many sources, and enrich the data with cleaned addresses, English descriptions and coordinates before asking the LLM to make recommendations.
 
-**For this tutorial, we will build just two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
+**Our target is to develop two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
+
+**Existing code in this repository:** The [Codes folder](Codes/) currently contains a working example of a different source: **Umweltkalender Berlin**. It includes a Python scraper, setup instructions and a small set of tests. It demonstrates how an agent-assisted scraper can be structured and checked, but it is **not** an implementation of either proposed scraper above. It also uses a shorter, eight-column CSV schema. Treat it as an **independent reference example**, not as the combined events pipeline or an output compatible with the target schema without adaptation.
 
 ![](architecture.PNG)
 
 **Color key:** Blue = Python script · Green = table · Purple = LLM action.
 
-The eventual pipeline should run **every Monday**, collecting events from **Monday through Sunday of that week**, using Berlin local dates. Build and check the manual pipeline before adding automation. **This tutorial builds only the two scrapers**; the diagram shows how their outputs will support the later stages.
+The eventual pipeline is intended to run **every Monday**, collecting events from **Monday through Sunday of that week**, using Berlin local dates. The diagrams describe the **proposed system**, not software that has already been completed. Our immediate task is to develop and test the two source scrapers and combine their outputs; enrichment, recommendations and automation remain future stages.
 
 ### 5.2 Development Brief
 
 Give Codex a clear brief before asking it to write code:
 
-> Develop this system in stages, following the roadmap in Section 5.3. Implement and check one stage before moving to the next; this tutorial builds only the two scrapers and combines their outputs. Revise the plan as we learn while keeping the goal of recommendations for Tomaso clear.
+> Develop this system in stages, following the roadmap in Section 5.3. Implement and check one stage before moving to the next. Our immediate goal is to build two scrapers and combine their outputs; do not build the later enrichment, ranking or automation stages yet. Revise the plan as we learn while keeping the goal of recommendations for Tomaso clear.
 >
 > Build two Python scrapers: Scraper 01 for Berlin.de Events and Scraper 02 for Gratis in Berlin. Both must accept the same Monday–Sunday date range and append records using an identical CSV schema to a raw/master events table.
 >
@@ -241,7 +243,7 @@ Later enrichment should preserve the original `address` and `description` and ad
 
 ### 5.3 Development Steps
 
-Develop one stage at a time. The prompts below are starting points; use the shared schema and brief from Section 5.2 throughout. **The tutorial implements steps 1–4; steps 5–7 describe later development.**
+Develop one stage at a time. The prompts below are starting points; use the shared schema and brief from Section 5.2 throughout. **Steps 1–4 are the proposed workshop development tasks, not completed code in this repository; steps 5–7 describe later extensions.** The Umweltkalender scraper in [Codes](Codes/) is a separate reference implementation.
 
 1. **Inspect both sources.** Open listings and individual event pages. Review date coverage, pagination, available fields and likely failure points.
 
@@ -270,5 +272,21 @@ Develop one stage at a time. The prompts below are starting points; use the shar
 7. **Finally: automate.** Complete and check the manual pipeline before scheduling it.
 
    > The manual pipeline has been checked. Schedule it to run every Monday, using Berlin local dates to collect events from Monday through Sunday of that week. Record failures so we can review incomplete runs.
+
+### 5.4 Working with the Coding Agent
+
+Rather than submitting the entire brief and accepting whatever code appears, use a short development cycle:
+
+1. **Discuss the approach.** Ask Codex to inspect the source and outline how it intends to collect the data. Check the proposed libraries, fields and likely failure points before authorising implementation.
+2. **Implement one small stage.** Start with one source and one known week. Ask for clear instructions to run the script.
+3. **Run and inspect.** Execute the code yourself. Open the resulting CSV and compare a few rows with their original event pages. Do not assume that a successful run means the data is correct.
+4. **Test the edge cases.** Check missing prices or addresses, events spanning multiple days, duplicate listings, empty results and unavailable pages. Ask the agent to add tests for mistakes you discover.
+5. **Review the changes.** Read the modified files and the agent's explanation, then commit a working version to GitHub before the next stage.
+
+A useful follow-up prompt is:
+
+> Explain what you changed, which source pages you tested, which fields may still be unreliable and how I can reproduce your checks. Show me the output of one sample run. Do not start the next stage until we have reviewed this one.
+
+This process creates a record of our decisions. The agent can propose and write code, but **we remain responsible for verifying that it collects the intended information**.
 
 **First we used an agent as the search engine. Now we use an agent to help us construct the search engine.**
