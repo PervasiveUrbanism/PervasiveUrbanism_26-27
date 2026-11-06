@@ -1,4 +1,4 @@
-# Exercise 06 — Agentic Coding
+# Exercise 04 — Agentic Coding
 
 Large language models can do more than answer questions or generate code. When connected to tools, an **AI agent** can pursue a goal through several steps: searching for information, inspecting results, deciding what to do next and, when permitted, taking further actions.
 

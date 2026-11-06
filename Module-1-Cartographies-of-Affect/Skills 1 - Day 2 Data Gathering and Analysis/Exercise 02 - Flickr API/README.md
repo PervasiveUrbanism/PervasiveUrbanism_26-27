@@ -1,4 +1,4 @@
-# Flickr API — Preparation
+# Exercise 02 — Flickr API: Preparation
 
 ## Flickr Pro subscription and API key
 
@@ -6,4 +6,4 @@ To run the live searches in the Flickr API tutorial, **each student needs a Flic
 
 See [Flickr's official API instructions](https://www.flickrhelp.com/hc/en-us/articles/4404070036884-Flickr-API).
 
-[Open the Flickr API tutorial notebook](Excercise%20FlickrAPI.ipynb).
+[Open the Flickr API tutorial notebook](Exercise%2002%20-%20Flickr%20API.ipynb).
