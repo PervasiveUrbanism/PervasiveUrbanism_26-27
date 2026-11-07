@@ -99,6 +99,28 @@ Rhino has an ordinary **Cartesian model space**: X, Y and Z are distances measur
 
 **Heron** helps connect geographical data to Grasshopper. Its documented **Decimal Degrees to XY** component converts WGS 84 latitude/longitude to X/Y points within Heron's georeferencing workflow; its **Coordinate Transformation** component can transform between explicitly specified coordinate systems. The conversion and the chosen Rhino origin need to be understood together. Do not assume that the output of every Heron component is automatically in EPSG:3857 simply because online map tiles commonly use Web Mercator.
 
+### Why the Earth Anchor Point should be close to the study area
+
+Heron uses Rhino's **Earth Anchor Point** to relate geographical coordinates to the model. The anchor connects a known Earth location to a corresponding point in Rhino, while also defining orientation. This lets us work with nearby geography in a local, metre-based model rather than entering latitude and longitude directly as X/Y coordinates.
+
+There is a limitation: **Rhino is flat, while the Earth is curved**. Rhino's Earth Anchor Point transformation uses a local linear approximation that assumes the model is small enough for Earth's curvature to be neglected. The further a point lies from the **model base point associated with the anchor**, the greater the possible approximation error.
+
+Rhino's API documentation provides a maximum-error estimate. Here are rounded values calculated from that documented bound:
+
+| Distance from model base point | Approximate maximum positional error |
+| --- | ---: |
+| 100 m | 0.8 mm |
+| 500 m | 2 cm |
+| 1 km | 8 cm |
+| 5 km | 2 m |
+| 10 km | 8 m |
+
+These figures are **upper bounds on positional approximation error**, not measurements of how much an individual building or street is stretched. For example, **2 m at a distance of 5 km does not mean a 100 m building becomes 102 m long**. The table concerns the local transformation used by Rhino's Earth Anchor Point; it is **not** the same as the approximately 1.6× scale factor of **Web Mercator** around London. Actual errors depend on the specific location, orientation and workflow.
+
+For an urban-design model, place the Earth Anchor Point **near the centre of the study area**, so the geometry stays close to the local reference point. Heron's **Set EarthAnchorPoint** component can establish this reference. When working across large areas, or when measurements must meet surveying tolerances, verify the workflow against known distances and use a suitable geospatial transformation rather than assuming a local approximation is sufficiently accurate.
+
+Sources: [Rhino's EarthAnchorPoint transformation documentation](https://developer.rhino3d.com/api/rhinocommon/type/rhino.docobjects.earthanchorpoint/) and the [Heron project documentation](https://github.com/blueherongis/Heron).
+
 For our example, the intended sequence is:
 
 1. **Read the CSV** and identify its `Lat` and `Long` columns.
