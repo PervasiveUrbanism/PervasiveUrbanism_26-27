@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+<title id="title">From Flickr tags to a frequency chart</title>
+<desc id="desc">Four stages: tag strings in a DataFrame, split into lists, explode into single tags, and count repeated tags before plotting.</desc>
+<defs><style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#222}.title{font-size:43px;font-weight:600}.heading{font-size:27px;font-weight:600}.small{font-size:23px}.mono{font-family:Consolas,'Courier New',monospace;font-size:23px}.dim{fill:#626262}.grid{stroke:#d0d0d0;stroke-width:1.5}.outline{stroke:#202020;stroke-width:3;fill:none}.arrow{fill:none;stroke:#222;stroke-width:3.5}
+</style><marker id="tip" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#222"/></marker></defs>
+<rect width="1600" height="760" fill="#f9f9f9"/><rect x="42" y="42" width="1516" height="610" fill="none" stroke="#d0d0d0" stroke-width="2"/>
+<text x="800" y="110" text-anchor="middle" class="title">From Flickr tags to frequencies</text>
+<g transform="translate(75 165)">
+<text x="0" y="0" class="heading">1. Tags column</text><text x="0" y="39" class="mono dim">df["tags"]</text>
+<rect x="0" y="70" width="295" height="260" class="outline"/><path d="M0 124 H295 M0 188 H295 M0 252 H295" class="grid"/>
+<text x="18" y="110" class="mono">london river park</text><text x="18" y="172" class="mono">london street</text><text x="18" y="238" class="mono">river bridge</text><text x="18" y="302" class="mono">london park</text>
+</g>
+<path d="M390 344 H455" class="arrow" marker-end="url(#tip)"/>
+<g transform="translate(485 165)">
+<text x="0" y="0" class="heading">2. Split strings</text><text x="0" y="39" class="mono dim">.str.split()</text>
+<rect x="0" y="70" width="300" height="260" class="outline"/><path d="M0 124 H300 M0 188 H300 M0 252 H300" class="grid"/>
+<text x="15" y="111" class="mono">[london, river,</text><text x="15" y="138" class="mono"> park]</text>
+<text x="15" y="174" class="mono">[london, street]</text>
+<text x="15" y="235" class="mono">[river, bridge]</text>
+<text x="15" y="303" class="mono">[london, park]</text>
+</g>
+<path d="M805 344 H870" class="arrow" marker-end="url(#tip)"/>
+<g transform="translate(900 165)">
+<text x="0" y="0" class="heading">3. One tag per row</text><text x="0" y="39" class="mono dim">.explode()</text>
+<rect x="0" y="70" width="225" height="260" class="outline"/>
+<g class="grid"><path d="M0 110 H225 M0 150 H225 M0 190 H225 M0 230 H225 M0 270 H225"/></g>
+<text x="20" y="100" class="mono">london</text><text x="20" y="141" class="mono">river</text><text x="20" y="183" class="mono">park</text><text x="20" y="223" class="mono">london</text><text x="20" y="263" class="mono">street</text><text x="20" y="306" class="mono dim">…</text>
+</g>
+<path d="M1142 344 H1200" class="arrow" marker-end="url(#tip)"/>
+<g transform="translate(1230 165)">
+<text x="0" y="0" class="heading">4. Count</text><text x="0" y="39" class="mono dim">.value_counts()</text>
+<g class="mono"><text x="0" y="105">london</text><text x="0" y="169">river</text><text x="0" y="233">park</text><text x="0" y="297">street</text></g>
+<g fill="#555"><rect x="104" y="84" width="165" height="26"/><rect x="104" y="148" width="110" height="26"/><rect x="104" y="212" width="110" height="26"/><rect x="104" y="276" width="55" height="26"/></g>
+<g class="small"><text x="279" y="105">3</text><text x="224" y="169">2</text><text x="224" y="233">2</text><text x="169" y="297">1</text></g>
+</g>
+<text x="85" y="712" class="dim small">One photograph can contribute several tags. Counts describe tag occurrences, not distinct photographs.</text>
+</svg>
