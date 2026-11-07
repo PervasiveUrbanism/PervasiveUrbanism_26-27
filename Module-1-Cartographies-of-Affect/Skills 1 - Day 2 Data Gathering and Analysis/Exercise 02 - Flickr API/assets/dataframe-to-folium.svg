@@ -1,1 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><style>text{font-family:Arial,Helvetica,sans-serif;fill:#202020}.title{font-size:47px;font-weight:600}.label{font-size:30px}.small{font-size:24px}.mono{font-family:Consolas,Menlo,monospace;font-size:25px}.note{font-size:30px;fill:#666}.line{fill:none;stroke:#202020;stroke-width:4}.fine{fill:none;stroke:#999;stroke-width:2}.node{fill:#f6f6f6;stroke:#202020;stroke-width:3}.panel{fill:#f1f1f1;stroke:#ccc;stroke-width:2}</style><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#202020"/></marker></defs><rect width="1600" height="900" fill="#f8f8f8"/><rect x="45" y="40" width="1510" height="690" fill="none" stroke="#ddd" stroke-width="3"/><text x="800" y="117" text-anchor="middle" class="title">From DataFrame to Folium map</text><rect x="105" y="210" width="620" height="380" rx="10" class="node"/><text x="415" y="257" text-anchor="middle" class="label">Pandas DataFrame</text><path d="M145 334 L685 334" class="fine" /><text x="188" y="320" text-anchor="start" class="label">id</text><text x="352" y="320" text-anchor="start" class="label">latitude</text><text x="550" y="320" text-anchor="start" class="label">longitude</text><path d="M145 390 L685 390" class="fine" /><text x="188" y="376" text-anchor="start" class="mono">1</text><text x="352" y="376" text-anchor="start" class="mono">51.5014</text><text x="550" y="376" text-anchor="start" class="mono">-0.1419</text><path d="M145 446 L685 446" class="fine" /><text x="188" y="432" text-anchor="start" class="mono">2</text><text x="352" y="432" text-anchor="start" class="mono">51.5016</text><text x="550" y="432" text-anchor="start" class="mono">-0.1423</text><path d="M145 502 L685 502" class="fine" /><text x="188" y="488" text-anchor="start" class="mono">3</text><text x="352" y="488" text-anchor="start" class="mono">51.5021</text><text x="550" y="488" text-anchor="start" class="mono">-0.1408</text><path d="M145 558 L685 558" class="fine" /><text x="188" y="544" text-anchor="start" class="mono">4</text><text x="352" y="544" text-anchor="start" class="mono">51.5026</text><text x="550" y="544" text-anchor="start" class="mono">-0.1399</text><path d="M760 400 L850 400" class="line" marker-end="url(#a)"/><rect x="885" y="210" width="580" height="380" rx="10" class="node"/><path d="M920 240 L920 555" class="fine" /><path d="M995 240 L995 555" class="fine" /><path d="M1070 240 L1070 555" class="fine" /><path d="M1145 240 L1145 555" class="fine" /><path d="M1220 240 L1220 555" class="fine" /><path d="M1295 240 L1295 555" class="fine" /><path d="M1370 240 L1370 555" class="fine" /><path d="M1445 240 L1445 555" class="fine" /><path d="M915 255 L1430 255" class="fine" /><path d="M915 330 L1430 330" class="fine" /><path d="M915 405 L1430 405" class="fine" /><path d="M915 480 L1430 480" class="fine" /><path d="M915 555 L1430 555" class="fine" /><rect x="970" y="285" width="380" height="220" fill="none" stroke="#222" stroke-width="4" stroke-dasharray="12 9"/><circle cx="1040" cy="355" r="10" fill="#111"/><circle cx="1120" cy="470" r="10" fill="#111"/><circle cx="1230" cy="390" r="10" fill="#111"/><circle cx="1290" cy="440" r="10" fill="#111"/><text x="1175" y="625" text-anchor="middle" class="small">Folium expects [latitude, longitude]</text><text x="120" y="795" text-anchor="start" class="note">Each row supplies one coordinate pair, represented by one map point.</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1600 900">
+  <!-- Generator: Adobe Illustrator 31.0.0, SVG Export Plug-In . SVG Version: 2.1.5 Build 64)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #111;
+      }
+
+      .st1 {
+        stroke-dasharray: 5.99 5.99;
+      }
+
+      .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9 {
+        fill: none;
+      }
+
+      .st1, .st2, .st8, .st9 {
+        stroke: #999;
+      }
+
+      .st2 {
+        stroke-width: 2px;
+      }
+
+      .st10, .st11, .st12, .st13, .st14 {
+        fill: #202020;
+      }
+
+      .st10, .st15 {
+        font-size: 30px;
+      }
+
+      .st10, .st15, .st12, .st13, .st14 {
+        isolation: isolate;
+      }
+
+      .st10, .st15, .st13 {
+        font-family: ArialMT, Arial;
+      }
+
+      .st15 {
+        fill: #666;
+      }
+
+      .st12 {
+        font-family: Arial-BoldMT, Arial;
+        font-size: 47px;
+        font-weight: 700;
+      }
+
+      .st4 {
+        stroke-dasharray: 12.61 9.45;
+      }
+
+      .st4, .st5, .st7 {
+        stroke: #222;
+        stroke-width: 4px;
+      }
+
+      .st16 {
+        fill: #f6f6f6;
+      }
+
+      .st16, .st6 {
+        stroke: #202020;
+        stroke-width: 3px;
+      }
+
+      .st13 {
+        font-size: 24px;
+      }
+
+      .st14 {
+        font-family: Consolas, Consolas;
+        font-size: 25px;
+      }
+
+      .st7 {
+        stroke-dasharray: 12.07 9.05;
+      }
+
+      .st17 {
+        fill: #f8f8f8;
+      }
+
+      .st8 {
+        stroke-dasharray: 6.06 6.06;
+      }
+    </style>
+  </defs>
+  <rect class="st17" y="0" width="1600" height="900"/>
+  <text class="st12" transform="translate(446.15 117)"><tspan x="0" y="0">From DataFrame to Folium map</tspan></text>
+  <rect class="st16" x="105" y="210" width="620" height="380" rx="10" ry="10"/>
+  <text class="st10" transform="translate(284.94 257)"><tspan x="0" y="0">Pandas DataFrame</tspan></text>
+  <path class="st2" d="M145,334h540"/>
+  <text class="st10" transform="translate(188 320)"><tspan x="0" y="0">id</tspan></text>
+  <text class="st10" transform="translate(352 320)"><tspan x="0" y="0">latitude</tspan></text>
+  <text class="st10" transform="translate(550 320)"><tspan x="0" y="0">longitude</tspan></text>
+  <path class="st2" d="M145,390h540"/>
+  <text class="st14" transform="translate(188 376)"><tspan x="0" y="0">1</tspan></text>
+  <text class="st14" transform="translate(352 376)"><tspan x="0" y="0">51.5014</tspan></text>
+  <text class="st14" transform="translate(550 376)"><tspan x="0" y="0">-0.1419</tspan></text>
+  <path class="st2" d="M145,446h540"/>
+  <text class="st14" transform="translate(188 432)"><tspan x="0" y="0">2</tspan></text>
+  <text class="st14" transform="translate(352 432)"><tspan x="0" y="0">51.5016</tspan></text>
+  <text class="st14" transform="translate(550 432)"><tspan x="0" y="0">-0.1423</tspan></text>
+  <path class="st2" d="M145,502h540"/>
+  <text class="st14" transform="translate(188 488)"><tspan x="0" y="0">3</tspan></text>
+  <text class="st14" transform="translate(352 488)"><tspan x="0" y="0">51.5021</tspan></text>
+  <text class="st14" transform="translate(550 488)"><tspan x="0" y="0">-0.1408</tspan></text>
+  <path class="st2" d="M145,558h540"/>
+  <text class="st14" transform="translate(188 544)"><tspan x="0" y="0">4</tspan></text>
+  <text class="st14" transform="translate(352 544)"><tspan x="0" y="0">51.5026</tspan></text>
+  <text class="st14" transform="translate(550 544)"><tspan x="0" y="0">-0.1399</tspan></text>
+  <path class="st3" d=""/>
+  <path class="st11" d="M818,380l40,20-40,20V380Z"/>
+  <path class="st11" d="M850,400" marker-end="url(#a)"/>
+  <rect class="st6" x="885" y="210" width="580" height="380" rx="10" ry="10"/>
+  <g>
+    <line class="st9" x1="995" y1="240" x2="995" y2="243"/>
+    <line class="st8" x1="995" y1="249.06" x2="995" y2="548.97"/>
+    <line class="st9" x1="995" y1="552" x2="995" y2="555"/>
+  </g>
+  <g>
+    <line class="st9" x1="1070" y1="240" x2="1070" y2="243"/>
+    <line class="st8" x1="1070" y1="249.06" x2="1070" y2="548.97"/>
+    <line class="st9" x1="1070" y1="552" x2="1070" y2="555"/>
+  </g>
+  <g>
+    <line class="st9" x1="1145" y1="240" x2="1145" y2="243"/>
+    <line class="st8" x1="1145" y1="249.06" x2="1145" y2="548.97"/>
+    <line class="st9" x1="1145" y1="552" x2="1145" y2="555"/>
+  </g>
+  <g>
+    <line class="st9" x1="1220" y1="240" x2="1220" y2="243"/>
+    <line class="st8" x1="1220" y1="249.06" x2="1220" y2="548.97"/>
+    <line class="st9" x1="1220" y1="552" x2="1220" y2="555"/>
+  </g>
+  <g>
+    <line class="st9" x1="1295" y1="240" x2="1295" y2="243"/>
+    <line class="st8" x1="1295" y1="249.06" x2="1295" y2="548.97"/>
+    <line class="st9" x1="1295" y1="552" x2="1295" y2="555"/>
+  </g>
+  <g>
+    <line class="st9" x1="1370" y1="240" x2="1370" y2="243"/>
+    <line class="st8" x1="1370" y1="249.06" x2="1370" y2="548.97"/>
+    <line class="st9" x1="1370" y1="552" x2="1370" y2="555"/>
+  </g>
+  <g>
+    <line class="st9" x1="915" y1="255" x2="918" y2="255"/>
+    <line class="st1" x1="923.99" y1="255" x2="1424.01" y2="255"/>
+    <line class="st9" x1="1427" y1="255" x2="1430" y2="255"/>
+  </g>
+  <g>
+    <line class="st9" x1="915" y1="330" x2="918" y2="330"/>
+    <line class="st1" x1="923.99" y1="330" x2="1424.01" y2="330"/>
+    <line class="st9" x1="1427" y1="330" x2="1430" y2="330"/>
+  </g>
+  <g>
+    <line class="st9" x1="915" y1="405" x2="918" y2="405"/>
+    <line class="st1" x1="923.99" y1="405" x2="1424.01" y2="405"/>
+    <line class="st9" x1="1427" y1="405" x2="1430" y2="405"/>
+  </g>
+  <g>
+    <line class="st9" x1="915" y1="480" x2="918" y2="480"/>
+    <line class="st1" x1="923.99" y1="480" x2="1424.01" y2="480"/>
+    <line class="st9" x1="1427" y1="480" x2="1430" y2="480"/>
+  </g>
+  <g>
+    <polyline class="st5" points="970 291 970 285 976 285"/>
+    <line class="st7" x1="985.05" y1="285" x2="1339.48" y2="285"/>
+    <polyline class="st5" points="1344 285 1350 285 1350 291"/>
+    <line class="st4" x1="1350" y1="300.45" x2="1350" y2="494.27"/>
+    <polyline class="st5" points="1350 499 1350 505 1344 505"/>
+    <line class="st7" x1="1334.95" y1="505" x2="980.52" y2="505"/>
+    <polyline class="st5" points="976 505 970 505 970 499"/>
+    <line class="st4" x1="970" y1="489.55" x2="970" y2="295.73"/>
+  </g>
+  <circle class="st0" cx="1040" cy="355" r="10"/>
+  <circle class="st0" cx="1120" cy="470" r="10"/>
+  <circle class="st0" cx="1230" cy="390" r="10"/>
+  <circle class="st0" cx="1290" cy="440" r="10"/>
+  <text class="st13" transform="translate(990.23 625)"><tspan x="0" y="0">Folium expects [latitude, longitude]</tspan></text>
+  <text class="st15" transform="translate(120 795)"><tspan x="0" y="0">Each row supplies one coordinate pair, represented by one map point.</tspan></text>
+</svg>

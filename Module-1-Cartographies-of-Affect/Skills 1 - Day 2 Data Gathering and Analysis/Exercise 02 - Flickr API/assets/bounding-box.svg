@@ -1,1 +1,166 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><style>text{font-family:Arial,Helvetica,sans-serif;fill:#202020}.title{font-size:47px;font-weight:600}.label{font-size:30px}.small{font-size:24px}.mono{font-family:Consolas,Menlo,monospace;font-size:25px}.note{font-size:30px;fill:#666}.line{fill:none;stroke:#202020;stroke-width:4}.fine{fill:none;stroke:#999;stroke-width:2}.node{fill:#f6f6f6;stroke:#202020;stroke-width:3}.panel{fill:#f1f1f1;stroke:#ccc;stroke-width:2}</style><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#202020"/></marker></defs><rect width="1600" height="900" fill="#f8f8f8"/><rect x="45" y="40" width="1510" height="690" fill="none" stroke="#ddd" stroke-width="3"/><path d="M150 110 L150 680" class="fine" /><path d="M250 110 L250 680" class="fine" /><path d="M350 110 L350 680" class="fine" /><path d="M450 110 L450 680" class="fine" /><path d="M550 110 L550 680" class="fine" /><path d="M650 110 L650 680" class="fine" /><path d="M750 110 L750 680" class="fine" /><path d="M850 110 L850 680" class="fine" /><path d="M950 110 L950 680" class="fine" /><path d="M1050 110 L1050 680" class="fine" /><path d="M1150 110 L1150 680" class="fine" /><path d="M1250 110 L1250 680" class="fine" /><path d="M1350 110 L1350 680" class="fine" /><path d="M1450 110 L1450 680" class="fine" /><path d="M100 110 L1500 110" class="fine" /><path d="M100 200 L1500 200" class="fine" /><path d="M100 290 L1500 290" class="fine" /><path d="M100 380 L1500 380" class="fine" /><path d="M100 470 L1500 470" class="fine" /><path d="M100 560 L1500 560" class="fine" /><path d="M100 650 L1500 650" class="fine" /><rect x="420" y="180" width="760" height="410" fill="#ededed" fill-opacity=".35" stroke="#111" stroke-width="6"/><circle cx="800" cy="385" r="17" fill="#111"/><text x="800" y="152" text-anchor="middle" class="label">North · max latitude</text><text x="800" y="635" text-anchor="middle" class="label">South · min latitude</text><text x="325" y="396" text-anchor="end" class="label">West</text><text x="1270" y="396" text-anchor="start" class="label">East</text><text x="800" y="360" text-anchor="middle" class="label">Centre</text><path d="M800 160 L800 178" class="fine" /><path d="M800 590 L800 610" class="fine" /><path d="M328 385 L418 385" class="fine" /><path d="M1180 385 L1240 385" class="fine" /><text x="120" y="803" text-anchor="start" class="note">A bounding box is defined by its western, southern, eastern and northern limits.</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1600 900">
+  <!-- Generator: Adobe Illustrator 31.0.0, SVG Export Plug-In . SVG Version: 2.1.5 Build 64)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #111;
+      }
+
+      .st1 {
+        stroke-dasharray: 12.07 12.07;
+      }
+
+      .st1, .st2, .st3, .st4 {
+        fill: none;
+        stroke: #999;
+      }
+
+      .st2 {
+        stroke-width: 2px;
+      }
+
+      .st5 {
+        fill: #202020;
+      }
+
+      .st5, .st6 {
+        font-family: ArialMT, Arial;
+        font-size: 30px;
+        isolation: isolate;
+      }
+
+      .st3 {
+        stroke-dasharray: 11.87 11.87;
+      }
+
+      .st6 {
+        fill: #666;
+      }
+
+      .st7 {
+        fill: #ededed;
+        fill-opacity: .35;
+        stroke: #111;
+        stroke-width: 6px;
+      }
+
+      .st8 {
+        fill: #f8f8f8;
+      }
+    </style>
+  </defs>
+  <rect class="st8" y="0" width="1600" height="900"/>
+  <g>
+    <line class="st4" x1="150" y1="110" x2="150" y2="116"/>
+    <line class="st3" x1="150" y1="127.87" x2="150" y2="668.06"/>
+    <line class="st4" x1="150" y1="674" x2="150" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="250" y1="110" x2="250" y2="116"/>
+    <line class="st3" x1="250" y1="127.87" x2="250" y2="668.06"/>
+    <line class="st4" x1="250" y1="674" x2="250" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="350" y1="110" x2="350" y2="116"/>
+    <line class="st3" x1="350" y1="127.87" x2="350" y2="668.06"/>
+    <line class="st4" x1="350" y1="674" x2="350" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="450" y1="110" x2="450" y2="116"/>
+    <line class="st3" x1="450" y1="127.87" x2="450" y2="668.06"/>
+    <line class="st4" x1="450" y1="674" x2="450" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="550" y1="110" x2="550" y2="116"/>
+    <line class="st3" x1="550" y1="127.87" x2="550" y2="668.06"/>
+    <line class="st4" x1="550" y1="674" x2="550" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="650" y1="110" x2="650" y2="116"/>
+    <line class="st3" x1="650" y1="127.87" x2="650" y2="668.06"/>
+    <line class="st4" x1="650" y1="674" x2="650" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="750" y1="110" x2="750" y2="116"/>
+    <line class="st3" x1="750" y1="127.87" x2="750" y2="668.06"/>
+    <line class="st4" x1="750" y1="674" x2="750" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="850" y1="110" x2="850" y2="116"/>
+    <line class="st3" x1="850" y1="127.87" x2="850" y2="668.06"/>
+    <line class="st4" x1="850" y1="674" x2="850" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="950" y1="110" x2="950" y2="116"/>
+    <line class="st3" x1="950" y1="127.87" x2="950" y2="668.06"/>
+    <line class="st4" x1="950" y1="674" x2="950" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="1050" y1="110" x2="1050" y2="116"/>
+    <line class="st3" x1="1050" y1="127.87" x2="1050" y2="668.06"/>
+    <line class="st4" x1="1050" y1="674" x2="1050" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="1150" y1="110" x2="1150" y2="116"/>
+    <line class="st3" x1="1150" y1="127.87" x2="1150" y2="668.06"/>
+    <line class="st4" x1="1150" y1="674" x2="1150" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="1250" y1="110" x2="1250" y2="116"/>
+    <line class="st3" x1="1250" y1="127.87" x2="1250" y2="668.06"/>
+    <line class="st4" x1="1250" y1="674" x2="1250" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="1350" y1="110" x2="1350" y2="116"/>
+    <line class="st3" x1="1350" y1="127.87" x2="1350" y2="668.06"/>
+    <line class="st4" x1="1350" y1="674" x2="1350" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="100" y1="200" x2="106" y2="200"/>
+    <line class="st1" x1="118.07" y1="200" x2="1487.97" y2="200"/>
+    <line class="st4" x1="1494" y1="200" x2="1500" y2="200"/>
+  </g>
+  <g>
+    <line class="st4" x1="100" y1="290" x2="106" y2="290"/>
+    <line class="st1" x1="118.07" y1="290" x2="1487.97" y2="290"/>
+    <line class="st4" x1="1494" y1="290" x2="1500" y2="290"/>
+  </g>
+  <g>
+    <line class="st4" x1="100" y1="380" x2="106" y2="380"/>
+    <line class="st1" x1="118.07" y1="380" x2="1487.97" y2="380"/>
+    <line class="st4" x1="1494" y1="380" x2="1500" y2="380"/>
+  </g>
+  <g>
+    <line class="st4" x1="1450" y1="110" x2="1450" y2="116"/>
+    <line class="st3" x1="1450" y1="127.87" x2="1450" y2="668.06"/>
+    <line class="st4" x1="1450" y1="674" x2="1450" y2="680"/>
+  </g>
+  <g>
+    <line class="st4" x1="100" y1="470" x2="106" y2="470"/>
+    <line class="st1" x1="118.07" y1="470" x2="1487.97" y2="470"/>
+    <line class="st4" x1="1494" y1="470" x2="1500" y2="470"/>
+  </g>
+  <g>
+    <line class="st4" x1="100" y1="560" x2="106" y2="560"/>
+    <line class="st1" x1="118.07" y1="560" x2="1487.97" y2="560"/>
+    <line class="st4" x1="1494" y1="560" x2="1500" y2="560"/>
+  </g>
+  <g>
+    <line class="st4" x1="100" y1="650" x2="106" y2="650"/>
+    <line class="st1" x1="118.07" y1="650" x2="1487.97" y2="650"/>
+    <line class="st4" x1="1494" y1="650" x2="1500" y2="650"/>
+  </g>
+  <rect class="st7" x="420" y="180" width="760" height="410"/>
+  <circle class="st0" cx="800" cy="385" r="17"/>
+  <text class="st5" transform="translate(669.12 152)"><tspan x="0" y="0">North · max latitude</tspan></text>
+  <text class="st5" transform="translate(670.76 635)"><tspan x="0" y="0">South · min latitude</tspan></text>
+  <text class="st5" transform="translate(257.21 396)"><tspan x="0" y="0">West</tspan></text>
+  <text class="st5" transform="translate(1270 396)"><tspan x="0" y="0">East</tspan></text>
+  <text class="st5" transform="translate(754.98 360)"><tspan x="0" y="0">Centre</tspan></text>
+  <path class="st2" d="M800,160v18"/>
+  <path class="st2" d="M800,590v20"/>
+  <path class="st2" d="M328,385h90"/>
+  <path class="st2" d="M1180,385h60"/>
+  <text class="st6" transform="translate(120 803)"><tspan x="0" y="0">A bounding box is defined by its western, southern, eastern and northern limits.</tspan></text>
+</svg>
