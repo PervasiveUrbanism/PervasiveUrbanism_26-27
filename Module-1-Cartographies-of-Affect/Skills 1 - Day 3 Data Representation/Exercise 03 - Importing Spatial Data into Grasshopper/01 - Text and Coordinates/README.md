@@ -56,16 +56,14 @@ Why? Lines of latitude run around the globe in circles, and those circles become
 
 ### What is a coordinate reference system?
 
-A **coordinate reference system (CRS)** tells software how to interpret coordinates and relate them to places on Earth. There are two types that matter for this exercise:
+A **coordinate reference system (CRS)** tells software what a set of coordinates means and how it relates to the Earth. An **EPSG code** identifies a particular CRS. For this exercise, two codes are especially useful:
 
-- A **geographic CRS** describes locations using latitude and longitude, measured in **degrees**. Our dataset is assumed to use **WGS 84 (EPSG:4326)**, the familiar geographic reference system used for GPS-style coordinates.
-- A **projected CRS** describes locations on a **flat map**, using X and Y coordinates, generally measured in **metres**. It includes a **map projection**: mathematical rules that transform geographical positions into positions on a plane.
+- **EPSG:4326 (WGS 84)** is a **geographic CRS**. It describes locations on the Earth using **latitude and longitude in degrees**. It does not specify a projection onto a flat map.
+- **EPSG:3857 (Web Mercator)** is a **projected CRS**. It uses a mathematical map projection to represent those same locations on a **flat X/Y grid**, with coordinates expressed in metres.
 
-An **EPSG code** is simply an identifier that lets software recognise a particular coordinate reference system. It is not a coordinate value.
+**The same place has different coordinates in the two systems.** For example, our London point has latitude `51.547253` and longitude `-0.023358` in EPSG:4326, but it will have entirely different X/Y values in EPSG:3857. We cannot copy the numbers from one system into the other: they must be **transformed**, not merely given a different EPSG label.
 
-A projected CRS does more than assign another address to a place. It establishes **how the curved Earth is represented on a flat surface**, including the projection, its parameters, the coordinate axes and units. There are many projected CRSs because different projections are useful for different parts of the world and different purposes.
-
-Flattening a curved surface always introduces some distortion. Depending on the projection, distances, areas, shapes or directions can be distorted. No flat projection represents the entire Earth perfectly.
+There are many projected CRSs, each defining a particular way of flattening the curved Earth. Every projection introduces some distortion of distance, area, shape or direction. Web Mercator is widely used for online maps, but it is only one of many possible projections.
 
 ### The example we already know: Google Maps and OpenStreetMap
 
