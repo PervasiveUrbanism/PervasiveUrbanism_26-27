@@ -34,66 +34,92 @@ Follow the data through the definition, observing how the incoming text is divid
 
 Use Grasshopper Panels to inspect intermediate results as you follow the wires. At this stage, our aim is to **read and understand the data**, not to generate complex geometry.
 
-## 3. Understanding Coordinates, Coordinate Systems and Map Projections
+## 3. From Latitude and Longitude to a Flat Map
 
-Our dataset includes the location `51.547253, -0.023358`. We recognise this as a position in London, and it looks like a pair of numbers that could be entered directly into Grasshopper's **Construct Point** component. But doing so would not place the point correctly in a model measured in metres. To understand why, we need to distinguish **geographical coordinates**, **projected coordinates** and **Rhino's model coordinates**.
+Our first recorded location is `51.547253, -0.023358`. These look like two numbers that we could connect directly to a Grasshopper **Construct Point** component. But they are not ordinary X and Y distances. To understand why, we need to look at what latitude and longitude mean and how online maps display them.
 
-### Latitude and longitude: a position on the Earth
+### How far is one degree?
 
-Imagine the Earth as a globe. We describe positions on its curved surface using two angles:
+Imagine two people standing on the Equator, one at longitude 0° and the other at longitude 1°. They are approximately **111 km apart**. Now imagine the same one-degree change in longitude in London: the separation is only about **69 km**. Near the poles, lines of longitude converge, so the distance corresponding to one degree of longitude approaches zero.
 
-- **Latitude** tells us how far north or south a place is from the Equator. It ranges from −90° to +90°.
-- **Longitude** tells us how far east or west a place is from the Greenwich meridian. It ranges from −180° to +180°.
+**Latitude behaves differently.** Moving one degree north or south corresponds to roughly **111 km** almost everywhere on Earth.
 
-Our first recorded point is approximately **51.547° north, 0.023° west**. These are **degrees**, not metres. One degree of latitude corresponds to roughly 111 km, but the distance represented by a degree of longitude changes with latitude. A degree of longitude becomes progressively shorter towards the poles.
+| Change of geographical coordinates | Approximate ground distance |
+| --- | ---: |
+| 1° of **latitude**, in London | 111 km |
+| 1° of **longitude**, at the Equator | 111 km |
+| 1° of **longitude**, in London | 69 km |
 
-Coordinates also need a **reference system** to define precisely what they mean. GPS-style latitude and longitude are commonly expressed using **WGS 84**, identified as **EPSG:4326**. An EPSG code is a convenient identifier for a coordinate reference system (CRS). The two numbers alone do not tell us which CRS was used, so we must check the data source. For this exercise, we treat the recorded values as WGS 84-style geographical coordinates.
+Why? Lines of latitude run around the globe in circles, and those circles become smaller towards the poles. By contrast, a degree of latitude moves us along a north–south meridian. The figures above are rounded: the exact distances also depend slightly on the Earth's shape.
 
-### Why do we need map projections?
+**The key insight:** A degree is an **angle**, not a fixed distance. Two coordinates that differ by `1` do not necessarily represent the same distance on the ground. So treating longitude as X and latitude as Y in a Rhino model does not produce correctly scaled geometry.
 
-Rhino works in a flat, three-dimensional **Cartesian space**, with X, Y and Z axes. Its coordinates represent distances in the model's chosen units, usually millimetres or metres. The Earth, however, is curved.
+### What is a coordinate reference system?
 
-A **map projection** provides a mathematical method for representing positions on the curved Earth on a flat plane. Imagine trying to flatten the surface of a globe onto a sheet of paper. Something must change: depending on the projection, there will be distortions of **shape, area, distance or direction**. There is no single projection that perfectly preserves everything everywhere.
+A **coordinate reference system (CRS)** tells software how to interpret coordinates and relate them to places on Earth. There are two types that matter for this exercise:
 
-For a city-scale investigation, we usually choose a **projected coordinate reference system** appropriate to the location and purpose. It gives us coordinates in linear units, allowing us to work with distances and spatial geometry.
+- A **geographic CRS** describes locations using latitude and longitude, measured in **degrees**. Our dataset is assumed to use **WGS 84 (EPSG:4326)**, the familiar geographic reference system used for GPS-style coordinates.
+- A **projected CRS** describes locations on a **flat map**, using X and Y coordinates, generally measured in **metres**. It includes a **map projection**: mathematical rules that transform geographical positions into positions on a plane.
 
-### Three coordinate spaces
+An **EPSG code** is simply an identifier that lets software recognise a particular coordinate reference system. It is not a coordinate value.
 
-| Coordinate space | Example / identifier | Units | What it tells us |
-| --- | --- | --- | --- |
-| **Geographic CRS** | WGS 84 — `EPSG:4326` | Degrees | Latitude and longitude on the Earth |
-| **Projected CRS** | British National Grid — `EPSG:27700` | Metres | Easting and northing for locations in Great Britain |
-| **Rhino model space** | X, Y, Z | Model units (choose metres for this workflow) | Position of geometry relative to a model origin |
+A projected CRS does more than assign another address to a place. It establishes **how the curved Earth is represented on a flat surface**, including the projection, its parameters, the coordinate axes and units. There are many projected CRSs because different projections are useful for different parts of the world and different purposes.
 
-The **British National Grid** is a useful choice for London because it provides easting and northing in metres. Other locations require different projected systems: Berlin, for example, would not normally use the British National Grid.
+Flattening a curved surface always introduces some distortion. Depending on the projection, distances, areas, shapes or directions can be distorted. No flat projection represents the entire Earth perfectly.
 
-**Important:** `EPSG:4326` and `EPSG:27700` are not alternative labels for the same numbers. Changing the label does **not** convert the coordinates. They refer to different ways of expressing locations, based on different coordinate reference systems. The coordinates must be **transformed** correctly, including the appropriate projection and datum transformation.
+### The example we already know: Google Maps and OpenStreetMap
 
-### What happens if we use longitude as X and latitude as Y?
+When we open **Google Maps** or a typical **OpenStreetMap** web map, the geographical positions are displayed using a projection known as **Web Mercator (EPSG:3857)**. Web Mercator is widely used for online map tiles because it provides a consistent flat map that is convenient to pan and zoom.
 
-Suppose we connect our dataset directly to Grasshopper using `X = Long`, `Y = Lat` and `Z = 0`. Grasshopper can draw points, but their X/Y coordinates would be tiny angular values such as `(-0.023358, 51.547253)`, not metre-based positions in London.
+It helps to distinguish three stages:
 
-The resulting geometry might resemble the route if we zoom in far enough, but **distances, scale and orientation cannot be trusted as a metric map**. Multiplying every degree by a single constant does not solve the problem, since degrees of latitude and longitude represent different ground distances.
+1. **Geographic position:** We begin with WGS 84 latitude and longitude in degrees, such as `51.547253, -0.023358`.
+2. **Projected map position:** Web Mercator mathematically converts that position to **X/Y coordinates on a flat map**. EPSG:3857 coordinates are expressed in metres, but those *map metres* do not give correct ground distances everywhere.
+3. **Screen position:** The mapping application then uses the map centre, zoom level and viewport size to determine **which pixels** show that location. Your screen itself does not have an EPSG coordinate system.
 
-### A practical workflow: from GPS to Rhino
+For example, at London's latitude the Web Mercator map enlarges local distances by roughly **1.6 times**. This is why a ruler applied directly to EPSG:3857 X/Y coordinates does not measure accurate ground distance in London. **Web Mercator is excellent for displaying interactive maps; it is not a guarantee of accurate dimensions for architectural drawings.**
 
-1. **Identify the source CRS.** For latitude/longitude collected by GPS, this is commonly WGS 84 (`EPSG:4326`), but check the documentation.
-2. **Choose a suitable projected CRS.** For our London dataset, we can use British National Grid (`EPSG:27700`).
-3. **Transform the coordinates**, for example in **QGIS**, or with a properly configured geospatial workflow in Python or Grasshopper/Heron. In QGIS, assigning a layer's CRS tells the software how to interpret existing numbers; **reprojecting/exporting** into a target CRS calculates new coordinates. These are different operations.
-4. **Bring the projected X/Y values into Rhino**, setting the model units to metres. Easting becomes X and northing becomes Y.
-5. **Choose a local origin if needed.** National-grid coordinates can be very large; subtracting one fixed easting/northing origin from every point moves the geometry closer to Rhino's `(0, 0)` while preserving local distances. Record the original CRS and the translation so the points can be placed back in their real-world position.
+Google Maps and OpenStreetMap are useful examples because we already use them, but Web Mercator is **one projection among many**, not the definition of a projected CRS.
 
-A small but important additional distinction: the dataset's `Altitude` column is not automatically compatible with every map projection or height reference. For our first exercise, we can work in **2D** with `Z = 0`. Later, when introducing topography, we will need to consider elevation units and vertical reference systems too.
+### The same place, different numbers
 
-**The essential lesson:** Latitude and longitude tell us *where* something is on Earth; projected coordinates let us work with that location in a measured drawing. Before generating geometry, always ask **which CRS, which units and which origin?**
+Consider our London point:
 
-For further reading, see [Ordnance Survey's explanation of coordinate reference systems](https://docs.os.uk/osngd/getting-started/os-ngd-fundamentals/coordinate-reference-systems) and the [QGIS documentation on projections and CRS](https://docs.qgis.org/latest/en/docs/user_manual/working_with_projections/working_with_projections.html).
+| System | How the position is expressed | Units |
+| --- | --- | --- |
+| **WGS 84 — EPSG:4326** | Latitude `51.547253`, longitude `-0.023358` | Degrees |
+| **Web Mercator — EPSG:3857** | A different pair of projected X/Y numbers | Metres in the projected map |
+| **Rhino model** | Local X/Y/Z values relative to the chosen model origin | Rhino model units |
+
+All three can refer to **the same place**, but their numbers are **not interchangeable**. If you take a longitude/latitude pair from EPSG:4326 and simply tell software that it is EPSG:3857, you have *not* projected it: you have mislabelled the numbers and the point will be misplaced.
+
+A **coordinate transformation** calculates the numbers needed for the target system. Similarly, if two datasets are expressed in different CRSs, you cannot safely combine their X/Y values until they have been brought into a common reference system.
+
+### How does this relate to Rhino and Heron?
+
+Rhino has an ordinary **Cartesian model space**: X, Y and Z are distances measured in the model's chosen units. It does not automatically know that a value is a latitude or longitude.
+
+**Heron** helps connect geographical data to Grasshopper. Its documented **Decimal Degrees to XY** component converts WGS 84 latitude/longitude to X/Y points within Heron's georeferencing workflow; its **Coordinate Transformation** component can transform between explicitly specified coordinate systems. The conversion and the chosen Rhino origin need to be understood together. Do not assume that the output of every Heron component is automatically in EPSG:3857 simply because online map tiles commonly use Web Mercator.
+
+For our example, the intended sequence is:
+
+1. **Read the CSV** and identify its `Lat` and `Long` columns.
+2. **Confirm the geographic CRS** of those coordinates (here we assume WGS 84, EPSG:4326).
+3. **Use a configured geographical conversion** in Heron (or another suitable geospatial tool) to translate those locations into positions that Rhino can use.
+4. **Check units, orientation and model origin.** A local origin makes it easier to work with geometry near Rhino's `(0, 0)`, but the geographic relationship must be retained.
+5. **Compare with a known location** in Google Maps or OpenStreetMap to check the placement. If accurate metric dimensions are required, also confirm the coordinate system's distance distortions and suitability for the study area.
+
+The dataset also includes an `Altitude` field, but this introduces another question: the vertical reference and height units. We will work with the points in **2D (`Z = 0`)** initially and return to elevations in the topography exercise.
+
+**Remember:** **Latitude/longitude locates a point on Earth → a map projection places it on a flat map → the mapping application displays it in pixels, or we bring suitable transformed coordinates into Rhino's model space.** These are connected operations, but they are not the same thing.
+
+For further reading, see [Google Maps — Map and Tile Coordinates](https://developers.google.com/maps/documentation/javascript/coordinates), the [OpenStreetMap explanation of slippy-map tiles](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames), and the Heron references for [Decimal Degrees to XY](https://grasshopperdocs.com/components/heron/decimalDegreesToXY.html) and [Coordinate Transformation](https://grasshopperdocs.com/components/heron/coordinateTransformation.html).
 
 ## 4. From coordinates to geometry
 
 Next, open **`2 Display Coordinates.gh`**. Locate the parts of the definition that use the `Lat` and `Long` columns, and see how the recorded positions are represented in Rhino.
 
-Use the distinctions introduced above as you inspect the definition: is it plotting angular longitude/latitude values as a **schematic visualisation**, or is it converting them into a suitable **projected coordinate system** for a metric drawing? If the definition relies on a geospatial plugin such as Heron, check which coordinate system and model origin it uses. The original Grasshopper files have not yet been inspected component by component, so do not assume that their output is already georeferenced or metrically correct.
+Use the distinctions introduced above as you inspect the definition: is it plotting longitude/latitude values directly as a **schematic visualisation**, or converting them into **appropriate metric geometry** using Heron? Check any spatial reference settings and the Rhino model origin. The existing Grasshopper definitions have not yet been inspected component by component, so we should not assume that their output is already geographically aligned or correctly scaled.
 
 When you inspect the result in Rhino, ask yourself whether the geometry is correctly located and scaled, or merely shows the relative sequence of values.
 
