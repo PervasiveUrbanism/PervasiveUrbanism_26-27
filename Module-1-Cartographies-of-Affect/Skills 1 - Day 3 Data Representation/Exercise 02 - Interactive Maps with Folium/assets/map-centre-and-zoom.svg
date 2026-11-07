@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Latitude, longitude, map centre and zoom</title>
+<desc id="desc">A schematic map grid with a central map coordinate, latitude running north–south, longitude running east–west, and two inset map views demonstrating wider and closer zoom.</desc>
+<defs><style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#242424}.title{font-size:44px;font-weight:600}.label{font-size:30px;font-weight:500}.small{font-size:24px}.mono{font-family:Consolas,'Courier New',monospace;font-size:26px}.note{fill:#666;font-size:25px}.grid{stroke:#c7c7c7;stroke-width:1.5}.strong{stroke:#242424;stroke-width:4;fill:none}.thin{stroke:#777;stroke-width:2.5;fill:none}
+</style>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#242424"/></marker></defs>
+<rect width="1600" height="900" fill="#f9f9f9"/><rect x="48" y="48" width="1504" height="700" fill="none" stroke="#d4d4d4" stroke-width="2"/>
+<text x="800" y="124" text-anchor="middle" class="title">Map centre and zoom</text>
+<rect x="140" y="210" width="760" height="430" fill="#f4f4f4" stroke="#242424" stroke-width="3"/>
+<g class="grid"><path d="M250 210 V640 M360 210 V640 M470 210 V640 M580 210 V640 M690 210 V640 M800 210 V640 M140 305 H900 M140 400 H900 M140 495 H900 M140 590 H900"/></g>
+<circle cx="520" cy="418" r="14" fill="#202020"/><path d="M520 349 V405 M520 432 V496 M445 418 H507 M533 418 H597" class="thin"/>
+<text x="540" y="385" class="label">Map centre</text>
+<text x="540" y="527" class="mono">[51.50565, -0.08408]</text>
+<path d="M130 640 V210" class="strong" marker-end="url(#arrow)"/><text x="98" y="430" transform="rotate(-90 98 430)" text-anchor="middle" class="label">Latitude (north / south)</text>
+<path d="M140 668 H900" class="strong" marker-end="url(#arrow)"/><text x="520" y="720" text-anchor="middle" class="label">Longitude (west / east)</text>
+<text x="1180" y="220" text-anchor="middle" class="label">Zoom level</text>
+<rect x="1000" y="255" width="210" height="250" fill="#f4f4f4" stroke="#242424" stroke-width="3"/>
+<g class="grid"><path d="M1052 255 V505 M1105 255 V505 M1158 255 V505 M1000 318 H1210 M1000 380 H1210 M1000 443 H1210"/></g><circle cx="1105" cy="380" r="8" fill="#202020"/>
+<text x="1105" y="540" text-anchor="middle" class="small">Lower zoom</text><text x="1105" y="571" text-anchor="middle" class="note">Wider area</text>
+<path d="M1230 375 H1286" class="strong" marker-end="url(#arrow)"/>
+<rect x="1300" y="255" width="210" height="250" fill="#f4f4f4" stroke="#242424" stroke-width="3"/>
+<g class="grid"><path d="M1324 255 V505 M1363 255 V505 M1405 255 V505 M1447 255 V505 M1485 255 V505 M1300 280 H1510 M1300 326 H1510 M1300 380 H1510 M1300 432 H1510 M1300 477 H1510"/></g>
+<circle cx="1405" cy="380" r="8" fill="#202020"/>
+<text x="1405" y="540" text-anchor="middle" class="small">Higher zoom</text><text x="1405" y="571" text-anchor="middle" class="note">More detail</text>
+<text x="110" y="816" class="note">Folium uses [latitude, longitude] for locations. Increasing zoom_start shows a smaller area in greater detail.</text>
+</svg>
