@@ -13,6 +13,16 @@ We will investigate these questions in two stages:
 
 Both stages start with the same problem. The difference is **where we place control**: first we delegate much of the search; then we decide how the search should operate and ask an agent to help implement it.
 
+## Where you will work
+
+| Where | What you do there |
+| --- | --- |
+| **ChatGPT** | Run the first event search, check recommendations and discuss the research brief, the collection strategy and what the results mean. |
+| **Codex** | Open your local project folder, inspect or edit the Python files, and test the scraper. |
+| **Your computer** | Keep the brief, scripts and CSVs together in one folder. Run the scraper from a terminal in that folder and inspect the CSV in pandas. |
+
+You will switch between ChatGPT and Codex as questions come up. Keep the local project folder as the record of the work. When a decision in ChatGPT affects the code, copy it into the brief in that folder. When you want to discuss a Codex result in ChatGPT, paste the relevant output or attach the file you want to discuss.
+
 ## 1. Agentic Search
 
 A conventional web search begins with a **query**, such as *experimental music Berlin this weekend*. A search engine returns a collection of pages, and we decide which ones are relevant.
@@ -202,11 +212,15 @@ The diagrams show the full plan. Start with [Berlin.de Events](https://www.berli
 
 ### 5.2 Start in Codex
 
-Open a writable project folder in Codex and make this README available in the workspace. If Codex cannot see the file, paste this section into the conversation. Before you begin, open Berlin.de Events and choose a **Monday–Sunday week with visible listings**. Write down both dates in Berlin local time and keep them fixed when you rerun the script. For example, `2026-11-23` to `2026-11-29` illustrates the format. Choose a week the site actually shows when you run the exercise.
+1. In File Explorer or Finder, create a folder called `Berlin-events` in Documents on your computer.
+2. In that folder, create a text file called `brief.md`. Copy the source, the dates you choose below, and the fields you want to collect into it. Add any decisions you made in ChatGPT that should guide the code.
+3. Open the **same `Berlin-events` folder** in Codex as your workspace. Paste the first prompt below and point Codex to `brief.md`. Make this tutorial available by copying its README into the folder as `tutorial.md` or pasting this section into Codex. Keep the Python script and the generated CSV in `Berlin-events` so you can find them when you run the checks.
+
+Before you begin, open Berlin.de Events and choose a **Monday–Sunday week with visible listings**. Write down both dates in Berlin local time and keep them fixed when you rerun the script. For example, `2026-11-23` to `2026-11-29` illustrates the format. Choose a week the site actually shows when you run the exercise.
 
 Paste this first prompt and replace the two date placeholders:
 
-> Read the “Start in Codex” section of the Agentic Coding README in this workspace, or use the excerpt I provide. Plan a small Python scraper for https://www.berlin.de/en/events/. Use the fixed date range START_DATE to END_DATE, inclusive, in Berlin local time. Inspect a listing and a few event pages. Tell me how you would find the events, which fields the pages provide, what might cause the collection to fail, and how I can check three sample records. Start by proposing a plan. Wait for my feedback before writing code.
+> Read `brief.md` in this folder and the “Start in Codex” section of `tutorial.md`, or use the excerpt I provide. Plan a small Python scraper for https://www.berlin.de/en/events/. Use the fixed date range START_DATE to END_DATE, inclusive, in Berlin local time. Inspect a listing and a few event pages. Tell me how you would find the events, which fields the pages provide, what might cause the collection to fail, and how I can check three sample records. Start by proposing a plan. Wait for my feedback before writing code.
 
 Review the plan together. For the first pass, aim to collect the **event name, date, time, venue, price and event-page URL** where the source provides them. Include the source name and collection timestamp. Leave the remaining columns blank when they are unavailable or outside this first pass.
 
@@ -237,6 +251,8 @@ Once the plan makes sense, use this follow-up:
 4. Rerun the same command for the same dates and check that it refreshes the file. Row counts can change if the source changes. Explain one limitation you observed, such as missing prices, ambiguous dates or pages the script could not read.
 
 You have reached the workshop checkpoint when you can **rerun the scraper, inspect the CSV in pandas, and explain what your source checks showed**. If a check fails, show Codex the affected row and source page and ask it to explain the discrepancy before changing the script.
+
+**Example of switching back to ChatGPT** — Your CSV shows blank prices. Paste two example rows and the relevant source wording into ChatGPT to discuss what the blanks mean. If you decide to record “donation” when the source says so, add that decision to `brief.md`. Return to Codex, ask it to apply the change, rerun the script and check those rows again.
 
 ### 5.4 Extend the workflow
 
