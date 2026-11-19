@@ -53,7 +53,7 @@ Because he works irregular shifts, **evenings and weekends** are usually the bes
 
 ## 3. Your First Agent
 
-Instead of searching for events ourselves, we can ask ChatGPT to search on Tomaso's behalf. We will **run the search once**, inspect what it finds and then make it repeat automatically.
+Instead of searching for events ourselves, we can ask ChatGPT to search on Tomaso's behalf. We will **run the search once**, inspect what it finds and then optionally schedule it.
 
 A **one-off agentic search** runs when we ask for it. A **scheduled task** runs a similar brief at a specified time, such as every Thursday. Scheduling does not make the results more accurate; it only makes the task repeat. We still need to examine where the information came from and whether it is reliable.
 
@@ -73,13 +73,13 @@ Start a new ChatGPT conversation and use a prompt similar to:
 >
 > Prioritise free events or events costing no more than €15, preferably within approximately 30 minutes by public transport or bicycle from his home. Tomaso speaks Italian and English and only basic German.
 >
-> Recommend 10 activities. For each recommendation provide the **event name, date, time, venue, full address, latitude, longitude, price, original source URL, and a short explanation of why it suits Tomaso**. Give latitude and longitude in **decimal degrees** and identify the event venue as accurately as possible.
+> Recommend up to 10 activities that you can substantiate. For each recommendation provide the **event name, date, time, venue, full address, latitude, longitude, price, original source URL, and a short explanation of why it suits Tomaso**. Use decimal degrees for coordinates you can support. Leave unknown coordinates blank and mark unconfirmed prices or journey times as uncertain. Link to the specific event page where possible.
 
 The requested output has a simple spatial data structure:
 
 `event | date | time | venue | address | latitude | longitude | price | source_url | recommendation`
 
-Run this **one-off search** first. Read the recommendations and open some of their source links. Then create a **scheduled task** using the same brief, asking ChatGPT to run it every Thursday and search for the following seven days. If scheduling is unavailable, the one-off search is sufficient for the exercise.
+Run this **one-off search** first. Read the recommendations and open some of their source links. For an optional scheduling demonstration, ask ChatGPT to run the same brief every Thursday for the following seven days. The coding exercise below uses a separate, fixed Monday–Sunday window so you can compare reruns.
 
 The original sources and dates matter more than how convincing the final recommendations sound. The next step is to check this.
 
@@ -110,6 +110,13 @@ Select **three events** from your own search results. For each event, open its *
 - **Source:** Does the link lead to information about this particular event, rather than a generic homepage?
 
 Mark each field as **verified**, **uncertain** or **incorrect**, and note the source you checked. If you cannot establish a fact, leave it uncertain instead of guessing. Compare the verification with the agent's original recommendation: did any result become less suitable for Tomaso?
+
+Copy this table and add a row for each field you check. The first row shows how to record a gap in the reference run.
+
+| Event | Field | Agent reported | Evidence checked | Status |
+| --- | --- | --- | --- | --- |
+| Sound Canteen w/ Tobi Fries | Source | Orangerie Neukölln link | The reference table links to the venue homepage. The link does not identify a particular event page. | Uncertain |
+| | | | | |
 
 ### First observations
 
@@ -175,117 +182,68 @@ The role of AI changes. Instead of asking it to carry out the entire search and 
 
 ## 5. Building a Controlled Search
 
-We now move from **using an agent** to **developing with an agent**. This requires a different kind of conversation.
-
-If we simply ask a coding agent to *build an event scraper for Tomaso*, it may immediately start making decisions about sources, data structures, libraries and workflow. Some of those decisions may be sensible, but we have again created a black box — this time in the development process.
-
-A more useful approach is to establish three connected things before coding:
+Your first goal in Codex is to collect events from **one website for one week**, save them to **one CSV**, and check the rows in pandas. You will make the decisions about what to collect and how to verify it. Codex will help you write and test the Python script.
 
 ![Preparing Agentic Code](Strategy.PNG)
 
-The **brief** defines the intended outcome. The **architecture** explains the system and its execution order. The **roadmap** breaks development into stages that can be implemented and checked one at a time.
-
-These three parts are not a rigid specification written once and then forgotten. They should evolve together. What we learn from a website, an initial scraper or a failed run may change the architecture, the brief or the next development step.
-
-This is the central strategy we will use for agentic coding:
-
-**understand the system → describe the intention → break the work into stages → delegate one stage → inspect → revise**
-
-In a typical workflow, we can discuss the brief, architecture and roadmap with ChatGPT first, before moving into implementation with a coding agent such as Codex. This front-loads some thinking, but it gives us a way to judge what the coding agent produces and prevents the project from becoming a collection of unrelated AI-generated changes.
-
-If you work in a **GitHub repository**, save each working stage as a commit before moving on. These checkpoints let you inspect changes and roll back to a known working version if something goes wrong.
+The **brief** says what the system should do. The **architecture** shows how its parts fit together. The **roadmap** gives you an order in which to build and check those parts.
 
 ### 5.1 Overall Architecture
 
-We will build a system that collects event information from selected websites, combines it into a large table, and gives that table to an LLM. The LLM then selects and ranks events that match Tomaso's interests and circumstances.
+![Sequence from source collection to recommendations](Sequence.PNG)
 
+A **scraper** is a script that extracts information from web pages. Each source has its own page structure, so we will develop one scraper per website. The scripts use the same CSV columns so their outputs can be combined.
 
-![](Sequence.PNG)
+![Architecture of the event collection and recommendation workflow](architecture.PNG)
 
+**Colour key** — Blue = Python script · Green = table · Purple = LLM action.
 
-Each website needs its own **scraper**: a Python script that extracts event information. Websites organise their pages differently, so each scraper must be adapted to its source. All scrapers return the same set of fields, allowing their results to be added to one shared events table.
+The diagrams show the full plan. Start with [Berlin.de Events](https://www.berlin.de/en/events/). [Gratis in Berlin](https://www.gratis-in-berlin.de/) is the next source once the first scraper works. Enrichment, recommendations and Monday scheduling come later.
 
-Why a table? A website contains navigation, adverts, formatting and other material alongside its events. Extracting the relevant information into rows and columns gives us a consistent dataset: each row represents an event, with fields such as its date, venue, address, price and description. This makes it easier to inspect and compare events, combine information from many sources, and enrich the data with cleaned addresses, English descriptions and coordinates before asking the LLM to make recommendations.
+### 5.2 Start in Codex
 
-**Our target is to develop two scrapers:** one for [Berlin.de Events](https://www.berlin.de/en/events/) and one for [Gratis in Berlin](https://www.gratis-in-berlin.de/). The same architecture could later include more websites, each contributing records to the shared table.
+Open a writable project folder in Codex and make this README available in the workspace. If Codex cannot see the file, paste this section into the conversation. Before you begin, open Berlin.de Events and choose a **Monday–Sunday week with visible listings**. Write down both dates in Berlin local time and keep them fixed when you rerun the script. For example, `2026-11-23` to `2026-11-29` illustrates the format. Choose a week the site actually shows when you run the exercise.
 
+Paste this first prompt and replace the two date placeholders:
 
-![](architecture.PNG)
+> Read the “Start in Codex” section of the Agentic Coding README in this workspace, or use the excerpt I provide. Plan a small Python scraper for https://www.berlin.de/en/events/. Use the fixed date range START_DATE to END_DATE, inclusive, in Berlin local time. Inspect a listing and a few event pages. Tell me how you would find the events, which fields the pages provide, what might cause the collection to fail, and how I can check three sample records. Start by proposing a plan. Wait for my feedback before writing code.
 
-**Color key:** Blue = Python script · Green = table · Purple = LLM action.
+Review the plan together. For the first pass, aim to collect the **event name, date, time, venue, price and event-page URL** where the source provides them. Include the source name and collection timestamp. Leave the remaining columns blank when they are unavailable or outside this first pass.
 
-The eventual pipeline is intended to run **every Monday**, collecting events from **Monday through Sunday of that week**, using Berlin local dates. The diagrams describe the **proposed system**, not software that has already been completed. Our immediate task is to develop and test the two source scrapers and combine their outputs; enrichment, recommendations and automation remain future stages.
-
-### 5.2 Development Brief
-
-Give Codex a clear brief before asking it to write code:
-
-> Develop this system in stages, following the roadmap in Section 5.3. Implement and check one stage before moving to the next. Our immediate goal is to build two scrapers and combine their outputs; do not build the later enrichment, ranking or automation stages yet. Revise the plan as we learn while keeping the goal of recommendations for Tomaso clear.
->
-> Build two Python scrapers: Scraper 01 for Berlin.de Events and Scraper 02 for Gratis in Berlin. Both must accept the same Monday–Sunday date range and append records using an identical CSV schema to a raw/master events table.
->
-> Collect all available factual event information in that period, including details from individual event pages where needed. Do not select events for Tomaso and do not deduplicate within or between sources. Preserve provenance and leave unavailable information blank rather than inventing it.
->
-> Use latitude and longitude supplied by the source when available, in decimal degrees. Otherwise leave them blank for the later shared geocoding stage. Do not geocode inside either scraper.
->
-> In the later shared enrichment stage, use the LLM to clean addresses and write a short factual English description of each event from its source text. Preserve the original German description and address, keep official street and venue names, and flag missing or uncertain details rather than inventing them.
->
-> First inspect both websites and propose how to collect their data. Explain which pages you will access, how you will identify events and dates, which fields are available, and what could cause collection to fail. Implement one scraper at a time after we review the proposal.
-
-Use this shared schema:
+Use this CSV schema in this order:
 
 `event | date | end_date | time | end_time | venue | address | latitude | longitude | price | category | description | language | age_restrictions | registration | source | source_url | collected_at`
 
-Use `YYYY-MM-DD` for dates and consistent column names and order in both outputs. Keep source wording where useful, including price conditions, language requirements and registration details. `source` identifies the website; `source_url` links to the event page; `collected_at` records when it was collected. These fields let us check the dataset against its sources.
+Use `YYYY-MM-DD` for dates. Include a multi-day event when the source shows that it overlaps the selected week, even if it starts before Monday. Keep the original start and end dates. Preserve source wording for fields such as price, and leave coordinates blank unless the source provides them in decimal degrees.
 
-Later enrichment should preserve the original `address` and `description` and add `cleaned_address`, `description_en`, coordinate provenance and geocoding status. The LLM writes `description_en` as one or two factual English sentences based on the source; this describes the event rather than recommending it for Tomaso. Ambiguous or unresolved locations remain flagged for review; a coordinate alone does not establish travel time from Tomaso's home.
+Once the plan makes sense, use this follow-up:
 
-### 5.3 Development Steps
+> Implement only the Berlin.de scraper using the agreed dates and CSV schema. Save the results to `berlin_de_events.csv` in the project folder. A successful rerun should replace this file with a fresh result for the same week. Preserve the event-page links, leave unknown values blank and keep any overlapping records. Report pages you could not read so I can distinguish incomplete collection from a week with no events. Give me the dependency installation steps, the exact command to run from the project folder, the expected CSV path and the checks you performed.
 
-Develop one stage at a time. The prompts below are starting points; use the shared schema and brief from Section 5.2 throughout. **Steps 1–4 are the proposed workshop development tasks, not completed code in this repository; steps 5–7 describe later extensions.**
+### 5.3 Run and check the first CSV
 
-1. **Inspect both sources.** Open listings and individual event pages. Review date coverage, pagination, available fields and likely failure points.
+1. Open a terminal in your project folder and run the command Codex gave you. Check that `berlin_de_events.csv` appears there.
+2. Open the CSV using the approach from [Exercise 01 — Pandas](../Exercise%2001%20-%20Pandas/Exercise%2001%20-%20Pandas.ipynb). Run this in a notebook whose working directory is your project folder, or adjust the path to the CSV.
 
-   > Inspect Berlin.de Events and Gratis in Berlin. Explain how each scraper could collect events for a Monday–Sunday week. Identify which fields come directly from the pages and which are unavailable. Propose an approach before writing code.
+   ```python
+   import pandas as pd
 
-2. **Build Scraper 01.** Run it manually for one explicit week and compare sample rows with the original pages.
+   events = pd.read_csv("berlin_de_events.csv")
+   print(events.shape)
+   events[["event", "date", "venue", "price", "source_url"]].head()
+   ```
 
-   > Implement the Berlin.de scraper using our shared schema and a configurable Monday–Sunday date range. Preserve source facts and links, leave missing values blank, and do not filter for Tomaso or deduplicate. Explain how to run it and check its output.
+3. Trace **three rows** back to their event pages. Compare the date, venue and price where available. If the scraper returns fewer than three rows, check every row and revisit the listings to understand the limited result.
+4. Rerun the same command for the same dates and check that it refreshes the file. Row counts can change if the source changes. Explain one limitation you observed, such as missing prices, ambiguous dates or pages the script could not read.
 
-3. **Build Scraper 02.** Use exactly the same schema and date range, adapting extraction to the second website.
+You have reached the workshop checkpoint when you can **rerun the scraper, inspect the CSV in pandas, and explain what your source checks showed**. If a check fails, show Codex the affected row and source page and ask it to explain the discrepancy before changing the script.
 
-   > Implement the Gratis in Berlin scraper with the same output columns and date range as Scraper 01. Adapt it to this website's structure. Run it and check sample rows against the source pages.
+### 5.4 Extend the workflow
 
-4. **Combine and inspect.** Append both outputs to the raw/master events table and check consistency and coverage.
+1. **Add Gratis in Berlin.** Use the same dates and columns. Write a separate `gratis_in_berlin_events.csv` and check its rows against their sources.
+2. **Combine the files.** Rebuild the combined CSV from the two source CSVs each time. Keep overlapping records and their source links so you can compare them.
+3. **Enrich the data.** Preserve the original addresses and descriptions. Add cleaned addresses and factual English descriptions. Geocode missing coordinates in a shared step and record where each coordinate came from.
+4. **Rank events for Tomaso.** Use the enriched table and his profile. Keep a link to the source for each recommendation and flag uncertain information.
+5. **Automate the checked pipeline.** Run it on Mondays for the Monday–Sunday week in Berlin local time and record any collection failures.
 
-   > Combine the two scraper outputs into one raw events table. Check column names, date coverage and missing values. Retain overlapping event records and their source references, and report any collection problems.
-
-5. **Later: enrich the data.** Clean addresses and write English descriptions with the LLM, then geocode missing coordinates with Python.
-
-   > Preserve the original addresses and descriptions. Add cleaned addresses and short factual English descriptions using the LLM. Then use Python to geocode only missing coordinates, record their provenance, and flag unresolved locations for review. Save an enriched events table.
-
-6. **Later: evaluate with the LLM.** Check its recommendations against the enriched data and source pages.
-
-   > Read the enriched events table and Tomaso's profile in Section 2. Recognise and reconcile duplicate events while retaining source references. Filter and rank suitable events, then return a table of daily recommendations with a short explanation for each. Identify uncertain information.
-
-7. **Finally: automate.** Complete and check the manual pipeline before scheduling it.
-
-   > The manual pipeline has been checked. Schedule it to run every Monday, using Berlin local dates to collect events from Monday through Sunday of that week. Record failures so we can review incomplete runs.
-
-### 5.4 Working with the Coding Agent
-
-Rather than submitting the entire brief and accepting whatever code appears, use a short development cycle:
-
-1. **Discuss the approach.** Ask Codex to inspect the source and outline how it intends to collect the data. Check the proposed libraries, fields and likely failure points before authorising implementation.
-2. **Implement one small stage.** Start with one source and one known week. Ask for clear instructions to run the script.
-3. **Run and inspect.** Execute the code yourself. Open the resulting CSV and compare a few rows with their original event pages. Do not assume that a successful run means the data is correct.
-4. **Test the edge cases.** Check missing prices or addresses, events spanning multiple days, duplicate listings, empty results and unavailable pages. Ask the agent to add tests for mistakes you discover.
-5. **Review the changes.** Read the modified files and the agent's explanation, then commit a working version to GitHub before the next stage.
-
-A useful follow-up prompt is:
-
-> Explain what you changed, which source pages you tested, which fields may still be unreliable and how I can reproduce your checks. Show me the output of one sample run. Do not start the next stage until we have reviewed this one.
-
-This process creates a record of our decisions. The agent can propose and write code, but **we remain responsible for verifying that it collects the intended information**.
-
-**First we used an agent as the search engine. Now we use an agent to help us construct the search engine.**
+If you are working in Git, commit each working stage so you can see what changed and return to a version you have already checked.
