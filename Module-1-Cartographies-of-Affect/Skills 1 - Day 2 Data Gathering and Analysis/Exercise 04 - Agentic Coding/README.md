@@ -202,7 +202,7 @@ The **brief** says what the system should do. The **architecture** shows how its
 
 ![Sequence from source collection to recommendations](Sequence.PNG)
 
-A **scraper** is a script that extracts information from web pages. Each source has its own page structure, so we will develop one scraper per website. The scripts use the same CSV columns so their outputs can be combined.
+A **scraper** is a script that extracts information from web pages. Each source has its own page structure, so we will develop one scraper per website. Both scripts use the same CSV columns. In the full workflow, the second scraper adds its rows to the same weekly events table as the first. The LLM selects events for Tomaso only after both sources have been collected, checked and enriched.
 
 ![Architecture of the event collection and recommendation workflow](architecture.PNG)
 
@@ -254,12 +254,33 @@ You have reached the workshop checkpoint when you can **rerun the scraper, inspe
 
 **Example of switching back to ChatGPT** — Your CSV shows blank prices. Paste two example rows and the relevant source wording into ChatGPT to discuss what the blanks mean. If you decide to record “donation” when the source says so, add that decision to `brief.md`. Return to Codex, ask it to apply the change, rerun the script and check those rows again.
 
-### 5.4 Extend the workflow
+### 5.4 Add the second scraper — Gratis in Berlin
 
-1. **Add Gratis in Berlin.** Use the same dates and columns. Write a separate `gratis_in_berlin_events.csv` and check its rows against their sources.
-2. **Combine the files.** Rebuild the combined CSV from the two source CSVs each time. Keep overlapping records and their source links so you can compare them.
-3. **Enrich the data.** Preserve the original addresses and descriptions. Add cleaned addresses and factual English descriptions. Geocode missing coordinates in a shared step and record where each coordinate came from.
-4. **Rank events for Tomaso.** Use the enriched table and his profile. Keep a link to the source for each recommendation and flag uncertain information.
-5. **Automate the checked pipeline.** Run it on Mondays for the Monday–Sunday week in Berlin local time and record any collection failures.
+Once the Berlin.de scraper works, open [Gratis in Berlin](https://www.gratis-in-berlin.de/) and compare its listings with Berlin.de. Where does each site show the date, venue and price? Open a few event pages to see which details are only available there. Give Codex the same Monday–Sunday dates and the same column names and order as in Section 5.2.
 
-If you are working in Git, commit each working stage so you can see what changed and return to a version you have already checked.
+> Add a scraper for Gratis in Berlin. Use the existing date range and CSV columns. First run the Berlin.de scraper to refresh `berlin_de_events.csv`. Then have the Gratis in Berlin scraper read those rows, add its own rows to the same table, and write the combined result to `weekly_events.csv`. Rebuild `weekly_events.csv` from the freshly collected data on every run so that reruns do not accumulate old rows. Keep the source name and event URL for each row. Leave unknown fields blank and report any collection failures. Give me the commands to run both steps in order.
+
+Open `weekly_events.csv` in pandas and check how many rows each source contributed:
+
+```python
+weekly_events = pd.read_csv("weekly_events.csv")
+weekly_events["source"].value_counts()
+```
+
+Compare three Gratis in Berlin rows with their event pages, or check all of them if there are fewer than three. If the same event appears on both sites, keep both source rows at this stage. Comparing them may reveal that one site gives a more precise price or time.
+
+### 5.5 Prepare the shared table
+
+Check the combined table for missing dates, prices and venues. Preserve the original source fields. If you use an LLM to translate descriptions or help clean addresses, put its output in new columns. If you geocode an address, record where the coordinates came from. Leave unresolved details blank or mark them as uncertain.
+
+### 5.6 Ask the LLM to select events for Tomaso
+
+**This is where the LLM makes recommendations.** Give it the checked and enriched weekly table and Tomaso’s profile from Section 2. The scrapers collect listings by source and date. At this later stage, the LLM can compare the descriptions with Tomaso’s interests and judge whether an event gives him a chance to meet people. Keep the shortlist separate from the source table so you can revisit the same data for a different person.
+
+> Using the weekly events table and Tomaso’s profile, recommend up to ten events. Prioritise events within his €15 budget that match his interests and offer opportunities to meet people. If two sources list the same event, recommend it once and retain the relevant links. Give the date, venue, price and a short reason for each choice. Flag any uncertainty about price, language, booking or travel time. Use the supplied rows as evidence.
+
+Check the shortlist against the table and open the source links for any details that could change the recommendation. Once the manual workflow works end to end, it can be scheduled to run on Mondays for the Monday–Sunday week in Berlin local time. Record collection failures so you can tell when the shortlist was based on incomplete data.
+
+## Conclusion
+
+This workflow combines Python’s ability to collect and organise records consistently with an LLM’s ability to interpret descriptions and make recommendations for a particular person. The weekly table shows what the scrapers found and where each record came from. The shortlist shows how the LLM applied Tomaso’s preferences to that evidence. You can check either step, revise the criteria and use the same table to ask a different question about the city.
