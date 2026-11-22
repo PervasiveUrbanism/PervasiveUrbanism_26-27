@@ -4,6 +4,16 @@ Day 2 introduces graphs and interactive maps in Python. Day 3 builds on these me
 
 For Python graphs and web maps, see [Day 2 — Python visualisation](../Skills%201%20-%20Day%202%20Data%20Gathering%20and%20Analysis/#python-visualisation).
 
+## Before the workshop — Install Heron
+
+Use the [official Heron GitHub releases](https://github.com/blueherongis/Heron/releases) to check the current version and compatibility. For this workshop, skip the Food4Rhino download and use the version listed on GitHub. [Heron v0.5.1](https://github.com/blueherongis/Heron/releases/tag/v0.5.1) is a Windows release for Rhino 8 or later.
+
+1. In Rhino, run `PackageManager`.
+2. Search for **Heron**, select the version listed on GitHub, and click **Install**. The release page also provides the packaged ZIP under **Assets** if you need the manual download.
+3. Restart Rhino, open Grasshopper, and check that the **Heron** tab appears before opening the workshop files.
+
+If you use an older version of Rhino or work on a Mac, check the compatibility notes on the release page before installing.
+
 ## Workshop sequence
 
 1. **Bring the data into Grasshopper.** Start with a table of coordinates and check that the points land in the right place. Then add context using OpenStreetMap, a raster image or a shapefile.
