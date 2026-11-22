@@ -40,6 +40,10 @@ Our first recorded location is `51.547253, -0.023358`. These look like two numbe
 
 ### How far is one degree?
 
+![BBC illustration of latitude and longitude](https://bam.files.bbci.co.uk/bam/live/content/z74msbk/small)
+
+*Image: BBC.*
+
 Imagine two people standing on the Equator, one at longitude 0° and the other at longitude 1°. They are approximately **111 km apart**. Now imagine the same one-degree change in longitude in London: the separation is only about **69 km**. Near the poles, lines of longitude converge, so the distance corresponding to one degree of longitude approaches zero.
 
 **Latitude behaves differently.** Moving one degree north or south corresponds to roughly **111 km** almost everywhere on Earth.
