@@ -4,19 +4,25 @@ Day 2 introduces graphs and interactive maps in Python. Day 3 builds on these me
 
 For Python graphs and web maps, see [Day 2 — Python visualisation](../Skills%201%20-%20Day%202%20Data%20Gathering%20and%20Analysis/#python-visualisation).
 
+## Workshop sequence
+
+1. **Bring the data into Grasshopper.** Start with a table of coordinates and check that the points land in the right place. Then add context using OpenStreetMap, a raster image or a shapefile.
+2. **Add terrain.** Use the Heron examples to see how elevation data becomes a surface in Rhino.
+3. **Work with a grid.** Start with the grid sampling principles, then open the full example to see how sampled values can be represented spatially.
+
 ## Rhino, Grasshopper and Heron
 
 | Exercise | Subject | Existing examples |
 | --- | --- | --- |
-| 03 | **Importing Spatial Data into Grasshopper** — coordinates, OpenStreetMap, raster images and shapefiles | [Text and coordinates](Exercise%2003%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/01%20-%20Text%20and%20Coordinates), [OpenStreetMap](Exercise%2003%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/02%20-%20OpenStreetMap), [raster images](Exercise%2003%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/03%20-%20Raster%20Images), [shapefiles](Exercise%2003%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/04%20-%20Shapefiles) |
-| 04 | **Terrain and Topography** — terrain data and Heron workflows | [Topography](Exercise%2004%20-%20Terrain%20and%20Topography/01%20-%20Topography), [Heron example](Exercise%2004%20-%20Terrain%20and%20Topography/02%20-%20Heron%20Example%20Files/heronexample) |
-| 05 | **Grid Sampling and Spatial Analysis** — understanding a grid-based method and applying it in a larger example | [Principles](Exercise%2005%20-%20Grid%20Sampling%20and%20Spatial%20Analysis/01%20-%20Grid%20Sampling%20Principles), [full example](Exercise%2005%20-%20Grid%20Sampling%20and%20Spatial%20Analysis/02%20-%20Full%20Example) |
+| 01 | **Importing Spatial Data into Grasshopper** — coordinates, OpenStreetMap, raster images and shapefiles | [Text and coordinates](Exercise%2001%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/01%20-%20Text%20and%20Coordinates), [OpenStreetMap](Exercise%2001%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/02%20-%20OpenStreetMap), [raster images](Exercise%2001%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/03%20-%20Raster%20Images), [shapefiles](Exercise%2001%20-%20Importing%20Spatial%20Data%20into%20Grasshopper/04%20-%20Shapefiles) |
+| 02 | **Terrain and Topography** — terrain data and Heron workflows | [Topography](Exercise%2002%20-%20Terrain%20and%20Topography/01%20-%20Topography), [Heron example](Exercise%2002%20-%20Terrain%20and%20Topography/02%20-%20Heron%20Example%20Files/heronexample) |
+| 03 | **Grid Sampling and Spatial Analysis** — understanding a grid-based method and applying it in a larger example | [Principles](Exercise%2003%20-%20Grid%20Sampling%20and%20Spatial%20Analysis/01%20-%20Grid%20Sampling%20Principles), [full example](Exercise%2003%20-%20Grid%20Sampling%20and%20Spatial%20Analysis/02%20-%20Full%20Example) |
 
-## Further Python analysis
+## Optional — Further Python analysis
 
 | Exercise | Subject | Files |
 | --- | --- | --- |
-| 06 | **Image Analysis with Python** — examining visual data with Python | [Open notebook](Exercise%2006%20-%20Image%20Analysis%20with%20Python/Image%20Analysis.ipynb) |
+| 04 | **Image Analysis with Python** — examining visual data with Python | [Open notebook](Exercise%2004%20-%20Image%20Analysis%20with%20Python/Image%20Analysis.ipynb) |
 
 ## Working with these materials
 
