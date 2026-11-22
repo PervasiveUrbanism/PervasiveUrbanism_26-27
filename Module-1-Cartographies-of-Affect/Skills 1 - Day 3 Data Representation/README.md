@@ -1,15 +1,8 @@
 # Data Representation — Day 3
 
-In Day 2, we gathered and analysed urban data. Here we focus on **representing it**: first through Python graphs and interactive maps, then as spatial information in Rhino and Grasshopper.
+Day 2 introduces graphs and interactive maps in Python. Day 3 builds on these methods by bringing spatial data into Rhino and Grasshopper for mapping, terrain modelling and grid sampling. The Grasshopper examples are working files for exploration in Rhino. Their step-by-step written explanations are still to be developed.
 
-The exercises are organised into two connected strands. The Python notebooks can be run and studied in Jupyter; the Grasshopper examples are **existing working files** for exploration in Rhino. Their step-by-step written explanations are still to be developed.
-
-## Python visualisation
-
-| Exercise | Subject | Files |
-| --- | --- | --- |
-| 01 | **Statistical Graphs with Python** — plotting and communicating numerical data | [Open notebook](Exercise%2001%20-%20Statistical%20Graphs%20with%20Python/Excercise%20Graphs.ipynb) |
-| 02 | **Interactive Maps with Folium** — displaying geographical datasets on a web map | [Open notebook](Exercise%2002%20-%20Interactive%20Maps%20with%20Folium/Excercise%20Folium%20Map%20Display.ipynb) |
+For Python graphs and web maps, see [Day 2 — Python visualisation](../Skills%201%20-%20Day%202%20Data%20Gathering%20and%20Analysis/#python-visualisation).
 
 ## Rhino, Grasshopper and Heron
 

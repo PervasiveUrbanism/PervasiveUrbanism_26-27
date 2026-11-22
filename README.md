@@ -39,7 +39,7 @@ This session establishes the **foundation** for all subsequent lessons in this m
 
 ### Skills Module 1.2: Data Gathering and Analysis
 
-We will explore how to **collect, organise and analyse urban data in Python**. The exercises introduce **Pandas** for working with tables, the **Flickr API** for collecting geotagged photographs, and text-based **sentiment analysis**. The focus is on gathering, cleaning, structuring and interpreting existing information.
+We will explore how to **collect, organise and analyse urban data in Python**. The exercises introduce **Pandas** for working with tables, the **Flickr API** for collecting geotagged photographs, and text-based **sentiment analysis**. You will also use statistical graphs and interactive maps with **Folium** to represent the data in Python.
 
 We will also introduce **agentic coding**, using an AI assistant to help develop a data-collection and analysis workflow. You will learn to define a research question, guide the assistant through manageable tasks, check sources and generated code, and verify that the results answer your original question. The emphasis is on understanding and directing the process.
 
@@ -47,7 +47,7 @@ We will also introduce **agentic coding**, using an AI assistant to help develop
 
 ### Skills Module 1.3: Data Representation
 
-This session explores how to communicate collected data through **statistical graphs**, interactive maps with **Folium**, and spatial representations in **Rhino/Grasshopper**. We will explore importing text and coordinate files, **OpenStreetMap data**, raster images and shapefiles, and using **Heron** to work with mapping and topography. Grid-sampling exercises show how image and terrain values can be translated into geometry, building towards a complete spatial visualisation.
+This session builds on the Python visualisations from Day 2 by representing spatial data in **Rhino/Grasshopper**. We will explore importing text and coordinate files, **OpenStreetMap data**, raster images and shapefiles, and using **Heron** to work with mapping and topography. Grid-sampling exercises show how image and terrain values can be translated into geometry, building towards a complete spatial visualisation.
 
 The examples also introduce **image analysis in Python**, including object detection and image-to-text workflows, as further ways to investigate the content of urban imagery. We will consider how computational findings can inform a map or spatial narrative, and how to communicate them clearly through graphics.
 
