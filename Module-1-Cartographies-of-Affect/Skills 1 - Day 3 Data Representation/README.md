@@ -33,9 +33,3 @@ If you use an older version of Rhino or work on a Mac, check the compatibility n
 ### Exercise 03 — Image Analysis with Python (optional)
 
 Use the [Image Analysis notebook](Exercise%2003%20-%20Image%20Analysis%20with%20Python/Image_Analysis.ipynb) to examine visual data in Python.
-
-## Working with these materials
-
-The Grasshopper folders contain `.gh` definitions, Rhino models and source data. Open the example’s Rhino model, then load its Grasshopper definition. If a file input still points to an older location or to the author’s computer, update it to use the source file in the example folder.
-
-The larger CSV, OSM, shapefile, image and Rhino files remain alongside their examples. Some duplicate datasets, temporary files and `.3dmbak` backups may be unnecessary, but have been kept until we can verify which files are needed.
