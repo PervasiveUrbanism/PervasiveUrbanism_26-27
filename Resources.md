@@ -59,6 +59,10 @@ For coding work, use an assistant to explain unfamiliar code, develop a first im
 
 The three **RC15 Foundations** paths cover Rhino and Grasshopper, Python and Arduino, and Visual Communication & Presentation. They are required during the first three weeks. **Mapping with QGIS** is an additional recommended path. See the [README's foundation skills section](README.md#foundation-skills-for-rc15--linkedin-learning) for deadlines, UCL access, invitations and preparation requirements.
 
+### Creative technology courses and events
+
+[School of Machines, Making & Make-Believe](https://www.schoolofma.org/news) — news, courses, workshops and events exploring art, technology and experimental making, including creative coding, electronics and AI. A useful resource for further learning and connecting with Berlin’s creative technology community.
+
 ### O’Reilly
 
 [O’Reilly](https://www.oreilly.com/) offers books and video tutorials with a strong focus on computing and data. Free for UCL students—excellent for **advanced topics**.
@@ -78,6 +82,7 @@ A curated, tried-and-tested set:
 
 * *Automate the Boring Stuff with Python* — free [online](https://automatetheboringstuff.com/#toc).
 * [W3Schools Python](https://www.w3schools.com/python/) — concise reference.
+* [Green Tea Press](https://greenteapress.com/wp/) — freely available books by Allen B. Downey, including *Think Python*, *Think Stats* and *Think Bayes*, for developing programming and data-analysis skills.
 
 ### Arduino
 
@@ -113,6 +118,10 @@ Helpful resources:
 
 In our teaching experience, **LLMs such as ChatGPT can be particularly helpful for QGIS questions**: explaining tools, suggesting processing steps, interpreting errors and helping with expressions or Python scripts. We have found this support more useful than their troubleshooting suggestions for Autodesk Revit. This is an observation from our use, rather than a guarantee: provide your software version, the relevant data and the exact error, then check suggestions against the documentation and test them on a copy of your data.
 
+### Historical maps
+
+[David Rumsey Map Collection](https://www.davidrumsey.com/view/view) — historical maps and atlases for cartographic research, visual references and investigating spatial change over time. The collection includes tools for browsing and georeferencing maps.
+
 ### Graphics references
 
 Reference sites for inspiration:
@@ -121,6 +130,7 @@ Reference sites for inspiration:
 * [**Gmunk**](https://gmunk.com/OBLIVION-GFX)
 * [**Ryoji Ikeda**](https://www.ryojiikeda.com/)
 * [**Refik Anadol**](https://refikanadol.com/)
+* [**Xor’s Shader Arsenal**](https://www.xordev.com/arsenal) — shader examples and animated previews for exploring procedural graphics and real-time visual effects. Check the licence for individual works before reusing code or assets.
 * [**Ryoichi Kurokawa**](https://www.ryoichikurokawa.com/)
 
 **Maps and Infographics**
@@ -132,6 +142,19 @@ Creating readable, beautiful maps that clearly communicate information is not as
 * Blog post: **[Using Colors in Maps](https://morphocode.com/the-use-of-color-in-maps/)**
 
 ## Data sources
+
+### Berlin open data
+
+Use these resources to investigate Berlin's spatial, environmental, demographic and mobility conditions. Begin with a research question, then choose datasets that can help answer it. Check each dataset's date, coverage, resolution and licence before drawing conclusions.
+
+- [Berlin Open Data](https://daten.berlin.de/) — the city's central catalogue, covering demographics, transport, planning, culture and more.
+- [Geoportal Berlin](https://gdi.berlin.de/viewer/main/) — the corrected viewer link for official geospatial data, including buildings, land use, planning boundaries and aerial imagery; useful for QGIS research.
+- [ODIS – Open Data Information Office](https://daten.odis-berlin.de/en/) — tools for discovering Berlin's geospatial datasets, including a WFS Explorer.
+- [Berlin Environmental Atlas](https://www.berlin.de/umweltatlas/en/) — information on urban climate, vegetation, soils, water, noise and land use.
+- [Berlin Mobility Data Hub](https://app.mobilityhub.berlin/datasets/) — mobility and traffic datasets, including bicycle traffic and transport infrastructure.
+- [OpenStreetMap / Geofabrik: Berlin](https://download.geofabrik.de/europe/germany/berlin.html) — downloadable street networks, building footprints, land use and points of interest.
+- [Berlin 3D Building Models (LoD2)](https://www.geoportal.de/info/3c7c49af-00a4-3bcd-bc00-20e7f0f1b7bf) — three-dimensional building geometry, including roof forms.
+- [Berlin LOR Planning Areas](https://daten.berlin.de/datensaetze/lebensweltlich-orientierte-raume-lor-01-01-2021-wfs-34c86848) — neighbourhood boundaries for linking spatial and statistical data; check the boundary version against your other datasets.
 
 ### Earth Vector Files
 
@@ -183,7 +206,7 @@ Creating readable, beautiful maps that clearly communicate information is not as
 
 ### News and event data
 
-- **[GDELT Project](https://www.gdeltproject.org/)** — global news/event data that could be revisited as a source for a future data-mining, mapping or spatial-analysis exercise. Note: this link came from reviewing a student project; the student project itself is not being recorded here.
+- **[GDELT Project](https://www.gdeltproject.org/)** — global news and event data for investigating media coverage, places and events over time. See the [data download information](https://gdeltproject.org/#downloading) for access options. Consider how differences in news coverage affect the patterns you observe.
 
 ## Workshops, equipment and components
 
