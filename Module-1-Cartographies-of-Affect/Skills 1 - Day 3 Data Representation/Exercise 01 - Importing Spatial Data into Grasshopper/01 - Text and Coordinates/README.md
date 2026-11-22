@@ -65,7 +65,16 @@ A **coordinate reference system (CRS)** tells software what a set of coordinates
 - **EPSG:4326 (WGS 84)** is a **geographic CRS**. It describes locations on the Earth using **latitude and longitude in degrees**. It does not specify a projection onto a flat map.
 - **EPSG:3857 (Web Mercator)** is a **projected CRS**. It uses a mathematical map projection to represent those same locations on a **flat X/Y grid**, with coordinates expressed in metres.
 
-**The same place has different coordinates in the two systems.** For example, our London point has latitude `51.547253` and longitude `-0.023358` in EPSG:4326, but it will have entirely different X/Y values in EPSG:3857. We cannot copy the numbers from one system into the other: they must be **transformed**, not merely given a different EPSG label.
+**Example — Madrid.** The table shows the same location in both systems. The projected coordinates are rounded to the nearest metre.
+
+| Coordinate reference system | Coordinates |
+| --- | --- |
+| EPSG:4326 (WGS 84) | Latitude `40.411944°`, longitude `-3.678056°` |
+| EPSG:3857 (Web Mercator) | X `-409439 m`, Y `4925987 m` |
+
+To get the X/Y values, **transform** the latitude and longitude from EPSG:4326 to EPSG:3857. Changing the EPSG label alone leaves the numbers in degrees.
+
+*Madrid reference location: [Madrid Facts and Figures, Madrid City Council](https://www.madrid.es/UnidadesDescentralizadas/MarcaMadrid/1ESP/4MC/2Publicaciones/DOC/Madridcifras2020.pdf).*
 
 There are many projected CRSs, each defining a particular way of flattening the curved Earth. Every projection introduces some distortion of distance, area, shape or direction. Web Mercator is widely used for online maps, but it is only one of many possible projections.
 
