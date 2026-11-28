@@ -59,23 +59,176 @@ Before we begin programming, consider what a microcontroller makes possible. Ard
 
 The ambition is not simply to attach electronics to clothing. Ask what the device reveals, how it changes the wearer's experience, and whether its measurements support the question being investigated.
 
-### Discover the world of sensors
+### Discover the World of Sensors
 
-A sensor translates a physical phenomenon into an electrical signal or digital measurement. Different sensors reveal different aspects of the environment or body; they also introduce different limitations.
+Human perception is limited. We see only a small portion of the electromagnetic spectrum, hear only a limited range of frequencies and remain largely unaware of many physical and chemical processes taking place around us.
 
-| Sensor | What it detects | Possible experiment | What to watch out for |
-| --- | --- | --- | --- |
-| **Light sensor (LDR / BH1750)** | Ambient illumination | A wearable that responds to changing light along a route | Direction, shadows and sensor placement affect readings |
-| **Microphone / sound sensor** | Sound waveform or relative sound level | A device that responds to the rhythm of a street | A basic microphone does **not** provide calibrated decibel measurements |
-| **Accelerometer / gyroscope (IMU)** | Acceleration and rotation | A garment responding to walking, turning or posture | Movement signals require interpretation; orientation may drift |
-| **GPS / GNSS receiver** | Position and time | A portable logger documenting an urban journey | Poor reception indoors or between tall buildings; location is approximate |
-| **Temperature / humidity sensor** | Local thermal and moisture conditions | Comparing microclimates while walking | Body heat and enclosure design can distort measurements |
-| **Particulate-matter sensor (PM2.5 / PM10)** | Airborne particle concentrations | Exploring differences between traffic streets and parks | Needs airflow, power and care with interpretation; not a complete air-quality assessment |
-| **Distance sensor (ultrasonic / time-of-flight)** | Distance to nearby surfaces | A wearable that signals approaching obstacles | Range and accuracy depend on surface and environment |
-| **Capacitive touch sensor** | Changes in electrical capacitance | Interactive fabric patches or responsive surfaces | Moisture, wiring and body contact affect behaviour |
-| **Flex / bend sensor** | Bending of a strip or element | Responsive whiskers, sleeves or articulated surfaces | Measures deformation, not a direct distance or force |
-| **Pressure / force sensor** | Applied pressure or contact force | Detecting steps, grip or pressure on a garment | Often requires calibration and repeatable mounting |
-| **GSR / skin conductance sensor** | Changes in electrical conductance of the skin | Recording bodily responses during a walk | **Does not measure emotion directly**; contact, movement and individuals differ |
+Electronic sensors allow us to extend these boundaries. Imagine feeling the magnetic landscape of a city, hearing vibrations travelling through buildings, or perceiving changes in air quality through your clothing. The following sensor families offer starting points for developing your own prosthetic senses.
+
+#### 01 — Beyond human vision
+
+*What would the city look like if we could see beyond visible light?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Infrared thermal camera | Patterns of surface temperature |
+| Infrared thermometer | Surface temperature without contact |
+| Ultraviolet sensor | UV radiation |
+| Multispectral sensor | Different wavelength bands of light |
+| Colour sensor | Colour and illumination |
+| Ambient light sensor (LDR / BH1750) | Light intensity and shadow |
+
+**Design provocations:** Imagine a garment that makes the warmth of surrounding buildings perceptible through vibration, or translates ultraviolet radiation into sound. Surface emissivity, shadows and sensor orientation affect measurements.
+
+Explore: [Adafruit multispectral sensor](https://learn.adafruit.com/adafruit-as7341-10-channel-light-color-sensor-breakout)
+
+#### 02 — Spatial awareness and echolocation
+
+*What if you could perceive space without using your eyes?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Ultrasonic distance sensor | Distance using reflected sound |
+| Time-of-flight sensor | Distance using reflected light |
+| Scanning LiDAR | Spatial profiles of surroundings |
+| Millimetre-wave radar | Movement and, with suitable modules, stationary presence |
+| Doppler radar | Movement and radial velocity |
+| Passive infrared sensor | Changes in thermal radiation associated with movement |
+
+**Design provocations:** Could a wearable extend your field of perception to 360 degrees? Imagine feeling the width of a street or the proximity of people behind you through a pattern of vibrations. Range and accuracy depend on the environment and target.
+
+Explore: [Seeed Studio radar sensors](https://wiki.seeedstudio.com/mmwave_radar_Intro/)
+
+#### 03 — The invisible atmosphere
+
+*What if you could sense the chemical and physical composition of the air?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Particulate-matter sensor (PM2.5 / PM10) | Airborne particle concentrations |
+| CO₂ sensor | Carbon dioxide concentration |
+| VOC sensor | Changes in volatile organic compounds |
+| Gas-specific sensor | Selected gases such as NO₂ or ozone |
+| Temperature and humidity sensor | Local thermal and moisture conditions |
+| Barometric pressure sensor | Atmospheric pressure |
+| Anemometer | Wind speed |
+| Electronic nose | Patterns of responses across multiple gas sensors |
+
+**Design provocations:** Imagine a garment that responds to the changing atmosphere as you walk between traffic, parks and underground stations. Could you map the chemical landscape of a city? Gas sensors can be cross-sensitive and require calibration; particulate sensors need airflow, and body heat can distort temperature readings.
+
+Explore: [Seeed Studio gas sensor guide](https://wiki.seeedstudio.com/Seeed_Gas_Sensor_Selection_Guide/) · [Particulate-matter sensor](https://wiki.seeedstudio.com/Grove-Laser_PM2.5_Sensor-HM3301/)
+
+#### 04 — Listening beyond human hearing
+
+*What does the city sound like beyond the limits of our ears?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Microphone | Airborne sound |
+| Contact microphone | Vibrations travelling through solid materials |
+| Ultrasonic microphone | Sound above human hearing range |
+| Infrasound sensor | Very low-frequency pressure waves |
+| Hydrophone | Sound travelling through water |
+| Geophone | Ground vibrations |
+| Piezoelectric sensor | Mechanical vibrations and deformation |
+
+**Design provocations:** What does a bridge sound like when you listen to its structure rather than the surrounding air? Could you hear underground trains through the ground or discover bats at night? A basic microphone does not provide calibrated decibel measurements.
+
+Explore: [Adafruit piezo sensor](https://www.adafruit.com/category/35)
+
+#### 05 — Invisible fields and radiation
+
+*What if we could sense the technological landscape that surrounds us?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Magnetometer | Strength and direction of magnetic fields |
+| Hall-effect sensor | Local magnetic field variations |
+| Electric-field sensor | Changes in surrounding electric fields |
+| Electromagnetic pickup coil | Fluctuating magnetic fields |
+| Radio receiver | Activity within selected radio frequencies |
+| Geiger counter | Ionising radiation events |
+| Lightning detector | Electromagnetic signals associated with lightning |
+
+**Design provocations:** Imagine walking through a city and hearing an entirely different landscape generated by electrical infrastructure, transport and electronic devices. Could you develop a sense of magnetic north? Use enclosed, purpose-built radiation instruments rather than constructing high-voltage circuits.
+
+Explore: [Christina Kubisch — Electrical Walks](https://electricalwalks.org/)
+
+#### 06 — The invisible body
+
+*What is happening inside our bodies that we are not consciously aware of?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| GSR / EDA | Changes in skin conductance |
+| Optical pulse sensor (PPG) | Pulse and changes in blood volume |
+| ECG sensor | Electrical activity of the heart |
+| EMG sensor | Electrical activity of muscles |
+| EEG sensor | Electrical activity measured at the scalp |
+| Respiration sensor | Breathing patterns |
+| Skin temperature sensor | Changes in skin temperature |
+| Eye-tracking sensor | Direction of gaze |
+
+**Design provocations:** Could a garment make its wearer's physiological responses perceptible to another person? Could two people experience each other's breathing patterns? Physiological signals do not directly reveal emotions, thoughts or intentions. Use purpose-designed body-safe equipment and follow its power and isolation requirements.
+
+Explore: [BITalino biosignal sensors](https://bit.lx.it.pt/bitalino/)
+
+#### 07 — An extended sense of touch
+
+*What if your skin could extend beyond the boundaries of your body?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Force-sensitive resistor | Applied force (requires calibration) |
+| Capacitive sensor | Touch and proximity |
+| Stretch sensor | Material elongation |
+| Bend sensor | Material deformation |
+| Strain gauge | Small changes in material dimensions |
+| Artificial whiskers | Contact, deflection or airflow |
+| Tactile sensor array | Distribution of contact across a surface |
+| Conductive textile sensor | Changes in resistance or capacitance |
+
+**Design provocations:** Imagine flexible whiskers extending from a garment, artificial skin responding to contact, or fabric detecting airflow. Geometry, arrangement and material composition influence how these sensors behave; moisture and mounting can also affect readings.
+
+Explore: [KOBAKANT — soft sensors](https://www.kobakant.at/DIY/)
+
+#### 08 — Movement, orientation and gravity
+
+*Can we develop a greater awareness of how our bodies move through space?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Accelerometer | Acceleration and, when stationary, inclination |
+| Gyroscope | Rotational velocity |
+| Magnetometer | Magnetic orientation |
+| Inertial measurement unit (IMU) | Combined movement measurements |
+| GPS / GNSS | Geographical position and time |
+| Barometric altimeter | Estimated changes in elevation |
+| Optical flow sensor | Relative movement across a visible surface |
+| Foot pressure sensor | Distribution of pressure while walking |
+
+**Design provocations:** Could you recognise urban surfaces through the vibrations transmitted to your feet? Could you map not only where someone went but how they moved? GPS reception can be poor indoors and between tall buildings; orientation estimates may drift.
+
+Explore: [Arduino sensor tutorials](https://docs.arduino.cc/)
+
+#### 09 — Sensing other forms of life
+
+*What if we could perceive the city from the perspective of another organism?*
+
+| Sensor | What it reveals |
+| --- | --- |
+| Soil moisture sensor | Water content of soil |
+| Soil conductivity sensor | Electrical conductivity of soil |
+| Leaf wetness sensor | Moisture on plant surfaces |
+| Dendrometer | Small changes in plant stem diameter |
+| Plant electrophysiology sensor | Electrical potential variations in plant tissue |
+| Ultrasonic acoustic detector | Acoustic activity of certain animals |
+| Underwater pH sensor | Acidity or alkalinity of water |
+| Dissolved oxygen sensor | Oxygen concentration in water |
+
+**Design provocations:** Could a wearable communicate aspects of the conditions experienced by a tree? Could an installation respond to ecological processes unfolding over hours, days or seasons? These measurements are proxies for environmental conditions, not direct access to another organism's experience.
+
+Explore: [Open-source dendrometer research](https://pmc.ncbi.nlm.nih.gov/articles/PMC10953470/)
 
 Two examples of the components we will actually use in **Day 2**:
 
@@ -89,19 +242,152 @@ Two examples of the components we will actually use in **Day 2**:
 
 **Analogue or digital?** Some sensors produce a changing voltage that Arduino reads with `analogRead()`. Others contain their own electronics and send measurements over a digital interface such as **I²C, UART or SPI**. The connector shape alone does not identify the protocol. We will investigate these distinctions in Day 2.
 
-### Arduino can also act: outputs and actuators
+### Responsive Textiles and Wearable Technologies
 
-Sensors are only half the story. A responsive object might communicate through **LEDs and addressable light strips**, a **small display**, **vibration motors**, **speakers**, or **servos** that move a physical element. Think about whether the response should be visible to others, felt privately by the wearer, or recorded for later analysis. Motors and high-power LEDs often require their own power supply and driver circuitry; they cannot necessarily be connected directly to an Arduino pin.
+Sensors are only half the story. Electronics do not need to remain separate from the material structure of a wearable. Light can be woven into fabric, movement can transform its silhouette and circuits can be embroidered into its surface. Think of the wearable as a programmable material that can change its appearance, geometry and behaviour.
 
-### Places to look for inspiration
+#### 01 — Light as a material
 
-- [**Instructables — Wearable Electronics Projects**](https://www.instructables.com/circuits/wearables/projects): a broad collection of wearable experiments combining electronics, unusual materials and the body. Browse multiple examples rather than copying one.
-- [**Arduino Project Hub**](https://projecthub.arduino.cc/): documented projects with code, wiring and component lists.
-- [**Adafruit Learning System**](https://learn.adafruit.com/): accessible guides to sensors, programmable light and wearable electronics.
-- [**Kobakant — How To Get What You Want**](https://www.kobakant.at/DIY/): electronic textiles, soft circuits and experimental material techniques, especially relevant to our **Sensing Surfaces** workshop.
-- [**Hackster.io**](https://www.hackster.io/): a large collection of interactive hardware prototypes and project documentation.
+*What if light became part of the fabric itself?*
 
-**When browsing:** Identify the **input → process → output** relationship. What is genuinely sensed? What happens in response? What makes the device interesting beyond the electronics?
+| Technology | Design possibilities |
+| --- | --- |
+| Individual LEDs | Points of light distributed across a garment |
+| Addressable LEDs | Animated patterns and individually controlled colours |
+| Flexible LED matrices | Low-resolution animated textile surfaces |
+| Fibre optics | Weaving and distributing light through fabric |
+| Electroluminescent wire | Continuous illuminated lines |
+| Electroluminescent panels | Thin illuminated surfaces |
+| Diffusing materials | Soft, indirect illumination integrated into clothing |
+
+**Design provocations:** Imagine illuminated patterns generated by the movement of the wearer, or a textile that gradually changes colour in response to the environment.
+
+Explore: [Adafruit wearables](https://learn.adafruit.com/category/wearables)
+
+#### 02 — Kinetic wearables
+
+*What if clothing could move independently of the body?*
+
+| Technology | Design possibilities |
+| --- | --- |
+| Micro servo motors | Rotating and articulating individual elements |
+| Geared DC motors | Continuous rotation and mechanical movement |
+| Linear actuators | Extending and retracting elements |
+| Shape-memory alloys | Movement through controlled material deformation |
+| Pneumatic actuators | Inflating and contracting soft structures |
+| Electromagnets | Controlled attraction and mechanical movement |
+
+**Design provocations:** Imagine a garment that expands when someone approaches, a collar unfolding in response to sound, or an articulated surface changing geometry as its wearer moves. The mechanism itself can become part of the design language.
+
+Explore: [Anouk Wipprecht](https://www.anoukwipprecht.nl/)
+
+#### 03 — Haptic and tactile experiences
+
+*What if clothing could communicate privately with its wearer?*
+
+| Technology | Design possibilities |
+| --- | --- |
+| Vibration motors | Localised tactile signals |
+| Linear resonant actuators | Controlled vibration patterns |
+| Pneumatic pockets | Pressure against the body |
+| Mechanical actuators | Tapping, pulling or brushing the skin |
+| Peltier elements | Controlled warming or cooling with appropriate safeguards |
+| Small speakers and transducers | Audible or material-borne sound |
+
+**Design provocations:** A wearable could create a private sensory experience invisible to surrounding people: a rhythm on the shoulder, a gentle vibration indicating direction, or a tactile pattern that changes during a walk.
+
+Explore: [Adafruit wearable projects](https://learn.adafruit.com/category/wearables)
+
+#### 04 — Transforming surfaces
+
+*What if a textile could change its physical properties?*
+
+| Technology | Design possibilities |
+| --- | --- |
+| Thermochromic pigments | Colour changes in response to temperature |
+| Photochromic pigments | Colour changes in response to light |
+| Electrochromic materials | Electrically controlled colour or opacity |
+| Shape-memory materials | Changes in geometry |
+| Inflatable textile structures | Changes in volume and stiffness |
+| Origami and kirigami mechanisms | Folding, unfolding and expansion |
+
+**Design provocations:** The material itself becomes an active component rather than simply a support for electronics. Some materials respond directly to their environment; others can be controlled through a programmed actuator.
+
+Explore: [Studio Roosegaarde — Intimacy](https://www.studioroosegaarde.net/project/intimacy)
+
+#### 05 — Electronic textiles and soft circuits
+
+*What if the circuit itself became part of the garment?*
+
+| Technology | Design possibilities |
+| --- | --- |
+| Conductive thread | Embroidered electrical connections |
+| Conductive fabric | Flexible electrical surfaces and contacts |
+| Conductive yarn | Knitted and woven circuits |
+| Fabric switches | Soft buttons integrated into clothing |
+| Flexible PCBs | Thin circuits following curved surfaces |
+| Conductive inks | Printed electrical patterns |
+| Snap connectors | Removable electrical connections |
+
+**Design provocations:** How might components be positioned, concealed, celebrated or integrated into a wearable? This is a direct connection to Sensing Surfaces: the circuit can be designed alongside the textile rather than attached afterwards.
+
+Explore: [KOBAKANT — How to Get What You Want](https://www.kobakant.at/DIY/)
+
+**Practical considerations:** These are possibilities to explore, not a required shopping list. Check board compatibility, voltage, current, power requirements and material integration before choosing components. Motors and high-power LEDs need suitable drivers and power supplies rather than direct connection to Arduino pins. Electroluminescent lighting, heated materials and moving mechanisms require particular care around the body; use suitable enclosed drivers, insulation, temperature limits and mechanical safeguards. Start with low-voltage, low-power prototypes off the body.
+
+### Projects Worth Discovering
+
+Explore how artists and designers combine physical computing, textiles, computational design and creative coding. Follow the project links for visual documentation and inspiration.
+
+#### [Ying Gao — (no)where (now)here](https://yinggao.ca/interactifs/nowhere-nowhere)
+
+Interactive garments combining delicate textiles, photoluminescent thread and eye tracking, reacting to the gaze of spectators. A reference for subtle movement and material expression.
+
+#### [Behnaz Farahi — Caress of the Gaze](https://behnazfarahi.com/caress-of-the-gaze/)
+
+A responsive 3D-printed wearable that reacts to the gaze of others through lifelike movement, combining computational geometry, fabrication and interactive behaviour.
+
+#### [Anouk Wipprecht — Spider Dress](https://www.anoukwipprecht.nl/)
+
+A robotic garment with articulated limbs responding to the presence of other people; the wearable becomes an extension of personal space.
+
+#### [Hussein Chalayan & Moritz Waldemeyer — Video Dresses](https://www.waldemeyer.com/projects/hussein-chalayan-video-dresses)
+
+Programmable illuminated clothing: the garment becomes a spatial canvas for generative graphics and animation.
+
+#### [Studio Roosegaarde — Intimacy](https://www.studioroosegaarde.net/project/intimacy)
+
+Interactive garments using electronically controlled materials to change transparency, exploring visibility and social space.
+
+#### [Christina Kubisch — Electrical Walks](https://electricalwalks.org/)
+
+Specially designed headphones make electromagnetic fields audible, turning a walk into an exploration of an invisible urban landscape.
+
+#### [Lucy McRae — Body Architecture](https://www.lucymcrae.net/)
+
+Speculative experiments exploring how technology might transform the body, beyond conventional garments and functional devices.
+
+#### [KOBAKANT — Electronic Textiles](https://www.kobakant.at/DIY/)
+
+Experimental textile-based electronics, soft circuits and handmade sensors with practical fabrication methods.
+
+#### [CuteCircuit — Digital Couture](https://cutecircuit.com/couture/)
+
+Programmable fashion incorporating illuminated textiles and interactive electronic surfaces.
+
+#### Creative coding and practical experimentation
+
+| Resource | Focus |
+| --- | --- |
+| [Adafruit Wearables](https://learn.adafruit.com/category/wearables) | Programmable lighting and wearable electronics |
+| [KOBAKANT](https://www.kobakant.at/DIY/) | Electronic textiles and material experiments |
+| [Instructables Wearables](https://www.instructables.com/circuits/wearables/projects/) | DIY wearable projects |
+| [Arduino Project Hub](https://projecthub.arduino.cc/) | Physical computing and programming |
+| [OpenProcessing](https://openprocessing.org/) | Generative patterns and computational aesthetics |
+| [CreativeApplications.Net](https://www.creativeapplications.net/) | Experimental art and creative technology |
+| [Hackster.io](https://www.hackster.io/) | Interactive hardware prototypes |
+
+You might develop a generative pattern on screen before transferring it to an illuminated textile or an array of moving mechanical elements. Browse several precedents rather than copying one, and use them as inspiration for the following design exercise.
 
 ### Quick exercise — Invent a prosthetic sense (15–20 minutes)
 
